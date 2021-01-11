@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$white: #fff;
+$mat-tqi: (
+  50:  #1565C0,
+  100: #003C8F,
+  contrast: (
+    50: $white,
+    100: $white,
+  )
+);
+
+/*** BREAKPOINTS ***/
+
+$desktop-xlg: 1440px;
+$desktop-lg: 1280px;
+$desktop-md: 1024px;
+$tablet: 768px;
+$mobile-lg: 412px;
+$mobile: 320px;
+
+/*** COLORS ***/
+
+$primary: mat-palette($mat-tqi, 100);
+$secondary: mat-palette($mat-tqi, 50);
+$accent: mat-palette($mat-tqi, 50);
+$warn: mat-palette($mat-pink, 400);
+
+$text-dark: #A1A6B2;
+$text-light: #B2B2B2;
+
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    secondary: $secondary,
+    accent: $accent,
+    warn: $warn,
+  )
+));
+
+@include angular-material-theme($theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
