@@ -23,18 +23,20 @@ $mobile: 320px;
 
 /*** COLORS ***/
 
-$primary: mat-palette($mat-tqi, 100);
-$secondary: mat-palette($mat-tqi, 50);
+$primary-color: mat-palette($mat-tqi, 100);
+$secondary-color: mat-palette($mat-tqi, 50);
 $accent: mat-palette($mat-tqi, 50);
 $warn: mat-palette($mat-pink, 400);
 
+$primary: #003C8F;
+$secondary: #1565C0;
 $text-dark: #A1A6B2;
 $text-light: #B2B2B2;
 
 $theme: mat-light-theme((
   color: (
-    primary: $primary,
-    secondary: $secondary,
+    primary: $primary-color,
+    secondary: $secondary-color,
     accent: $accent,
     warn: $warn,
   )

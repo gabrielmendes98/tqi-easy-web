@@ -11,6 +11,7 @@ import { RegisterActivityComponent } from './pages/register-activity/register-ac
 import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { TopNavigationComponent } from './shared/top-navigation/top-navigation.component';
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
+import { IconModule } from './shared/icon/icon.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LeftNavigationComponent } from './shared/left-navigation/left-navigatio
     AppRoutingModule,
     NoopAnimationsModule,
     DashboardModule,
+    IconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
