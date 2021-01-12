@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   hidePassword = true;
+  loginError = false;
+  loginErrorMessage = '';
 
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,9 +37,12 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')?.value;
 
     this.authService.login(email, password).subscribe(
-      response => console.log(response), 
+      () => {
+        this.router.navigate(['/']);
+      }, 
       error => {
-        console.log(error);
+        this.loginErrorMessage = error.error.message;
+        this.loginError = true;
       }
     );
   }

@@ -28,6 +28,7 @@
       </mat-form-field>
 
       <button [disabled]="loginForm.invalid" mat-flat-button class="button" type="submit">Entrar</button>
+      <mat-error class="error-message" *ngIf="loginError">{{ loginErrorMessage }}</mat-error>
     </form>
   </div>
 </div>
