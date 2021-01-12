@@ -11,21 +11,23 @@
     <h3>Bem vindo(a)!</h3>
     <p>Insira seu e-mail e senha para acessar nosso dashboard</p>
 
-    <form>
+    <form [formGroup]="loginForm" (submit)="login()">
       <mat-form-field appearance="outline">
         <mat-label>E-mail</mat-label>
-        <input type="email" matInput/>
+        <input formControlName="email" type="email" matInput autofocus/>
+        <mat-error *ngIf="loginForm.get('email')?.errors">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Senha</mat-label>
-        <input [type]="hidePassword ? 'password' : 'text'" matInput/>
-        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+        <input formControlName="password" [type]="hidePassword ? 'password' : 'text'" matInput/>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
           <mat-icon class="password-icon">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="loginForm.get('password')?.errors">Você deve inserir uma senha</mat-error>
       </mat-form-field>
 
-      <button mat-flat-button class="button">Entrar</button>
+      <button [disabled]="loginForm.invalid" mat-flat-button class="button" type="submit">Entrar</button>
     </form>
   </div>
 </div>

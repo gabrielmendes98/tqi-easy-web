@@ -13,6 +13,8 @@ import { TopNavigationComponent } from './shared/top-navigation/top-navigation.c
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
 import { IconModule } from './shared/icon/icon.module';
 import { MaterialModule } from './shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { MaterialModule } from './shared/material/material.module';
     DashboardModule,
     IconModule,
     MaterialModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
