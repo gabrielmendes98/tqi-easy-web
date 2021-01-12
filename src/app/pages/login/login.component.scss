@@ -5,3 +5,67 @@
   height: 100%;
   background-color: $primary;
 }
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  color: $white;
+  padding-top: 30px;
+
+  div {
+    h1 {
+      letter-spacing: 3px;
+    }
+
+    p {
+      text-align: end;
+    }
+  }
+}
+
+.icon {
+  margin-right: 20px;
+}
+
+.password-icon {
+  color: $text-light;
+}
+
+.form-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+
+  padding: 35px 25px;
+  border-radius: 5px;
+
+  h3 {
+    color: $secondary;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: $text-light;
+    margin-bottom: 25px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: $secondary;
+}
+
+.button {
+  background-color: $secondary;
+  color: $white;
+}

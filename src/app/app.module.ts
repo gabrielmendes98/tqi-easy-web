@@ -12,6 +12,7 @@ import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { TopNavigationComponent } from './shared/top-navigation/top-navigation.component';
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
 import { IconModule } from './shared/icon/icon.module';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { IconModule } from './shared/icon/icon.module';
     NoopAnimationsModule,
     DashboardModule,
     IconModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

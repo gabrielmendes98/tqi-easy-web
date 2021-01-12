@@ -1,5 +1,31 @@
 <div class="background">
-  <div>
-    <app-icon icon="app" color="#fff" size="lg"></app-icon>
+  <div class="logo-container">
+    <app-icon icon="app" color="#fff" size="lg" class="icon"></app-icon>
+    <div>
+      <h1>TQI EASY</h1>
+      <p>Dashboard</p>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h3>Bem vindo(a)!</h3>
+    <p>Insira seu e-mail e senha para acessar nosso dashboard</p>
+
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input type="email" matInput/>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input [type]="hidePassword ? 'password' : 'text'" matInput/>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+          <mat-icon class="password-icon">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-flat-button class="button">Entrar</button>
+    </form>
   </div>
 </div>

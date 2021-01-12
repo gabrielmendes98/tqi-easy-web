@@ -24,7 +24,6 @@ $mobile: 320px;
 /*** COLORS ***/
 
 $primary-color: mat-palette($mat-tqi, 100);
-$secondary-color: mat-palette($mat-tqi, 50);
 $accent: mat-palette($mat-tqi, 50);
 $warn: mat-palette($mat-pink, 400);
 
@@ -36,7 +35,6 @@ $text-light: #B2B2B2;
 $theme: mat-light-theme((
   color: (
     primary: $primary-color,
-    secondary: $secondary-color,
     accent: $accent,
     warn: $warn,
   )
@@ -46,3 +44,10 @@ $theme: mat-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  outline: none;
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
