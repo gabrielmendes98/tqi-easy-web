@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from "@angular/common";
+import { UserService } from './core/user/user.service';
+import { Observable } from 'rxjs';
+import { User } from './core/user/user.model';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,9 @@ import { Location } from "@angular/common";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showNavigation = true;
+  user$!: Observable<User | null>;
 
-  constructor(location: Location) {
-    this.showNavigation = location.path() !== '/login';
+  constructor(userService: UserService) {
+    this.user$ = userService.getUser();
   }
 }
