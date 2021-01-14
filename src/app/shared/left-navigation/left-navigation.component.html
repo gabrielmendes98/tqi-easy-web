@@ -1,5 +1,5 @@
 <div>
-  <a class="item" [routerLink]="['/dashboard']" routerLinkActive="active">
+  <a class="item" [routerLink]="['/dashboard']" routerLinkActive="active" *ngIf="isManager">
     <mat-icon>home</mat-icon>
     <span>Dashboard</span>
   </a>
