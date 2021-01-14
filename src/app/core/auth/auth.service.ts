@@ -18,6 +18,6 @@ export class AuthService {
       .pipe(tap(response => {
         const { accessToken } = response as any;
         this.userService.setToken(accessToken);
-      }))
+      }));
   }
 }

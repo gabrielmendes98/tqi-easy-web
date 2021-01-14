@@ -1,1 +1,31 @@
-<p>top-navigation works! {{ user?.name }}</p>
+<mat-toolbar>
+  <div class="logo-container-bg">
+    <div class="logo-container">
+      <app-icon icon="app" color="#fff" size="md" class="icon"></app-icon>
+      <div>
+        <h3>TQI EASY</h3>
+        <p>Dashboard</p>
+      </div>
+    </div>
+  </div>
+  
+  <span class="spacer"></span>
+
+  <button mat-icon-button type="button" class="icon-button">
+    <app-icon color="#1565C0" icon="bell" size="md"></app-icon>
+  </button>
+
+  <div class="profile-dropdown" [matMenuTriggerFor]="menu">
+    <div>
+      <h4>{{ user.name }}</h4>
+      <p>{{ user.role }}</p>
+    </div>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+  </div>
+  <mat-menu #menu>
+    <button mat-menu-item>Editar perfil</button>
+    <button mat-menu-item>Mudar senha</button>
+    <button mat-menu-item (click)="logout()" >Sair</button>
+  </mat-menu>
+
+</mat-toolbar>

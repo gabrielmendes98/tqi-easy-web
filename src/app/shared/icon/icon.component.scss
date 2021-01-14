@@ -1,7 +1,6 @@
 .icon {
   text-align: center;
-  color: inherit;
-  display: inline-block;
+  color: inherit; 
 
   &--auto {
     height: auto;
@@ -9,27 +8,27 @@
   }
 
   &--xs {
-    height: auto;
+    height: 10px;
     width: 10px;
   }
 
   &--sm {
-    height: auto;
+    height: 16px;
     width: 16px;
   }
 
   &--md {
-    height: auto;
+    height: 24px;
     width: 24px;
   }
 
   &--lg {
-    height: auto;
+    height: 32px;
     width: 32px;
   }
 
   &--xl {
-    height: auto;
+    height: 48px;
     width: 48px;
   }
 }

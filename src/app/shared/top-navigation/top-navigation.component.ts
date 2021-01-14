@@ -19,4 +19,8 @@ export class TopNavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {
+    this.userService.logout();
+  }
+
 }
