@@ -43,6 +43,7 @@ $theme: mat-light-theme((
 @include angular-material-theme($theme);
 
 html, body { height: 100%; }
+
 body { 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
   outline: none;
@@ -51,10 +52,23 @@ body {
   margin: 0;
   vertical-align: baseline;
 }
+
 * {
   outline: none;
   box-sizing: border-box;
   border: 0;
   margin: 0;
   vertical-align: baseline;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }

@@ -1,3 +1,5 @@
 <app-top-navigation *ngIf="user$ | async"></app-top-navigation>
-<router-outlet></router-outlet>
-<app-left-navigation *ngIf="user$ | async"></app-left-navigation>
+<mat-sidenav-container class="main-container">
+  <mat-sidenav mode="side" opened><app-left-navigation></app-left-navigation></mat-sidenav>
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container>

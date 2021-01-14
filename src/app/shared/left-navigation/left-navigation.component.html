@@ -1,1 +1,21 @@
-<p>left-navigation works!</p>
+<div>
+  <a class="item" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <mat-icon>home</mat-icon>
+    <span>Dashboard</span>
+  </a>
+
+  <a class="item" [routerLink]="['/register-activity']" routerLinkActive="active">
+    <mat-icon>access_alarm</mat-icon>
+    <span>Registrar ponto</span>
+  </a>
+
+  <a class="item" [routerLink]="['/alura-access']" routerLinkActive="active">
+    <mat-icon>menu_book</mat-icon>
+    <span>Acesso Alura</span>
+  </a>
+
+  <a class="item" [routerLink]="['/profile']" routerLinkActive="active">
+    <mat-icon>person</mat-icon>
+    <span>Perfil</span>
+  </a>
+</div>

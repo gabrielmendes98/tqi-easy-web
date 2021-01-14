@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+mat-icon {
+  margin-right: 12px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: $text-light;
+  padding: 8px 8px 8px 24px;
+}
+
+.active {
+  background-color: $secondary;
+  color: $white;
+}
