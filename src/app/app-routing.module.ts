@@ -1,22 +1,29 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './core/auth/auth.guard';
+import { RoleGuard } from './core/role/role.guard';
+import { Role } from './core/user/role.model';
 import { AluraAccessComponent } from './pages/alura-access/alura-access.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
 
-let isManager = true;
-
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'register-activity'
   },
   {
-    path: '',
-    component: isManager ? DashboardComponent : ProfileComponent,
-    pathMatch: 'full'
+    path: 'register-activity',
+    component: RegisterActivityComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'alura-access',
@@ -24,11 +31,14 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
-  },
+    component: ProfileComponent,
+    canLoad: [AuthGuard]
+  }, 
   {
-    path: 'register-activity',
-    component: RegisterActivityComponent
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canLoad: [RoleGuard],
+    data: { roles: [Role.Manager] }
   },
   {
     path: '**',
