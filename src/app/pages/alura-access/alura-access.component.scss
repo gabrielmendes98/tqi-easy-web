@@ -50,10 +50,36 @@ table {
 
 .mat-cell {
   vertical-align: middle;
+  color: $text-dark;
+  font-weight: 500;
 }
 
 .status-action {
   color: $secondary;
   font-weight: 500;
   cursor: pointer;
+}
+
+.Aprovado {
+  color: $green;
+  font-size: 20px;
+}
+
+.Cancelado {
+  color: $red;
+  font-size: 20px;
+}
+
+.Aguardando {
+  color: $yellow;
+  font-size: 20px;
+}
+
+.status-text {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .hide-arrow .mat-sort-header-arrow {
+  color: #fff;
 }
