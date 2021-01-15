@@ -9,7 +9,7 @@
     <span>Registrar ponto</span>
   </a>
 
-  <a class="item" [routerLink]="['/alura-access']" routerLinkActive="active">
+  <a class="item" [routerLink]="['/alura-access']" routerLinkActive="active" *ngIf="isManager">
     <mat-icon>menu_book</mat-icon>
     <span>Acesso Alura</span>
   </a>

@@ -3,8 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 import { RoleGuard } from './core/role/role.guard';
 import { Role } from './core/user/role.model';
-import { AluraAccessComponent } from './pages/alura-access/alura-access.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
@@ -27,7 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'alura-access',
-    component: AluraAccessComponent
+    loadChildren: () => import('./pages/alura-access/alura-access.module').then(m => m.AluraAccessModule),
+    canLoad: [RoleGuard],
+    data: { roles: [Role.Manager] }
   },
   {
     path: 'profile',

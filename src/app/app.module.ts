@@ -5,10 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
-import { AluraAccessComponent } from './pages/alura-access/alura-access.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
-import { DashboardModule } from './pages/dashboard/dashboard.module';
 import { TopNavigationComponent } from './shared/top-navigation/top-navigation.component';
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
 import { IconModule } from './shared/icon/icon.module';
@@ -20,7 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     LoginComponent,
-    AluraAccessComponent,
     ProfileComponent,
     RegisterActivityComponent,
     TopNavigationComponent,
