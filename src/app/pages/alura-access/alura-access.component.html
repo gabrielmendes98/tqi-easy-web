@@ -1,1 +1,75 @@
-<p>alura-access works!</p>
+<div>
+  <form [formGroup]="searchForm" class="search-form">
+    <mat-icon>search</mat-icon>
+    <input type="text"
+           placeholder="Busque por pessoas"
+           formControlName="search"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto>
+      <mat-option *ngFor="let name of names" [value]="name">
+        {{name}}
+      </mat-option>
+    </mat-autocomplete>
+  </form>
+
+  <div class="filters-container">
+    <div>
+      <button class="filter-button" mat-button [matMenuTriggerFor]="orderBy">Ordenar <mat-icon>arrow_drop_down</mat-icon></button>
+      <mat-menu #orderBy>
+        <button mat-menu-item>ID</button>
+        <button mat-menu-item>Nome</button>
+        <button mat-menu-item>Status</button>
+        <button mat-menu-item>Data crescente</button>
+        <button mat-menu-item>Data decrescente</button>
+      </mat-menu>
+    </div>
+
+    <div>
+      <button class="filter-button" mat-button [matMenuTriggerFor]="filterBy">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
+      <mat-menu #filterBy>
+        <button mat-menu-item>Aguardando</button>
+        <button mat-menu-item>Aprovado</button>
+        <button mat-menu-item>Cancelado</button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Data Solicitação </th>
+      <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Ação </th>
+      <td mat-cell *matCellDef="let element" class="status-action"> Alterar status </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

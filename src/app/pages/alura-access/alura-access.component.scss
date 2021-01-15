@@ -1,0 +1,59 @@
+@import '../../../styles.scss';
+
+.search-form {
+  border: 1px solid $border;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 60%;
+}
+
+.mat-icon {
+  margin: 5px;
+}
+
+input {
+  height: 34px;
+  width: 100%;
+}
+
+.filter-button {
+  background-color: $secondary;
+  color: $white;
+  padding-right: 10px;
+}
+
+.filters-container {
+  display: flex;
+  margin-top: 20px;
+
+  :not(:last-child){
+    margin-right: 12px;
+  }
+}
+
+table {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.mat-header-cell {
+  vertical-align: middle;
+  background-color: $secondary;
+  color: $white;
+}
+
+.mat-header-row {
+  height: 50px;
+}
+
+.mat-cell {
+  vertical-align: middle;
+}
+
+.status-action {
+  color: $secondary;
+  font-weight: 500;
+  cursor: pointer;
+}

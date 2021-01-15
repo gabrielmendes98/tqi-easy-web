@@ -8,6 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 const modules = [
   MatFormFieldModule,
@@ -17,6 +19,8 @@ const modules = [
   MatToolbarModule,
   MatMenuModule,
   MatSidenavModule,
+  MatAutocompleteModule,
+  MatTableModule,
 ]
 
 @NgModule({
