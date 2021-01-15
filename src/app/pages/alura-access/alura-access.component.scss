@@ -24,13 +24,8 @@ input {
   padding-right: 10px;
 }
 
-.filters-container {
-  display: flex;
+.filter-container {
   margin-top: 20px;
-
-  :not(:last-child){
-    margin-right: 12px;
-  }
 }
 
 table {

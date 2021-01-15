@@ -12,26 +12,13 @@
     </mat-autocomplete>
   </form>
 
-  <div class="filters-container">
-    <div>
-      <button class="filter-button" mat-button [matMenuTriggerFor]="orderBy">Ordenar <mat-icon>arrow_drop_down</mat-icon></button>
-      <mat-menu #orderBy>
-        <button mat-menu-item>ID</button>
-        <button mat-menu-item>Nome</button>
-        <button mat-menu-item>Status</button>
-        <button mat-menu-item>Data crescente</button>
-        <button mat-menu-item>Data decrescente</button>
-      </mat-menu>
-    </div>
-
-    <div>
-      <button class="filter-button" mat-button [matMenuTriggerFor]="filterBy">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
-      <mat-menu #filterBy>
-        <button mat-menu-item>Aguardando</button>
-        <button mat-menu-item>Aprovado</button>
-        <button mat-menu-item>Cancelado</button>
-      </mat-menu>
-    </div>
+  <div class="filter-container">
+    <button class="filter-button" mat-button [matMenuTriggerFor]="filterBy">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
+    <mat-menu #filterBy>
+      <button mat-menu-item>Aguardando</button>
+      <button mat-menu-item>Aprovado</button>
+      <button mat-menu-item>Cancelado</button>
+    </mat-menu>
   </div>
 
   <table mat-table [dataSource]="dataSource" matSort>
