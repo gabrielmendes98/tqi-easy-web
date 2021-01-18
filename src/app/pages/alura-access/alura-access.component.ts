@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Access } from './access.model';
+import { AluraAccessService } from './alura-access.service';
 import { AluraStatus } from './alura-status.model';
 
 @Component({
@@ -10,28 +11,28 @@ import { AluraStatus } from './alura-status.model';
   templateUrl: './alura-access.component.html',
   styleUrls: ['./alura-access.component.scss']
 })
-export class AluraAccessComponent implements AfterViewInit {
-  names = ['Teste 1', 'Teste 2', 'Teste 3'];
-  DATA: Access[] = [
-    { id: '1', name: 'Gabriel lorem ipsum', status: AluraStatus.Approved, date: new Date('2021-01-15') },
-    { id: '2', name: 'Jureg lorem ipsum', status: AluraStatus.Canceled, date: new Date('2021-01-16') },
-    { id: '3', name: 'Jonas lorem ipsum', status: AluraStatus.Waiting, date: new Date('2021-01-17') },
-  ];
+export class AluraAccessComponent implements OnInit, AfterViewInit {
   displayedColumns = ['id', 'name', 'status', 'date', 'action'];
-  dataSource = new MatTableDataSource(this.DATA);
+  dataSource?: MatTableDataSource<Access>;
+  searchForm!: FormGroup;
+  
+  names = ['teste 1', 'teste 2', 'teste 3'];
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  searchForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private aluraAccessService: AluraAccessService) { }
 
-  constructor(private formBuilder: FormBuilder) { 
+  ngOnInit(): void {
+    this.getAll(1);
+
     this.searchForm = this.formBuilder.group({
       search: ['']
     });
-   }
+  }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
+    if(this.dataSource)
+      this.dataSource.sort = this.sort;
   }
 
   mapIcon(status: AluraStatus) {
@@ -39,6 +40,12 @@ export class AluraAccessComponent implements AfterViewInit {
     if(status === AluraStatus.Canceled) return 'cancel';
     if(status === AluraStatus.Waiting) return 'access_time';
     return '';
+  }
+
+  getAll(page: number) {
+    this.aluraAccessService.getAll(page).subscribe(accesses => {
+      this.dataSource = new MatTableDataSource(accesses);
+    })
   }
 
 }
