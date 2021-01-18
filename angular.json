@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "tqi-easy-web"
+  "defaultProject": "tqi-easy-web",
+  "cli": {
+    "analytics": "8c5d3efd-de82-4431-bea4-9c49edd26eb9"
+  }
 }

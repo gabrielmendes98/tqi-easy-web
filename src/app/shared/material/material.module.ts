@@ -10,7 +10,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
-import {MatSortModule} from '@angular/material/sort';
+import { MatSortModule } from '@angular/material/sort';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const modules = [
   MatFormFieldModule,
@@ -22,7 +23,8 @@ const modules = [
   MatSidenavModule,
   MatAutocompleteModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({

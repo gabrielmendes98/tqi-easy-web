@@ -15,6 +15,8 @@ export class AluraAccessComponent implements OnInit, AfterViewInit {
   displayedColumns = ['id', 'name', 'status', 'date', 'action'];
   dataSource?: MatTableDataSource<Access>;
   searchForm!: FormGroup;
+
+  isLoading = true;
   
   names = ['teste 1', 'teste 2', 'teste 3'];
 
@@ -45,7 +47,8 @@ export class AluraAccessComponent implements OnInit, AfterViewInit {
   getAll(page: number) {
     this.aluraAccessService.getAll(page).subscribe(accesses => {
       this.dataSource = new MatTableDataSource(accesses);
-    })
+      this.isLoading = false;
+    });
   }
 
 }

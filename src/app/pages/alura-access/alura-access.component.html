@@ -1,17 +1,17 @@
-<div>
+<div #accessTable>
   <form [formGroup]="searchForm" class="search-form">
     <mat-icon>search</mat-icon>
     <input type="text"
-           placeholder="Busque por pessoas"
-           formControlName="search"
-           [matAutocomplete]="auto">
+    placeholder="Busque por pessoas"
+    formControlName="search"
+    [matAutocomplete]="auto">
     <mat-autocomplete #auto>
       <mat-option *ngFor="let name of names" [value]="name">
         {{name}}
       </mat-option>
     </mat-autocomplete>
   </form>
-
+  
   <div class="filter-container">
     <button class="filter-button" mat-button [matMenuTriggerFor]="filterBy">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
     <mat-menu #filterBy>
@@ -20,8 +20,11 @@
       <button mat-menu-item>Cancelado</button>
     </mat-menu>
   </div>
-
-  <table mat-table [dataSource]="dataSource" matSort>
+  
+  <div *ngIf="isLoading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <table *ngIf="!isLoading && dataSource" mat-table [dataSource]="dataSource" matSort>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow"> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
@@ -50,5 +53,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
 </div>
