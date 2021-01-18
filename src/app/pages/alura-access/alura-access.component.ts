@@ -1,28 +1,25 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
 import { Access } from './access.model';
 import { AluraAccessService } from './alura-access.service';
-import { AluraStatus } from './alura-status.model';
+import { UpdateStatusComponent } from './update-status/update-status.component';
 
 @Component({
   selector: 'app-alura-access',
   templateUrl: './alura-access.component.html',
   styleUrls: ['./alura-access.component.scss']
 })
-export class AluraAccessComponent implements OnInit, AfterViewInit {
-  displayedColumns = ['id', 'name', 'status', 'date', 'action'];
-  dataSource?: MatTableDataSource<Access>;
+export class AluraAccessComponent implements OnInit {
+  accesses?: Access[];
   searchForm!: FormGroup;
 
   isLoading = true;
+  errorMessage?: string;
   
   names = ['teste 1', 'teste 2', 'teste 3'];
 
-  @ViewChild(MatSort) sort!: MatSort;
-
-  constructor(private formBuilder: FormBuilder, private aluraAccessService: AluraAccessService) { }
+  constructor(private formBuilder: FormBuilder, private aluraAccessService: AluraAccessService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getAll(1);
@@ -32,23 +29,33 @@ export class AluraAccessComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    if(this.dataSource)
-      this.dataSource.sort = this.sort;
-  }
-
-  mapIcon(status: AluraStatus) {
-    if(status === AluraStatus.Approved) return 'check_circle';
-    if(status === AluraStatus.Canceled) return 'cancel';
-    if(status === AluraStatus.Waiting) return 'access_time';
-    return '';
-  }
-
   getAll(page: number) {
     this.aluraAccessService.getAll(page).subscribe(accesses => {
-      this.dataSource = new MatTableDataSource(accesses);
+      this.accesses = accesses;
       this.isLoading = false;
-    });
+    },
+    () => {
+      this.errorMessage = 'Ocorreu um erro, tente novamente ou contate o suporte.';
+      this.isLoading = false;
+    }
+    );
   }
 
+  openDialog(access: Access) {
+    let copy = {} as Access;
+    Object.assign(copy, access);
+    const dialogRef = this.dialog.open(UpdateStatusComponent, {
+      width: '35%',
+      data: copy
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        copy.status = result;
+        this.aluraAccessService.updateAccess(copy).subscribe(result => {
+          access.status = result.status;
+        });
+      }
+    });
+  }
 }

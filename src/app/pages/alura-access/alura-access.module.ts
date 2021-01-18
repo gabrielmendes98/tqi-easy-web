@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 import { AluraAccessComponent } from './alura-access.component';
 import { AluraAccessRoutingModule } from './alura-access-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateStatusComponent } from './update-status/update-status.component';
+import { AccessTableComponent } from './access-table/access-table.component';
 
 @NgModule({
   declarations: [
-    AluraAccessComponent
+    AluraAccessComponent,
+    UpdateStatusComponent,
+    AccessTableComponent
   ],
   exports: [
     AluraAccessComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AluraAccessRoutingModule,
     MaterialModule,
     ReactiveFormsModule

@@ -10,7 +10,7 @@ import { TopNavigationComponent } from './shared/top-navigation/top-navigation.c
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
 import { IconModule } from './shared/icon/icon.module';
 import { MaterialModule } from './shared/material/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     LeftNavigationComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     IconModule,
     MaterialModule,
