@@ -28,7 +28,7 @@ const modules = [
   MatSortModule,
   MatProgressSpinnerModule,
   MatSelectModule,
-  MatDialogModule
+  MatDialogModule,
 ]
 
 @NgModule({

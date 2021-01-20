@@ -24,6 +24,6 @@
   <div *ngIf="isLoading" class="loading-spinner">
     <mat-spinner></mat-spinner>
   </div>
-  <app-access-table *ngIf="!isLoading && accesses" [accesses]="accesses" (openDialog)="openDialog($event)"></app-access-table>
+  <app-access-table *ngIf="!isLoading && accesses" [accesses]="accesses" (openDialog)="openDialog($event)" [pages]="pages" (changePage)="changePage($event)"></app-access-table>
   <h1 *ngIf="!isLoading && errorMessage">{{errorMessage}}</h1>
 </div>

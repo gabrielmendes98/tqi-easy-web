@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs/operators';
 import { EnvironmentService } from 'src/app/core/environment/environment.service';
 import { Access } from './access.model';
 import { AluraStatus } from './alura-status.model';
@@ -15,12 +16,14 @@ export class AluraAccessService {
   }
 
   getAll(page: number) {
-    const params = new HttpParams().append('page', page.toString());
+    const params = new HttpParams().append('_page', page.toString());
 
-    return this.http.get<Access[]>(this.apiUrl + '/alura-accesses', { params });
+    return this.http
+      .get<Access[]>(this.apiUrl + '/alura-accesses', { params, observe: 'response' });
   }
 
   updateAccess(access: Access) {
-    return this.http.put<Access>(this.apiUrl + '/alura-accesses/' + access.id, { ...access });
+    return this.http
+      .put<Access>(this.apiUrl + '/alura-accesses/' + access.id, { ...access });
   }
 }
