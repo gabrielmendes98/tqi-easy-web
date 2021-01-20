@@ -27,7 +27,6 @@ export class AccessTableComponent implements OnInit, AfterViewInit, OnChanges {
     this.accesses = changes.accesses.currentValue;
     this.pages = changes.pages.currentValue;
     this.dataSource = new MatTableDataSource(this.accesses);
-    console.log(changes)
   }
 
   ngOnInit(): void {
