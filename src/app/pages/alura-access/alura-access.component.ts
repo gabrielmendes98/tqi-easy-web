@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators'
 import { Access } from './access.model';
 import { AluraAccessService } from './alura-access.service';
 import { AluraStatus } from './alura-status.model';
@@ -39,9 +40,18 @@ export class AluraAccessComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       search: ['']
     });
+
+    this.searchForm.get('search')?.valueChanges.pipe(
+      filter(res => res.length > 1 || res.length === 0),
+      debounceTime(600),
+      distinctUntilChanged()
+    ).subscribe(value => {
+      const name = value === '' ? null : value;
+      this.router.navigate(['alura-access'], { queryParams: { name }, queryParamsHandling: 'merge' });
+    });
   }
 
-  getAccesses(params: { page?: number; status?: string } | undefined) {
+  getAccesses(params: { page?: number; status?: string; name?: string } | undefined = undefined) {
     this.isLoading = true;
 
     this.aluraAccessService.getAll(params).subscribe(response => {

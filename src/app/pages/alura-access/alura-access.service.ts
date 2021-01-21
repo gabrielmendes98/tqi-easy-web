@@ -15,13 +15,15 @@ export class AluraAccessService {
     this.apiUrl = environmentService.getApiUrl();
   }
 
-  getAll(filters: { page?: number; status?:string } | undefined) {
+  getAll(filters: { page?: number; status?:string; name?: string } | undefined) {
     let params = new HttpParams();
     if(filters) {
       if(filters.page)
         params = params.append('_page', filters.page.toString());
       if(filters.status)
         params = params.append('status', filters.status);
+      if(filters.name)
+        params = params.append('name_like', filters.name);
     }
 
     return this.http

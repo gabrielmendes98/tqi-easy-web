@@ -9,7 +9,7 @@
     <span>Registrar ponto</span>
   </a>
 
-  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" routerLinkActive="active" queryParamsHandling="preserve" *ngIf="isManager">
+  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" routerLinkActive="active" queryParamsHandling="merge" *ngIf="isManager">
     <mat-icon>menu_book</mat-icon>
     <span>Acesso Alura</span>
   </a>
