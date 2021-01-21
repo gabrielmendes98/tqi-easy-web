@@ -16,14 +16,11 @@ import { UpdateStatusComponent } from './update-status/update-status.component';
 export class AluraAccessComponent implements OnInit {
   accesses?: Access[];
   searchForm!: FormGroup;
-  isLoading = true;
   errorMessage?: string;
-
-  statusList = Object.values(AluraStatus);
-
   pages: { next?: number, prev?: number } | undefined;
   
-  names = ['teste 1', 'teste 2', 'teste 3'];
+  isLoading = true;
+  statusList = Object.values(AluraStatus);
 
   constructor(private formBuilder: FormBuilder, 
     private aluraAccessService: AluraAccessService, 

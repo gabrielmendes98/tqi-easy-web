@@ -3,13 +3,7 @@
     <mat-icon>search</mat-icon>
     <input type="text"
     placeholder="Busque por pessoas"
-    formControlName="search"
-    [matAutocomplete]="auto">
-    <mat-autocomplete #auto>
-      <mat-option *ngFor="let name of names" [value]="name">
-        {{name}}
-      </mat-option>
-    </mat-autocomplete>
+    formControlName="search">
   </form>
   
   <div class="filter-container">
