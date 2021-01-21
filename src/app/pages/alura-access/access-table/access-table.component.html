@@ -30,10 +30,10 @@
   </table>
   
   <div class="pagination">
-    <button mat-icon-button type="button" [disabled]="pages.prev === undefined" (click)="changePageEmitter(pages.prev)">
+    <button mat-icon-button type="button" [disabled]="pages.prev === undefined" (click)="changePageEmitter(pages.prev!)">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
-    <button mat-icon-button type="button" [disabled]="pages.next === undefined" (click)="changePageEmitter(pages.next)">
+    <button mat-icon-button type="button" [disabled]="pages.next === undefined" (click)="changePageEmitter(pages.next!)">
       <mat-icon>keyboard_arrow_right</mat-icon>
     </button>
   </div>

@@ -42,6 +42,7 @@ export class AluraAccessComponent implements OnInit {
   }
 
   getAccesses() {
+    this.isLoading = true;
     let page = 1;
     if(this.currentPage)
       page = this.currentPage;
