@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Access } from './access.model';
 import { AluraAccessService } from './alura-access.service';
+import { AluraStatus } from './alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 
 @Component({
@@ -14,13 +15,12 @@ import { UpdateStatusComponent } from './update-status/update-status.component';
 export class AluraAccessComponent implements OnInit {
   accesses?: Access[];
   searchForm!: FormGroup;
-  currentPage?: number;
   isLoading = true;
   errorMessage?: string;
 
-  pages: { next?: number, prev?: number } = {};
+  statusList = Object.values(AluraStatus);
 
-  totalCount!: number;
+  pages: { next?: number, prev?: number } | undefined;
   
   names = ['teste 1', 'teste 2', 'teste 3'];
 
@@ -32,28 +32,21 @@ export class AluraAccessComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => this.currentPage = Number.parseInt(params.page));
-
-    this.getAccesses();
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.getAccesses(params);
+    });
 
     this.searchForm = this.formBuilder.group({
       search: ['']
     });
   }
 
-  getAccesses() {
+  getAccesses(params: { page?: number; status?: string } | undefined) {
     this.isLoading = true;
-    let page = 1;
-    if(this.currentPage)
-      page = this.currentPage;
-      this.aluraAccessService.getAll(page).subscribe(response => {
+
+    this.aluraAccessService.getAll(params).subscribe(response => {
       this.accesses = response.body!;
-
-      const pages = this.parseHeaderLink(response.headers.get('Link'));
-      this.pages = pages;
-      
-      this.totalCount = Number.parseInt(response.headers.get('X-Total-Count')!);
-
+      this.pages = this.parseHeaderLink(response.headers.get('Link'));    
       this.isLoading = false;
     },
     () => {
@@ -82,9 +75,11 @@ export class AluraAccessComponent implements OnInit {
   }
 
   changePage(page: number) {
-    this.router.navigate(['alura-access'], { queryParams: { page } });
-    this.currentPage = page;
-    this.getAccesses();
+    this.router.navigate(['alura-access'], { queryParams: { page }, queryParamsHandling: 'merge' });
+  }
+
+  filterBy(status: string | null) {
+    this.router.navigate(['alura-access'], { queryParams: { status }, queryParamsHandling: 'merge' });
   }
 
   private parseHeaderLink(header: string | null) {

@@ -15,7 +15,7 @@ export class AccessTableComponent implements OnInit, AfterViewInit, OnChanges {
   dataSource?: MatTableDataSource<Access>;
 
   @Input() accesses!: Access[];
-  @Input() pages!: { next?: number, prev?: number }
+  @Input() pages: { next?: number, prev?: number } | undefined
   @Output() openDialog: EventEmitter<Access> = new EventEmitter<Access>();
   @Output() changePage: EventEmitter<number> = new EventEmitter<number>();
 
@@ -25,7 +25,7 @@ export class AccessTableComponent implements OnInit, AfterViewInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.accesses = changes.accesses.currentValue;
-    this.pages = changes.pages.currentValue;
+    this.pages = changes.pages?.currentValue;
     this.dataSource = new MatTableDataSource(this.accesses);
   }
 

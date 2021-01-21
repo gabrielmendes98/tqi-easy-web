@@ -29,7 +29,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
   
-  <div class="pagination">
+  <div class="pagination" *ngIf="pages">
     <button mat-icon-button type="button" [disabled]="pages.prev === undefined" (click)="changePageEmitter(pages.prev!)">
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
