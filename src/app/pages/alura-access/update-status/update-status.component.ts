@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Access } from '../access.model';
-import { AluraStatus } from '../alura-status.model';
+import { Access } from '../models/access.model';
+import { AluraStatus } from '../models/alura-status.model';
 
 @Component({
   selector: 'app-update-status',

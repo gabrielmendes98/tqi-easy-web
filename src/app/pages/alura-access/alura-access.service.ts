@@ -2,8 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { filter, tap } from 'rxjs/operators';
 import { EnvironmentService } from 'src/app/core/environment/environment.service';
-import { Access } from './access.model';
-import { AluraStatus } from './alura-status.model';
+import { Access } from './models/access.model';
+import { AluraStatus } from './models/alura-status.model';
+import { QueryParams } from './models/query-params.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AluraAccessService {
     this.apiUrl = environmentService.getApiUrl();
   }
 
-  getAll(filters: { page?: number; status?:string; name?: string } | undefined) {
+  getAll(filters: QueryParams | undefined) {
     let params = new HttpParams();
     if(filters) {
       if(filters.page)

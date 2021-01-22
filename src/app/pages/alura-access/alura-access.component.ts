@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators'
-import { Access } from './access.model';
+import { Access } from './models/access.model';
 import { AluraAccessService } from './alura-access.service';
-import { AluraStatus } from './alura-status.model';
+import { AluraStatus } from './models/alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
+import { QueryParams } from './models/query-params.model';
 
 @Component({
   selector: 'app-alura-access',
@@ -48,7 +49,7 @@ export class AluraAccessComponent implements OnInit {
     });
   }
 
-  getAccesses(params: { page?: number; status?: string; name?: string } | undefined = undefined) {
+  getAccesses(params: QueryParams | undefined = undefined) {
     this.isLoading = true;
 
     this.aluraAccessService.getAll(params).subscribe(response => {
