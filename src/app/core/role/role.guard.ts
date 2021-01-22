@@ -7,7 +7,7 @@ import { UserService } from '../user/user.service';
   providedIn: 'root'
 })
 export class RoleGuard implements CanLoad {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
   
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if(!this.userService.isLogged()) {

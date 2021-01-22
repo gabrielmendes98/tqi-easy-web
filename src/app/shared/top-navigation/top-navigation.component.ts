@@ -10,13 +10,12 @@ import { UserService } from 'src/app/core/user/user.service';
 export class TopNavigationComponent implements OnInit {
   user!: User;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService) { }
+  
+  ngOnInit(): void {
     this.userService.getUser().subscribe(user => {
       this.user = user!;
     });
-  }
-
-  ngOnInit(): void {
   }
 
   logout() {

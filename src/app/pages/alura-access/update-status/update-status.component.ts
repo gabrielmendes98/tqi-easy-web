@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Access } from '../access.model';
 import { AluraStatus } from '../alura-status.model';
@@ -8,11 +8,13 @@ import { AluraStatus } from '../alura-status.model';
   templateUrl: './update-status.component.html',
   styleUrls: ['./update-status.component.scss']
 })
-export class UpdateStatusComponent { 
+export class UpdateStatusComponent implements OnInit { 
 
-  statusList: string[];
+  statusList!: string[];
 
-  constructor(public dialogRef: MatDialogRef<UpdateStatusComponent>, @Inject(MAT_DIALOG_DATA) public access: Access) { 
+  constructor(public dialogRef: MatDialogRef<UpdateStatusComponent>, @Inject(MAT_DIALOG_DATA) public access: Access) { }
+  
+  ngOnInit(): void {
     this.statusList = Object.values(AluraStatus);
   }
 

@@ -8,10 +8,12 @@ import { User } from './core/user/user.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   user$!: Observable<User | null>;
 
-  constructor(userService: UserService) {
-    this.user$ = userService.getUser();
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+    this.user$ = this.userService.getUser();
   }
 }
