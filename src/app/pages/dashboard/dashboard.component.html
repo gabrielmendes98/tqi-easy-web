@@ -2,7 +2,8 @@
   <div class="card-container">
     <app-info-card *ngFor="let genericInfo of dashboardInfo.genericInfos; let i = index" 
                    [info]="genericInfo" 
-                   [icon]="icons[i]">
+                   [icon]="icons[i]"
+                   class="item">
     </app-info-card>
   </div>
   

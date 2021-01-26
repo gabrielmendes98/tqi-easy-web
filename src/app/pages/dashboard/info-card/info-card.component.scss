@@ -1,5 +1,9 @@
 @import '../../../../styles.scss';
 
+.container {
+  width: fit-content;
+}
+
 .title-container {
   display: flex;
   justify-content: space-between;
