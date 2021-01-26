@@ -1,0 +1,31 @@
+<mat-card>
+  <div class="title-container">
+    <h4>{{ info.title }}</h4>
+    <app-icon color="#1565C0" [icon]="icon" size="md"></app-icon>
+  </div>
+  <div class="numbers-container">
+    <div>
+      <h1>{{ info.pending }}</h1>
+      <div class="subtitle-container">
+        <span>Pendente</span>
+        <mat-icon class="icon pending-icon">help</mat-icon>
+      </div>
+    </div>
+  
+    <div>
+      <h1>{{ info.concluded }}</h1>
+      <div class="subtitle-container">
+        <span>Concluído</span>
+        <mat-icon class="icon concluded-icon">flag</mat-icon>
+      </div>
+    </div>
+
+    <div>
+      <h1>{{ info.canceled }}</h1>
+      <div class="subtitle-container">
+        <span>Cancelado</span>
+        <mat-icon class="icon cancel-icon">cancel</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IconComponent } from './icon.component';
 import { IconAppComponent } from './icons/icon-app/icon-app.component';
 import { IconBellComponent } from './icons/icon-bell/icon-bell.component';
+import { IconInterviewPersonComponent } from './icons/icon-interview-person/icon-interview-person.component';
 
 
 
@@ -10,7 +11,8 @@ import { IconBellComponent } from './icons/icon-bell/icon-bell.component';
   declarations: [
     IconComponent,
     IconAppComponent,
-    IconBellComponent
+    IconBellComponent,
+    IconInterviewPersonComponent
   ],
   exports: [
     IconComponent,

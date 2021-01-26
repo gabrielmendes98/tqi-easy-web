@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DashboardService } from './dashboard.service';
+import { DashboardInfo } from './models/dashboard-info.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  dashboardInfo!: DashboardInfo;
+  icons = ['star', 'person', 'menu_book'];
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.dashboardInfo = this.activatedRoute.snapshot.data.dashboardInfo;
+    console.log(this.dashboardInfo)
   }
 
 }

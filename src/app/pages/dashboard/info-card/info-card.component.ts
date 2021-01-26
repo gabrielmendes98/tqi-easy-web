@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { GenericInfo } from '../models/generic-info.model';
 
 @Component({
   selector: 'app-info-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info-card.component.scss']
 })
 export class InfoCardComponent implements OnInit {
+
+  @Input() info!: GenericInfo;
+  @Input() icon!: string;
 
   constructor() { }
 
