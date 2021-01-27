@@ -1,7 +1,13 @@
 <form [formGroup]="registerActivityForm">
   <mat-form-field appearance="outline">
     <mat-label>Projeto</mat-label>
-    <input formControlName="project" type="text" matInput/>
+    <mat-select formControlName="project">
+      <ng-container *ngIf="projects.length !== 0">
+        <mat-option *ngFor="let project of projects" [value]="project.id">
+          {{project.name}}
+        </mat-option>
+      </ng-container>
+    </mat-select>
     <mat-error *ngIf="registerActivityForm.get('project')?.errors">Este campo deve ser preenchido</mat-error>
   </mat-form-field>
 

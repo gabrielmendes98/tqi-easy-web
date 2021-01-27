@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { requiredIfChecked } from '../../core/helpers/conditional-required.validator';
+import { Project } from './project/project.model';
+import { ProjectService } from './project/project.service';
 
 @Component({
   selector: 'app-register-activity',
@@ -12,7 +14,9 @@ export class RegisterActivityComponent implements OnInit {
   showAditionalHoursField = false;
   showNightHoursField = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  projects: Project[] = [];
+
+  constructor(private formBuilder: FormBuilder, private projectService: ProjectService) { }
 
   ngOnInit(): void {
     this.registerActivityForm = this.formBuilder.group({
@@ -36,6 +40,8 @@ export class RegisterActivityComponent implements OnInit {
       this.showNightHoursField = value;
       this.registerActivityForm.get('nightHoursStart')?.updateValueAndValidity();
       this.registerActivityForm.get('nightHoursEnd')?.updateValueAndValidity();
-    })
+    });
+
+    this.projectService.getAll().subscribe(projects => this.projects = projects);
   }
 }
