@@ -1,1 +1,57 @@
-<p>register-activity works!</p>
+<form [formGroup]="registerActivityForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Projeto</mat-label>
+    <input formControlName="project" type="text" matInput/>
+    <mat-error *ngIf="registerActivityForm.get('project')?.errors">Este campo deve ser preenchido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <input formControlName="description" type="text" matInput/>
+    <mat-error *ngIf="registerActivityForm.get('description')?.errors">Este campo deve ser preenchido</mat-error>
+  </mat-form-field>
+
+  <div class="group-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Data da atividade</mat-label>
+      <input formControlName="date" matInput [matDatepicker]="picker"/>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="registerActivityForm.get('date')?.errors">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Horas trabalhadas</mat-label>
+      <input formControlName="timeWorked" type="time" matInput/>
+      <mat-error *ngIf="registerActivityForm.get('timeWorked')?.errors">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-slide-toggle formControlName="aditionalHoursCheck">Horas adicionais?</mat-slide-toggle>
+  <div class="group-fields">
+    <mat-form-field appearance="outline" *ngIf="showAditionalHoursField">
+      <mat-label>Horas trabalhadas</mat-label>
+      <input formControlName="aditionalHours" type="time" matInput/>
+      <mat-error *ngIf="registerActivityForm.get('aditionalHours')?.errors">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-slide-toggle formControlName="nightHoursCheck">Horas noturnas?</mat-slide-toggle>
+  <div class="group-fields" *ngIf="showNightHoursField">
+    <mat-form-field appearance="outline">
+      <mat-label>Hora início</mat-label>
+      <input formControlName="nightHoursStart" type="time" matInput/>
+      <mat-error *ngIf="registerActivityForm.get('nightHoursStart')?.errors">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Hora Fim</mat-label>
+      <input formControlName="nightHoursEnd" type="time" matInput/>
+      <mat-error *ngIf="registerActivityForm.get('nightHoursEnd')?.errors">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="group-fields">
+    <button mat-stroked-button class="stroked-button">Preenchimento rápido</button>
+    <button mat-flat-button class="flat-button">Salvar</button>
+  </div>
+</form>
