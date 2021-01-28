@@ -5,7 +5,6 @@ import { User } from './user.model';
 import jwtDecode from 'jwt-decode';
 import { Role } from './role.model';
 import { Router } from '@angular/router';
-import { runInThisContext } from 'vm';
 
 @Injectable({
   providedIn: 'root'

@@ -15,7 +15,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const modules = [
@@ -45,6 +45,9 @@ const modules = [
   ],
   exports: [
     ...modules
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt' }
   ]
 })
 export class MaterialModule { }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/core/user/user.service';
 import { requiredIfChecked } from '../../core/helpers/conditional-required.validator';
 import { Project } from './project/project.model';
 import { ProjectService } from './project/project.service';
+import { RegisterActivityService } from './register-activity.service';
 
 @Component({
   selector: 'app-register-activity',
@@ -16,11 +18,16 @@ export class RegisterActivityComponent implements OnInit {
 
   projects: Project[] = [];
 
-  constructor(private formBuilder: FormBuilder, private projectService: ProjectService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private projectService: ProjectService, 
+    private registerActivityService: RegisterActivityService,
+    private userService: UserService,
+    ) { }
 
   ngOnInit(): void {
     this.registerActivityForm = this.formBuilder.group({
-      project: ['', Validators.required],
+      projectId: ['', Validators.required],
       description: ['', Validators.required],
       date: ['', Validators.required],
       timeWorked: ['', [Validators.required, Validators.min(0)]],
@@ -31,6 +38,12 @@ export class RegisterActivityComponent implements OnInit {
       nightHoursEnd: ['', requiredIfChecked('nightHoursCheck')],
     });
 
+    this.subscribeCheckBoxes();
+
+    this.projectService.getAll().subscribe(projects => this.projects = projects);
+  }
+
+  subscribeCheckBoxes() {
     this.registerActivityForm.get('aditionalHoursCheck')?.valueChanges.subscribe(value => {
       this.showAditionalHoursField = value;
       this.registerActivityForm.get('aditionalHours')?.updateValueAndValidity();
@@ -41,7 +54,18 @@ export class RegisterActivityComponent implements OnInit {
       this.registerActivityForm.get('nightHoursStart')?.updateValueAndValidity();
       this.registerActivityForm.get('nightHoursEnd')?.updateValueAndValidity();
     });
+  }
 
-    this.projectService.getAll().subscribe(projects => this.projects = projects);
+  registerActivity() {
+    if(this.registerActivityForm.valid) {
+      let activity = {} as any;
+      Object.assign(activity, this.registerActivityForm.value);
+      delete activity.aditionalHoursCheck;
+      delete activity.nightHoursCheck;
+      activity.userId = this.userService.getUserId();
+      this.registerActivityService.registerActivity(activity).subscribe(response => {
+        console.log(response);
+      });
+    }
   }
 }
