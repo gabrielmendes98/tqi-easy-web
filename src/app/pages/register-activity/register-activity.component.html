@@ -58,7 +58,7 @@
 
   <div class="group-fields">
     <button mat-stroked-button class="stroked-button" (click)="fastFill()">Preenchimento rápido</button>
-    <button mat-flat-button class="flat-button" type="submit">Salvar</button>
+    <button mat-flat-button class="flat-button" type="submit" [disabled]="registerActivityForm.invalid">Salvar</button>
   </div>
 </form>
 
