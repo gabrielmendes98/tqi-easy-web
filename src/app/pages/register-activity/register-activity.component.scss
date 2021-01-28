@@ -36,7 +36,6 @@ mat-slide-toggle {
 .flat-button {
   background: $secondary;
   color: $white;
-  // width: 100%;
 }
 
 .stroked-button {
@@ -83,4 +82,26 @@ mat-slide-toggle {
   h1 {
     color: $white;
   }
+}
+
+@media only screen and (max-width: $desktop-md) {
+  form {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .group-fields {
+    flex-direction: column;
+    
+    mat-form-field:not(:first-of-type) {
+      margin-left: 0px;
+    }
+  
+    button:not(:first-of-type) {
+      margin-left: 0px;
+      margin-top: 20px;
+    }
+  }
+
 }
