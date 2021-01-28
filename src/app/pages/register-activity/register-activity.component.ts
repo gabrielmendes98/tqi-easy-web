@@ -18,6 +18,10 @@ export class RegisterActivityComponent implements OnInit {
 
   projects: Project[] = [];
 
+  formSend = false;
+  formSendSuccess = false;
+  formSendError = false;
+
   constructor(
     private formBuilder: FormBuilder, 
     private projectService: ProjectService, 
@@ -58,14 +62,39 @@ export class RegisterActivityComponent implements OnInit {
 
   registerActivity() {
     if(this.registerActivityForm.valid) {
+      this.formSend = true;
+
       let activity = {} as any;
       Object.assign(activity, this.registerActivityForm.value);
       delete activity.aditionalHoursCheck;
       delete activity.nightHoursCheck;
       activity.userId = this.userService.getUserId();
-      this.registerActivityService.registerActivity(activity).subscribe(response => {
-        console.log(response);
+      this.registerActivityService.registerActivity(activity).subscribe(() => {
+        this.formSendSuccess = true;
+        this.resetFormSend();
+      },
+      () => {
+        this.formSendError = true;
+        this.resetFormSend();        
       });
     }
+  }
+
+  fastFill() {
+    this.registerActivityForm.patchValue({
+      projectId: this.projects[0].id,
+      date: new Date(),
+      timeWorked: '08:00',
+    });
+
+    console.log(this.registerActivityForm.value)
+  }
+
+  resetFormSend() {
+    setTimeout(() => {
+      this.formSend = false;
+      this.formSendSuccess = false;
+      this.formSendError = false;
+    }, 1500);
   }
 }
