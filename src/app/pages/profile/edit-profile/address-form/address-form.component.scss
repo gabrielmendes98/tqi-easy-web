@@ -1,0 +1,29 @@
+@import '../../../../../styles.scss';
+
+h3 {
+  color: $secondary;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cep {
+  max-width: 250px;
+}
+
+.group-fields {
+  display: flex;
+  justify-content: space-between;
+
+  mat-form-field:not(:first-of-type) {
+    margin-left: 20px;
+  }
+}

@@ -1,1 +1,46 @@
-<p>contact-form works!</p>
+<div [formGroup]="contactForm" class="form">
+  <h3>Contato</h3>
+
+  <mat-form-field appearance="outline">
+    <mat-label>E-mail alternativo</mat-label>
+    <input formControlName="alternativeEmail" type="text" matInput/>
+  </mat-form-field>
+
+  <div class="group-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input formControlName="cellPhone" type="tel" matInput/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone fixo</mat-label>
+      <input formControlName="landPhone" type="tel" matInput/>
+    </mat-form-field>
+  </div>
+
+  <ng-container formGroupName="emergencyContact">
+    <h3>Contato de Emergência</h3>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input formControlName="name" type="text" matInput/>
+    </mat-form-field>
+
+    <div class="group-fields">
+      <mat-form-field appearance="outline">
+        <mat-label>Celular</mat-label>
+        <input formControlName="cellPhone" type="tel" matInput/>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone fixo</mat-label>
+        <input formControlName="landPhone" type="tel" matInput/>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Qual sua relação com essa pessoa?</mat-label>
+      <input formControlName="relationship" type="text" matInput/>
+    </mat-form-field>
+  </ng-container>
+</div>

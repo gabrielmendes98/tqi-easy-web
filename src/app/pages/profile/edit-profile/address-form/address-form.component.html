@@ -1,1 +1,47 @@
-<p>address-form works!</p>
+<div [formGroup]="addressForm" class="form">
+  <h3>Endereço</h3>
+
+  <mat-form-field appearance="outline" class="cep">
+    <mat-label>CEP</mat-label>
+    <input formControlName="cep" type="text" matInput/>
+    <mat-error *ngIf="addressForm.get('cep')?.errors?.required">Este campo deve ser preenchido</mat-error>
+  </mat-form-field>
+
+  <div class="group-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Rua</mat-label>
+      <input formControlName="street" type="text" matInput/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Bairro</mat-label>
+      <input formControlName="neighborhood" type="text" matInput/>
+    </mat-form-field>
+  </div>
+
+  <div class="group-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Número</mat-label>
+      <input formControlName="number" type="number" matInput/>
+      <mat-error *ngIf="addressForm.get('number')?.errors?.required">Este campo deve ser preenchido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Complemento</mat-label>
+      <input formControlName="complement" type="text" matInput/>
+    </mat-form-field>
+  </div>
+
+  <div class="group-fields">
+    <mat-form-field appearance="outline">
+      <mat-label>Cidade</mat-label>
+      <input formControlName="city" type="text" matInput/>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <input formControlName="state" type="text" matInput/>
+    </mat-form-field>
+  </div>
+
+</div>

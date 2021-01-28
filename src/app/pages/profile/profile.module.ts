@@ -10,6 +10,7 @@ import { ContactFormComponent } from './edit-profile/contact-form/contact-form.c
 import { GeneralInfoFormComponent } from './edit-profile/general-info-form/general-info-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     ProfileComponent,
@@ -24,6 +25,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   imports: [
     MatButtonModule,
     MatCheckboxModule,
+    MatInputModule,
     CommonModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
