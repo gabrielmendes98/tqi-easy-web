@@ -3,9 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 import { RoleGuard } from './core/role/role.guard';
 import { Role } from './core/user/role.model';
-import { DashboardResolver } from './pages/dashboard/dashboard.resolver';
 import { LoginComponent } from './pages/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
 
 const routes: Routes = [
@@ -32,8 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent,
-    canLoad: [AuthGuard]
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
+    canLoad: [AuthGuard],
   }, 
   {
     path: 'dashboard',

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
 import { TopNavigationComponent } from './shared/top-navigation/top-navigation.component';
 import { LeftNavigationComponent } from './shared/left-navigation/left-navigation.component';
@@ -19,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent,
     RegisterActivityComponent,
     TopNavigationComponent,
     LeftNavigationComponent,
