@@ -1,1 +1,13 @@
-<p>edit works!</p>
+<h2 class="form-title">Editar perfil</h2>
+
+<form [formGroup]="editProfileForm">
+  <img src="../../../../assets/person.svg" alt="">
+  
+  <app-address-form></app-address-form>
+  <app-contact-form></app-contact-form>
+  <app-general-info-form></app-general-info-form>
+
+  <p>Possui restrições a comemoração do seu aniversário?</p>
+  <mat-checkbox>Sim</mat-checkbox>
+  <mat-checkbox>Não</mat-checkbox>
+</form>
