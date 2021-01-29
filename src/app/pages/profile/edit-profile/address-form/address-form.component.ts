@@ -17,7 +17,7 @@ export class AddressFormComponent implements OnInit {
       street: [{value: '', disabled: true}],
       neighborhood: [{value: '', disabled: true}],
       number: ['', Validators.required],
-      complement: [''],
+      complement: ['', Validators.maxLength(140)],
       city: [{value: '', disabled: true}],
       state: [{value: '', disabled: true}],
     });

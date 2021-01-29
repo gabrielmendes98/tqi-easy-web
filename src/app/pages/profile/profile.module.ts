@@ -11,6 +11,9 @@ import { GeneralInfoFormComponent } from './edit-profile/general-info-form/gener
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
+
+import { NgxMaskModule } from 'ngx-mask'
+
 @NgModule({
   declarations: [
     ProfileComponent,
@@ -30,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
     ProfileRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
   ]
 })
 export class ProfileModule { }

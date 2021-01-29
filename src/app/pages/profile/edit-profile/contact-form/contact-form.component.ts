@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -13,14 +13,14 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
-      alternativeEmail: [''],
+      alternativeEmail: ['', Validators.email],
       cellPhone: [''],
       landPhone: [''],
       emergencyContact: this.formBuilder.group({
         name: [''],
         cellPhone: [''],
         landPhone: [''],
-        relationship: [''],
+        relationship: ['', Validators.maxLength(140)],
       }),
     });
   }

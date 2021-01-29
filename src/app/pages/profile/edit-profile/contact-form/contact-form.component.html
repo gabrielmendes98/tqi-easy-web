@@ -3,18 +3,18 @@
 
   <mat-form-field appearance="outline">
     <mat-label>E-mail alternativo</mat-label>
-    <input formControlName="alternativeEmail" type="text" matInput/>
+    <input formControlName="alternativeEmail" type="email" matInput/>
   </mat-form-field>
 
   <div class="group-fields">
     <mat-form-field appearance="outline">
       <mat-label>Celular</mat-label>
-      <input formControlName="cellPhone" type="tel" matInput/>
+      <input formControlName="cellPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
     </mat-form-field>
   
     <mat-form-field appearance="outline">
       <mat-label>Telefone fixo</mat-label>
-      <input formControlName="landPhone" type="tel" matInput/>
+      <input formControlName="landPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
     </mat-form-field>
   </div>
 
@@ -29,12 +29,12 @@
     <div class="group-fields">
       <mat-form-field appearance="outline">
         <mat-label>Celular</mat-label>
-        <input formControlName="cellPhone" type="tel" matInput/>
+        <input formControlName="cellPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Telefone fixo</mat-label>
-        <input formControlName="landPhone" type="tel" matInput/>
+        <input formControlName="landPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
       </mat-form-field>
     </div>
 
