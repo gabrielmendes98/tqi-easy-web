@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { addressNumberValidator } from 'src/app/core/helpers/address-number.validator';
 
@@ -7,12 +7,12 @@ import { addressNumberValidator } from 'src/app/core/helpers/address-number.vali
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss']
 })
-export class AddressFormComponent implements OnInit {
+export class AddressFormComponent {
   addressForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  createGroup() {
     this.addressForm = this.formBuilder.group({
       cep: ['', Validators.required],
       street: [{value: '', disabled: true}],
@@ -22,6 +22,7 @@ export class AddressFormComponent implements OnInit {
       city: [{value: '', disabled: true}],
       state: [{value: '', disabled: true}],
     });
-  }
 
+    return this.addressForm;
+  }
 }

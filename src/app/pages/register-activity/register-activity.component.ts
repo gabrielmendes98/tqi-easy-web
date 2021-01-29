@@ -86,8 +86,6 @@ export class RegisterActivityComponent implements OnInit {
       date: new Date(),
       timeWorked: '08:00',
     });
-
-    console.log(this.registerActivityForm.value)
   }
 
   resetFormSend() {

@@ -8,23 +8,24 @@ import { requiredIfChecked } from '../../../../core/helpers/conditional-required
   templateUrl: './general-info-form.component.html',
   styleUrls: ['./general-info-form.component.scss']
 })
-export class GeneralInfoFormComponent implements OnInit {
+export class GeneralInfoFormComponent {
   generalInfoForm!: FormGroup;
   isMarried = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  createGroup() {
     this.generalInfoForm = this.formBuilder.group({
       isMarried: [false],
       fianceName: ['', requiredIfChecked('isMarried')],
       hasChildren: [false],
     });
-
+  
     this.generalInfoForm.get('isMarried')?.valueChanges.subscribe(value => {
       this.isMarried = value;
       this.generalInfoForm.get('fianceName')?.updateValueAndValidity();
-    })
-  }
+    });
 
+    return this.generalInfoForm;
+  }
 }

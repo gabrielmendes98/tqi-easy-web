@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,12 +6,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss']
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent {
   contactForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  createGroup() {
     this.contactForm = this.formBuilder.group({
       alternativeEmail: ['', Validators.email],
       cellPhone: [''],
@@ -23,6 +23,7 @@ export class ContactFormComponent implements OnInit {
         relationship: ['', Validators.maxLength(140)],
       }),
     });
-  }
 
+    return this.contactForm;
+  }
 }

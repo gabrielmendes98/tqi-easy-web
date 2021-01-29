@@ -12,9 +12,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
-
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { ChildrenFormComponent } from './edit-profile/general-info-form/children-form/children-form.component'
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { NgxMaskModule } from 'ngx-mask'
     AddressFormComponent,
     ContactFormComponent,
     GeneralInfoFormComponent,
+    ChildrenFormComponent,
   ],
   exports: [
     ProfileComponent,
@@ -32,11 +36,17 @@ import { NgxMaskModule } from 'ngx-mask'
     MatCheckboxModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     CommonModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot(),
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt' }
   ]
 })
 export class ProfileModule { }
