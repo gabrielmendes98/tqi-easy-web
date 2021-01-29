@@ -4,17 +4,20 @@
   <mat-form-field appearance="outline">
     <mat-label>E-mail alternativo</mat-label>
     <input formControlName="alternativeEmail" type="email" matInput/>
+    <mat-error *ngIf="contactForm.get('alternativeEmail')?.errors?.email">Formato de e-mail inválido</mat-error>
   </mat-form-field>
 
   <div class="group-fields">
     <mat-form-field appearance="outline">
       <mat-label>Celular</mat-label>
       <input formControlName="cellPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
+      <mat-error *ngIf="contactForm.get('cellPhone')?.errors?.mask">Formato de telefone inválido</mat-error>
     </mat-form-field>
   
     <mat-form-field appearance="outline">
       <mat-label>Telefone fixo</mat-label>
       <input formControlName="landPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
+      <mat-error *ngIf="contactForm.get('landPhone')?.errors?.mask">Formato de telefone inválido</mat-error>
     </mat-form-field>
   </div>
 
@@ -30,17 +33,20 @@
       <mat-form-field appearance="outline">
         <mat-label>Celular</mat-label>
         <input formControlName="cellPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
+        <mat-error *ngIf="contactForm.get('emergencyContact.cellPhone')?.errors?.mask">Formato de telefone inválido</mat-error>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Telefone fixo</mat-label>
         <input formControlName="landPhone" type="tel" matInput mask="(00) 0 0000-0000"/>
+        <mat-error *ngIf="contactForm.get('emergencyContact.landPhone')?.errors?.mask">Formato de telefone inválido</mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
       <mat-label>Qual sua relação com essa pessoa?</mat-label>
       <input formControlName="relationship" type="text" matInput/>
+      <mat-error *ngIf="contactForm.get('emergencyContact.relationship')?.errors?.maxlength">Deve ter no máximo 140 caracteres</mat-error>
     </mat-form-field>
   </ng-container>
 </div>
