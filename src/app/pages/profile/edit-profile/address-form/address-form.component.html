@@ -25,6 +25,7 @@
       <mat-label>Número</mat-label>
       <input formControlName="number" type="number" min="0" matInput/>
       <mat-error *ngIf="addressForm.get('number')?.errors?.required">Este campo deve ser preenchido</mat-error>
+      <mat-error *ngIf="addressForm.get('number')?.errors?.addressNumber">Número inválido</mat-error>
     </mat-form-field>
   
     <mat-form-field appearance="outline">

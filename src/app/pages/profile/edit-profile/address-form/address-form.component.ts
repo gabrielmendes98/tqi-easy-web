@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { addressNumberValidator } from 'src/app/core/helpers/address-number.validator';
 
 @Component({
   selector: 'app-address-form',
@@ -16,7 +17,7 @@ export class AddressFormComponent implements OnInit {
       cep: ['', Validators.required],
       street: [{value: '', disabled: true}],
       neighborhood: [{value: '', disabled: true}],
-      number: ['', Validators.required],
+      number: ['', [Validators.required, addressNumberValidator]],
       complement: ['', Validators.maxLength(140)],
       city: [{value: '', disabled: true}],
       state: [{value: '', disabled: true}],
