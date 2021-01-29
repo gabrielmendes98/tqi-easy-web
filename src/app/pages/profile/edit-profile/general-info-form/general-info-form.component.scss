@@ -1,0 +1,21 @@
+@import '../../../../../styles.scss';
+
+h3 {
+  color: $secondary;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+mat-slide-toggle {
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}

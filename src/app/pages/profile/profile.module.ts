@@ -11,6 +11,8 @@ import { GeneralInfoFormComponent } from './edit-profile/general-info-form/gener
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 import { NgxMaskModule } from 'ngx-mask'
 
@@ -29,6 +31,7 @@ import { NgxMaskModule } from 'ngx-mask'
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
+    MatSlideToggleModule,
     CommonModule,
     ProfileRoutingModule,
     ReactiveFormsModule,

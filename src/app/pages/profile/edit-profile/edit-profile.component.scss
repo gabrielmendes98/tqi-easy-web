@@ -28,8 +28,32 @@ p {
 
 .checkboxes {
   display: flex;
+  margin-bottom: 20px;
 
   mat-checkbox {
     margin-right: 20px;
   }
+}
+
+.actions {
+  display: flex;
+  max-width: 400px;
+
+  button:not(:first-of-type) {
+    margin-left: 20px;
+  }
+}
+
+button {
+  width: 100%;
+}
+
+.stroked-button {
+  border: 1px solid $secondary !important;
+  color: $secondary;
+}
+
+.flat-button {
+  background-color: $secondary;
+  color: $white;
 }
