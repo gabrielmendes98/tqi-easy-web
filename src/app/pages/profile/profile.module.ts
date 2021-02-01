@@ -8,6 +8,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { AddressFormComponent } from './edit-profile/address-form/address-form.component';
 import { ContactFormComponent } from './edit-profile/contact-form/contact-form.component';
 import { GeneralInfoFormComponent } from './edit-profile/general-info-form/general-info-form.component';
+import { ChildFormComponent } from './edit-profile/general-info-form/child-form/child-form.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +20,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 import { NgxMaskModule } from 'ngx-mask';
-import { ChildrenFormComponent } from './edit-profile/general-info-form/children-form/children-form.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { ChildrenFormComponent } from './edit-profile/general-info-form/children
     AddressFormComponent,
     ContactFormComponent,
     GeneralInfoFormComponent,
-    ChildrenFormComponent,
+    ChildFormComponent,
   ],
   exports: [
     ProfileComponent,

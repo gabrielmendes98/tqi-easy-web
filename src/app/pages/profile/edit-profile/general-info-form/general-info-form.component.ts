@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { requiredIfChecked } from '../../../../core/helpers/conditional-required.validator';
-import { GeneralInfoFormService } from './general-info-form.service';
+import { ChildFormService } from './child-form/child-form.service';
 
 @Component({
   selector: 'app-general-info-form',
@@ -13,10 +13,10 @@ export class GeneralInfoFormComponent {
   generalInfoForm!: FormGroup;
   isMarried = false;
 
-  constructor(private formBuilder: FormBuilder, private generalInfoFormService: GeneralInfoFormService) { }
+  constructor(private formBuilder: FormBuilder, private childFormService: ChildFormService) { }
 
-  get childrenForms() { return this.generalInfoForm.get('children') as FormArray };
-  get childrenList() { return this.childrenForms?.controls as FormGroup[]}
+  get children() { return this.generalInfoForm.get('children') as FormArray };
+  get childrenControls() { return this.children?.controls as FormGroup[]}
 
   createGroup() {
     this.generalInfoForm = this.formBuilder.group({
@@ -33,10 +33,10 @@ export class GeneralInfoFormComponent {
 
     this.generalInfoForm.get('hasChildren')?.valueChanges.subscribe(value => {
       if(value) {
-        this.childrenForms.push(this.generalInfoFormService.createChildrenForm());
+        this.children.push(this.childFormService.newFormBuilder());
       } else {
-        while(this.childrenForms.length)
-          this.childrenForms.removeAt(0);
+        while(this.children.length)
+          this.children.removeAt(0);
       }
     })
 
@@ -44,12 +44,12 @@ export class GeneralInfoFormComponent {
   }
 
   addChild() {
-    this.childrenForms.push(this.generalInfoFormService.createChildrenForm());
+    this.children.push(this.childFormService.newFormBuilder());
   }
 
   removeChild() {
-    this.childrenForms.removeAt(this.childrenForms.length - 1);
+    this.children.removeAt(this.children.length - 1);
 
-    if(this.childrenForms.length === 0) this.generalInfoForm.get('hasChildren')?.setValue(false);
+    if(this.children.length === 0) this.generalInfoForm.get('hasChildren')?.setValue(false);
   }
 }

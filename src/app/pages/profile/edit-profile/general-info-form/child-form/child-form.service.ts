@@ -4,10 +4,10 @@ import { FormBuilder, Validators } from "@angular/forms";
 @Injectable({
   providedIn: 'root',
 })
-export class GeneralInfoFormService {
+export class ChildFormService {
   constructor(private formBuilder: FormBuilder) {}
 
-  createChildrenForm() {
+  newFormBuilder() {
     const childrenForm = this.formBuilder.group({
       name: ['', Validators.required],
       birthDate: ['', Validators.required],

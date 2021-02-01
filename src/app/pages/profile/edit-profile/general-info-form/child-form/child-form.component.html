@@ -1,8 +1,8 @@
-<form [formGroup]="childrenForm">
+<form [formGroup]="childForm">
   <mat-form-field appearance="outline">
     <mat-label>Nome do(a) filho(a)</mat-label>
     <input formControlName="name" matInput type="text" />
-    <mat-error *ngIf="childrenForm.get('name')?.errors?.required">Este campo deve ser preenchido</mat-error>
+    <mat-error *ngIf="childForm.get('name')?.errors?.required">Este campo deve ser preenchido</mat-error>
   </mat-form-field>
 
   <div class="group-fields">
@@ -11,7 +11,7 @@
       <input formControlName="birthDate" matInput [matDatepicker]="picker"/>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <mat-error *ngIf="childrenForm.get('birthDate')?.errors?.required">Este campo deve ser preenchido</mat-error>
+      <mat-error *ngIf="childForm.get('birthDate')?.errors?.required">Este campo deve ser preenchido</mat-error>
     </mat-form-field>
   
     <mat-form-field appearance="outline">
@@ -27,7 +27,7 @@
             Outro
           </mat-option>
       </mat-select>
-      <mat-error *ngIf="childrenForm.get('sex')?.errors?.required">Este campo deve ser preenchido</mat-error>
+      <mat-error *ngIf="childForm.get('sex')?.errors?.required">Este campo deve ser preenchido</mat-error>
     </mat-form-field>
     
     <mat-slide-toggle formControlName="liveWithParents">Reside com os pais?</mat-slide-toggle>
