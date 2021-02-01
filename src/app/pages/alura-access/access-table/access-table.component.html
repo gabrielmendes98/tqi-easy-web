@@ -1,6 +1,5 @@
 <div class="table-container">
   <table *ngIf="dataSource" mat-table [dataSource]="dataSource" matSort>
-    <caption>Usuários com acesso à plataforma Alura.</caption>
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow" scope="col"> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
