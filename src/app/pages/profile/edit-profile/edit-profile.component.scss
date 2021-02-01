@@ -38,12 +38,12 @@ mat-radio-group {
   display: flex;
   max-width: 400px;
 
-  button:not(:first-of-type) {
+  button {
     margin-left: 20px;
   }
 }
 
-button {
+button, a {
   width: 100%;
 }
 
