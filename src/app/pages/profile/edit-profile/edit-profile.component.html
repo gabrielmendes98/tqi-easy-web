@@ -1,6 +1,6 @@
 <h2 class="form-title">Editar perfil</h2>
 
-<form [formGroup]="editProfileForm">
+<form [formGroup]="editProfileForm" (submit)="saveProfile()">
   <img src="../../../../assets/person.svg" alt="">
   
   <app-address-form></app-address-form>
@@ -8,10 +8,10 @@
   <app-general-info-form></app-general-info-form>
 
   <p>Possui restrições a comemoração do seu aniversário?</p>
-  <div class="checkboxes">
-    <mat-checkbox>Sim</mat-checkbox>
-    <mat-checkbox>Não</mat-checkbox>
-  </div>
+  <mat-radio-group formControlName="hasRestriction">
+    <mat-radio-button [value]="true">Sim</mat-radio-button>
+    <mat-radio-button [value]="false">Não</mat-radio-button>
+  </mat-radio-group>
 
   <div class="actions">
     <button mat-stroked-button class="stroked-button">Cancelar</button>

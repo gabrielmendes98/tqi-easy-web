@@ -10,14 +10,13 @@ import { ContactFormComponent } from './edit-profile/contact-form/contact-form.c
 import { GeneralInfoFormComponent } from './edit-profile/general-info-form/general-info-form.component';
 import { ChildFormComponent } from './edit-profile/general-info-form/child-form/child-form.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatRadioModule } from '@angular/material/radio';
 
 import { NgxMaskModule } from 'ngx-mask';
 
@@ -35,9 +34,9 @@ import { NgxMaskModule } from 'ngx-mask';
   ],
   imports: [
     MatButtonModule,
-    MatCheckboxModule,
     MatInputModule,
     MatSlideToggleModule,
+    MatRadioModule,
     MatSelectModule,
     MatIconModule,
     MatDatepickerModule,

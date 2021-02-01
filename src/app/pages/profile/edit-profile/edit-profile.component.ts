@@ -24,9 +24,11 @@ export class EditProfileComponent implements OnInit {
       address: this.addressForm.createGroup(),
       contact: this.contactForm.createGroup(),
       generalInfo: this.generalInfoForm.createGroup(),
-      hasRestrictionYes: [''],
-      hasRestrictionNo: [''],
+      hasRestriction: [false],
     });
   }
 
+  saveProfile() {
+    console.log(this.editProfileForm.value)
+  }
 }
