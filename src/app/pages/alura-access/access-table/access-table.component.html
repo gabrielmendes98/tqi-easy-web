@@ -1,27 +1,28 @@
 <div class="table-container">
   <table *ngIf="dataSource" mat-table [dataSource]="dataSource" matSort>
+    <caption>Usuários com acesso à plataforma Alura.</caption>
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow"> ID </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow" scope="col"> ID </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
   
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow"> Nome </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow" scope="col"> Nome </th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
   
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow"> Status </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow" scope="col"> Status </th>
       <td mat-cell *matCellDef="let element"> <div class="status-text"> <mat-icon [class]="element.status">{{mapIcon(element.status)}}</mat-icon> {{element.status}} </div> </td>
     </ng-container>
   
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow"> Data Solicitação </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="hide-arrow" scope="col"> Data Solicitação </th>
       <td mat-cell *matCellDef="let element"> {{element.date | date: 'dd/MM/yyyy'}} </td>
     </ng-container>
   
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Ação </th>
+      <th mat-header-cell *matHeaderCellDef scope="col"> Ação </th>
       <td mat-cell *matCellDef="let element" class="status-action" (click)="openDialogEmitter(element)"> Alterar status </td>
     </ng-container>
   
