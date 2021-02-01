@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DashboardService } from './dashboard.service';
 import { DashboardInfo } from './models/dashboard-info.model';
 
 @Component({

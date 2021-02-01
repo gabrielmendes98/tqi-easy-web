@@ -75,8 +75,8 @@ export class AluraAccessComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         copy.status = result;
-        this.aluraAccessService.updateAccess(copy).subscribe(result => {
-          access.status = result.status;
+        this.aluraAccessService.updateAccess(copy).subscribe(responseAccess => {
+          access.status = responseAccess.status;
         });
       }
     });

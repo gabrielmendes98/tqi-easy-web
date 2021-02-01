@@ -1,9 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, tap } from 'rxjs/operators';
 import { EnvironmentService } from 'src/app/core/environment/environment.service';
 import { Access } from './models/access.model';
-import { AluraStatus } from './models/alura-status.model';
 import { QueryParams } from './models/query-params.model';
 
 @Injectable({
