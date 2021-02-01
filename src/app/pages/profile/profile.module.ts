@@ -15,6 +15,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+
 
 import { NgxMaskModule } from 'ngx-mask';
 import { ChildrenFormComponent } from './edit-profile/general-info-form/children-form/children-form.component'
@@ -37,6 +39,7 @@ import { ChildrenFormComponent } from './edit-profile/general-info-form/children
     MatInputModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
     CommonModule,

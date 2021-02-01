@@ -1,0 +1,22 @@
+mat-form-field {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  mat-form-field:not(:first-of-type) {
+    margin-left: 20px;
+  }
+
+  mat-slide-toggle {
+    margin-left: 20px;
+  }
+}

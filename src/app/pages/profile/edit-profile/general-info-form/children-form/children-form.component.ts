@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,18 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./children-form.component.scss']
 })
 export class ChildrenFormComponent {
-  childrenForm!: FormGroup;
+  @Input() childrenForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  createGroup() {
-    this.childrenForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      sex: ['', Validators.required],
-      liveWithParents: [false],
-    });
-
-    return this.childrenForm;
-  }
+  constructor() { }
 }
