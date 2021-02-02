@@ -17,14 +17,8 @@
     <mat-form-field appearance="outline">
       <mat-label>Sexo</mat-label>
       <mat-select formControlName="sex">
-          <mat-option value="Masculino">
-            Masculino
-          </mat-option>
-          <mat-option value="Feminino">
-            Feminino
-          </mat-option>
-          <mat-option value="Outro">
-            Outro
+          <mat-option *ngFor="let sex of sexList" [value]="sex">
+            {{sex}}
           </mat-option>
       </mat-select>
       <mat-error *ngIf="childForm.get('sex')?.errors?.required">Este campo deve ser preenchido</mat-error>

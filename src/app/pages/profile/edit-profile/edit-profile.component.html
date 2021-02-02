@@ -1,14 +1,15 @@
 <h2 class="form-title">Editar perfil</h2>
 
 <form [formGroup]="editProfileForm" (submit)="saveProfile()">
-  <img src="../../../../assets/person.svg" alt="">
+  <input type="file" #fileElement accept="image/*" class="hidden-input" (change)="setImage($event)">
+  <img [src]="editProfileForm.get('picture')?.value || '../../../../assets/person.svg'" alt="" (click)="fileElement.click()">
   
   <app-address-form></app-address-form>
   <app-contact-form></app-contact-form>
   <app-general-info-form></app-general-info-form>
 
   <p>Possui restrições a comemoração do seu aniversário?</p>
-  <mat-radio-group formControlName="hasRestriction">
+  <mat-radio-group formControlName="hasBirthdayRestriction">
     <mat-radio-button [value]="true">Sim</mat-radio-button>
     <mat-radio-button [value]="false">Não</mat-radio-button>
   </mat-radio-group>

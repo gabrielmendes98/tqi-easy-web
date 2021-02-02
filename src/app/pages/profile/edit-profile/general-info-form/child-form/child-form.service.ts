@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
+import { Child } from "./child.model";
 
 @Injectable({
   providedIn: 'root',
@@ -7,12 +8,12 @@ import { FormBuilder, Validators } from "@angular/forms";
 export class ChildFormService {
   constructor(private formBuilder: FormBuilder) {}
 
-  newFormBuilder() {
+  newFormBuilder(child?: Child) {
     const childrenForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      birthDate: ['', Validators.required],
-      sex: ['', Validators.required],
-      liveWithParents: [false],
+      name: [child?.name || '', Validators.required],
+      birthDate: [child?.birthDate || '', Validators.required],
+      sex: [child?.sex || '', Validators.required],
+      liveWithParents: [child?.liveWithParents || false],
     });
 
     return childrenForm;

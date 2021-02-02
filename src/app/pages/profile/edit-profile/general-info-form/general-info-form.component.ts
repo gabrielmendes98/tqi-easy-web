@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { requiredIfChecked } from '../../../../core/helpers/conditional-required.validator';
 import { ChildFormService } from './child-form/child-form.service';
+import { Child } from './child-form/child.model';
 
 @Component({
   selector: 'app-general-info-form',
@@ -11,12 +12,12 @@ import { ChildFormService } from './child-form/child-form.service';
 })
 export class GeneralInfoFormComponent {
   generalInfoForm!: FormGroup;
-  isMarried = false;
 
-  constructor(private formBuilder: FormBuilder, private childFormService: ChildFormService) { }
+  constructor(private formBuilder: FormBuilder, private childFormService: ChildFormService, private ref: ChangeDetectorRef) { }
 
   get children() { return this.generalInfoForm.get('children') as FormArray };
-  get childrenControls() { return this.children?.controls as FormGroup[]}
+  get childrenControls() { return this.children?.controls as FormGroup[]};
+  get isMarried() { return this.generalInfoForm.get('isMarried')?.value as boolean};
 
   createGroup() {
     this.generalInfoForm = this.formBuilder.group({
@@ -25,9 +26,12 @@ export class GeneralInfoFormComponent {
       hasChildren: [false],
       children: this.formBuilder.array([]),
     });
-  
-    this.generalInfoForm.get('isMarried')?.valueChanges.subscribe(value => {
-      this.isMarried = value;
+
+    return this.generalInfoForm;
+  }
+
+  subscribe() {
+    this.generalInfoForm.get('isMarried')?.valueChanges.subscribe(() => {
       this.generalInfoForm.get('fianceName')?.updateValueAndValidity();
     });
 
@@ -35,16 +39,14 @@ export class GeneralInfoFormComponent {
       if(value) {
         this.children.push(this.childFormService.newFormBuilder());
       } else {
-        while(this.children.length)
-          this.children.removeAt(0);
+        this.children.clear();
       }
-    })
-
-    return this.generalInfoForm;
+    });
   }
 
-  addChild() {
-    this.children.push(this.childFormService.newFormBuilder());
+  addChild(child?: Child) {
+    this.children.push(this.childFormService.newFormBuilder(child));
+    this.ref.detectChanges();
   }
 
   removeChild() {

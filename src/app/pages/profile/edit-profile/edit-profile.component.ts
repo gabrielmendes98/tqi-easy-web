@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ProfileService } from '../profile.service';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { Child } from './general-info-form/child-form/child.model';
 import { GeneralInfoFormComponent } from './general-info-form/general-info-form.component';
+import { Profile } from './profile.model';
 
 @Component({
   selector: 'app-edit',
@@ -16,7 +19,7 @@ export class EditProfileComponent implements OnInit {
   @ViewChild(ContactFormComponent, { static: true }) contactForm!: ContactFormComponent;
   @ViewChild(GeneralInfoFormComponent, { static: true }) generalInfoForm!: GeneralInfoFormComponent;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService) { }
 
   ngOnInit(): void {
     this.editProfileForm = this.formBuilder.group({
@@ -24,11 +27,39 @@ export class EditProfileComponent implements OnInit {
       address: this.addressForm.createGroup(),
       contact: this.contactForm.createGroup(),
       generalInfo: this.generalInfoForm.createGroup(),
-      hasRestriction: [false],
+      hasBirthdayRestriction: [false],
+    });
+
+    this.profileService.getProfile().subscribe(profile => {
+      this.editProfileForm.patchValue(profile);
+
+      profile.generalInfo.children?.forEach(child => {
+        this.generalInfoForm.addChild(child);
+      });
+
+      this.generalInfoForm.subscribe();
     });
   }
 
   saveProfile() {
-    console.log(this.editProfileForm.value)
+    this.editProfileForm.updateValueAndValidity();
+    if(this.editProfileForm.valid) {
+      const profile = this.editProfileForm.value as Profile;
+      this.profileService.saveProfile(profile).subscribe(response => console.log(response));
+    }
+  }
+
+  setImage(event: any) {
+    const file = event.target.files[0];
+    
+    const reader = new FileReader();
+    reader.readAsDataURL(file); 
+    reader.onload = (_event) => { 
+      const pictureUrl = reader.result; 
+
+      this.editProfileForm.patchValue({
+        picture: pictureUrl,
+      });
+    }    
   }
 }

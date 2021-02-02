@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-
+import { Sex } from './child.model'
 @Component({
   selector: 'app-child-form',
   templateUrl: './child-form.component.html',
@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class ChildFormComponent {
   @Input() childForm!: FormGroup;
+  sexList = Object.values(Sex);
 
   constructor() { }
 }

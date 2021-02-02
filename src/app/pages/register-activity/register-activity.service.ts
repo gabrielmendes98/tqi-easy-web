@@ -9,18 +9,11 @@ import { Activity } from './activity.model';
 })
 export class RegisterActivityService {
 
-  url: string;
-  id: number;
-
-  constructor(private http: HttpClient, 
-              private environmentService: EnvironmentService, 
-              private userService: UserService) {
-    this.url = this.environmentService.getApiUrl();
-    this.id = this.userService.getUserId();
-  }
+  constructor(private http: HttpClient, private environmentService: EnvironmentService) { }
 
   registerActivity(activity: Activity) {
-    return this.http.post(this.url + '/activities', { ...activity })
+    const url = this.environmentService.getApiUrl();
+    return this.http.post(url + '/activities', { ...activity })
   }
   
 }

@@ -14,7 +14,7 @@ export class ContactFormComponent {
   createGroup() {
     this.contactForm = this.formBuilder.group({
       alternativeEmail: ['', Validators.email],
-      cellPhone: [''],
+      cellPhone: ['', Validators.required],
       landPhone: [''],
       emergencyContact: this.formBuilder.group({
         name: [''],
