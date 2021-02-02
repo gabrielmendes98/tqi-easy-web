@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from '../profile.service';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -18,7 +19,7 @@ export class EditProfileComponent implements OnInit {
   @ViewChild(ContactFormComponent, { static: true }) contactForm!: ContactFormComponent;
   @ViewChild(GeneralInfoFormComponent, { static: true }) generalInfoForm!: GeneralInfoFormComponent;
 
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService) { }
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.editProfileForm = this.formBuilder.group({
@@ -29,15 +30,12 @@ export class EditProfileComponent implements OnInit {
       hasBirthdayRestriction: [false],
     });
 
-    this.profileService.getProfile().subscribe(profile => {
-      this.editProfileForm.patchValue(profile);
-
-      profile.generalInfo.children?.forEach(child => {
-        this.generalInfoForm.addChild(child);
-      });
-
-      this.generalInfoForm.subscribe();
+    const profile: Profile = this.activatedRoute.snapshot.data.profile;
+    this.editProfileForm.patchValue(profile);
+    profile.generalInfo.children?.forEach(child => {
+      this.generalInfoForm.addChild(child);
     });
+    this.generalInfoForm.subscribe();
   }
 
   saveProfile() {
