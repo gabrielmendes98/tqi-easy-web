@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 import { RoleGuard } from './core/role/role.guard';
 import { Role } from './core/user/role.model';
+import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
 
@@ -38,6 +40,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
     canLoad: [RoleGuard],
     data: { roles: [Role.Manager] },
+  },
+  {
+    path: 'announcements',
+    component: AnnouncementsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'announcements/:id',
+    component: AnnouncementComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: '**',

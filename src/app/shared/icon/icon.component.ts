@@ -9,7 +9,7 @@ import { MAPPED_ICON } from './icons';
 export class IconComponent implements OnInit {
   @ViewChild('containerIcon', { read: ViewContainerRef, static: true }) containerIcon!: ViewContainerRef;
 
-  @Input() color = '#B2B2B2';
+  @Input() color = 'currentColor';
   @Input() size = 'lg';
   @Input() icon!: string;
 

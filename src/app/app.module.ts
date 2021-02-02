@@ -12,7 +12,9 @@ import { MaterialModule } from './shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     RegisterActivityComponent,
     TopNavigationComponent,
     LeftNavigationComponent,
+    AnnouncementsComponent,
+    AnnouncementComponent,
   ],
   imports: [
     FormsModule,

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProfileService } from '../profile.service';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { Child } from './general-info-form/child-form/child.model';
 import { GeneralInfoFormComponent } from './general-info-form/general-info-form.component';
 import { Profile } from './profile.model';
 
@@ -54,10 +53,8 @@ export class EditProfileComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file); 
     reader.onload = (_event) => { 
-      const pictureUrl = reader.result; 
-
       this.editProfileForm.patchValue({
-        picture: pictureUrl,
+        picture: reader.result,
       });
     }    
   }
