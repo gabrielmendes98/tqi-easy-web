@@ -16,6 +16,6 @@
 
   <div class="actions">
     <a [routerLink]="['/profile']" mat-stroked-button class="stroked-button">Cancelar</a>
-    <button mat-flat-button type="submit" class="flat-button">Salvar</button>
+    <button mat-flat-button type="submit" class="flat-button" [disabled]="editProfileForm.invalid">Salvar</button>
   </div>
 </form>
