@@ -1,0 +1,16 @@
+@import '../../../../styles.scss';
+
+div {
+  text-align: center;
+}
+
+h2 {
+  color: $white;
+}
+
+mat-icon {
+  font-size: 100px;
+  height: 100px;
+  width: 100px;
+  color: $red;
+}

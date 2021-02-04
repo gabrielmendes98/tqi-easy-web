@@ -61,17 +61,3 @@
     <button mat-flat-button class="flat-button" type="submit" [disabled]="registerActivityForm.invalid">Salvar</button>
   </div>
 </form>
-
-<div class="modal" *ngIf="formSend">
-  <div class="modal-content">
-    <div class="modal-success-error" *ngIf="formSendSuccess">
-      <mat-icon class="done-icon">check_circle</mat-icon>
-      <h1>Atividade registrada com sucesso!</h1>
-    </div>
-    <div class="modal-success-error" *ngIf="formSendError">
-      <mat-icon class="error-icon">cancel</mat-icon>
-      <h1>Não foi possível registrar sua atividade!</h1>
-    </div>
-    <mat-spinner *ngIf="!formSendSuccess && !formSendError"></mat-spinner>
-  </div>
-</div>

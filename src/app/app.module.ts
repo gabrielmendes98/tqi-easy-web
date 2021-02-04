@@ -14,7 +14,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
-import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component'
+import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component';
+import { SpinnerOverlayComponent } from './shared/spinner-overlay/spinner-overlay.component'
+import { SpinnerOverlayInterceptor } from './shared/spinner-overlay/spinner-overlay.interceptor';
+import { SuccessOverlayComponent } from './shared/spinner-overlay/success-overlay/success-overlay.component';
+import { ErrorOverlayComponent } from './shared/spinner-overlay/error-overlay/error-overlay.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { AnnouncementComponent } from './pages/announcements/announcement/announ
     LeftNavigationComponent,
     AnnouncementsComponent,
     AnnouncementComponent,
+    SpinnerOverlayComponent,
+    SuccessOverlayComponent,
+    ErrorOverlayComponent,
   ],
   imports: [
     FormsModule,
@@ -37,7 +44,8 @@ import { AnnouncementComponent } from './pages/announcements/announcement/announ
     AppRoutingModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerOverlayInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
