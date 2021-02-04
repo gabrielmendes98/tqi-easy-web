@@ -41,7 +41,7 @@ export class EditProfileComponent implements OnInit {
   saveProfile() {
     if(this.editProfileForm.valid) {
       const profile = this.editProfileForm.value as Profile;
-      this.profileService.saveProfile(profile).subscribe(response => console.log(response));
+      this.profileService.saveProfile(profile).subscribe();
     }
   }
 

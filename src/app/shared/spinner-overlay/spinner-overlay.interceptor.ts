@@ -24,7 +24,6 @@ export class SpinnerOverlayInterceptor implements HttpInterceptor {
     this.spinnerOverlayService.showLoading();
     return next.handle(request).pipe(
       tap(event => {
-        console.log(event);
         if (event instanceof HttpResponse && event.status >= 200 && event.status <= 299) {
           this.spinnerOverlayService.showSuccess();
         }

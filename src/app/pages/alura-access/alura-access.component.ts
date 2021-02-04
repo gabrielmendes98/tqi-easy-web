@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators'
+import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators'
 import { Access } from './models/access.model';
 import { AluraAccessService } from './alura-access.service';
 import { AluraStatus } from './models/alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { QueryParams } from './models/query-params.model';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-alura-access',
@@ -75,9 +76,10 @@ export class AluraAccessComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         copy.status = result;
-        this.aluraAccessService.updateAccess(copy).subscribe(responseAccess => {
-          access.status = responseAccess.status;
-        });
+        const params = this.activatedRoute.snapshot.queryParams;
+        this.aluraAccessService.updateAccess(copy)
+        .pipe(switchMap(() => of(this.getAccesses(params))))
+        .subscribe()
       }
     });
   }
