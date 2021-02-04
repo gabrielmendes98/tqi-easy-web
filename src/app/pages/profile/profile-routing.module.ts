@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: '', component: ProfileComponent },
+      { path: '', component: ProfileComponent, resolve: { profile: ProfileResolver } },
       { path: 'edit', component: EditProfileComponent, resolve: { profile: ProfileResolver } }
     ]
   }

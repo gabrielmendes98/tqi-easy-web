@@ -1,6 +1,82 @@
 @import '../../../styles.scss';
 
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  color: $secondary;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  background-color: $text-light;
+  border-radius: 50%;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
 .edit-profile-button {
   background-color: $secondary;
   color: $white;
+}
+
+h3 {
+  color: $secondary;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.group-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cep {
+  max-width: 250px;
+}
+
+.group-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  mat-form-field:not(:first-of-type) {
+    margin-left: 20px;
+  }
+
+  mat-slide-toggle {
+    margin-left: 20px;
+  }
+}
+
+mat-slide-toggle {
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+mat-radio-group {
+  margin-bottom: 20px;
+
+  mat-radio-button {
+    margin-right: 20px;
+  }
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+a {
+  max-width: 200px;
 }

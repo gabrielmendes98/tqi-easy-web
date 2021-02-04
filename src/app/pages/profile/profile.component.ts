@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Child, Sex } from './edit-profile/general-info-form/child-form/child.model';
+import { Profile } from './edit-profile/profile.model';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profile!: Profile;
+
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.profile = this.activatedRoute.snapshot.data.profile;
+    console.log(this.profile)
   }
 
 }
