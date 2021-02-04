@@ -101,28 +101,26 @@
       <input type="text" matInput readonly [value]="profile.generalInfo.fianceName"/>
     </mat-form-field>
 
-    <ng-template *ngIf="profile.generalInfo.hasChildren">
-      <ng-container *ngFor="let child of profile.generalInfo.children">
+    <ng-container *ngFor="let child of profile.generalInfo.children">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome do(a) filho(a)</mat-label>
+        <input matInput type="text" readonly [value]="child.name"/>
+      </mat-form-field>
+    
+      <div class="group-fields">
         <mat-form-field appearance="outline">
-          <mat-label>Nome do(a) filho(a)</mat-label>
-          <input matInput type="text" readonly [value]="child.name"/>
+          <mat-label>Data de nascimento</mat-label>
+          <input matInput readonly [value]="child.birthDate | date:'dd/MM/yyyy' "/>
         </mat-form-field>
       
-        <div class="group-fields">
-          <mat-form-field appearance="outline">
-            <mat-label>Data de nascimento</mat-label>
-            <input matInput readonly [value]="child.birthDate | date:'dd/MM/yyyy' "/>
-          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Sexo</mat-label>
+          <input matInput readonly [value]="child.sex"/>
+        </mat-form-field>
         
-          <mat-form-field appearance="outline">
-            <mat-label>Sexo</mat-label>
-            <input matInput readonly [value]="child.sex"/>
-          </mat-form-field>
-          
-          <mat-slide-toggle [checked]="child.liveWithParents">Reside com os pais?</mat-slide-toggle>
-        </div>
-      </ng-container>
-    </ng-template>
+        <mat-slide-toggle [(ngModel)]="child.liveWithParents" disabled>Reside com os pais?</mat-slide-toggle>
+      </div>
+    </ng-container>
   </div>
   
   <p>Possui restrições a comemoração do seu aniversário?</p>
