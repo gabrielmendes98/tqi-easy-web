@@ -13,6 +13,7 @@ import { LeftNavigationComponent } from './components/left-navigation/left-navig
 import { TopNavigationComponent } from './components/top-navigation/top-navigation.component';
 import { SpinnerOverlayModule } from './components/spinner-overlay/spinner-overlay.module';
 import { IconModule } from './components/icon/icon.module';
+import { ShowIfManagerModule } from './directives/show-if-manager/show-if-manager.module';
 
 const components = [LeftNavigationComponent, TopNavigationComponent];
 
@@ -25,7 +26,7 @@ const materialModules = [
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, IconModule, ...materialModules],
+  imports: [CommonModule, RouterModule, IconModule, ShowIfManagerModule,...materialModules],
   declarations: [...components],
   exports: [...components, SpinnerOverlayModule, IconModule],
   providers: [

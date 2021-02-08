@@ -1,5 +1,5 @@
 <div>
-  <a class="item" [routerLink]="['/dashboard']" routerLinkActive="active" *ngIf="isManager">
+  <a class="item" [routerLink]="['/dashboard']" routerLinkActive="active" showIfManager>
     <mat-icon>home</mat-icon>
     <span>Dashboard</span>
   </a>
@@ -9,7 +9,7 @@
     <span>Registrar ponto</span>
   </a>
 
-  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" routerLinkActive="active" queryParamsHandling="merge" *ngIf="isManager">
+  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" routerLinkActive="active" queryParamsHandling="merge" showIfManager>
     <mat-icon>menu_book</mat-icon>
     <span>Acesso Alura</span>
   </a>
