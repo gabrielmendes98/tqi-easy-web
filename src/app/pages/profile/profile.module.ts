@@ -13,7 +13,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
@@ -40,7 +39,6 @@ import { NgxMaskModule } from 'ngx-mask';
     MatSelectModule,
     MatIconModule,
     MatDatepickerModule,
-    MatNativeDateModule,
     CommonModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
@@ -48,7 +46,6 @@ import { NgxMaskModule } from 'ngx-mask';
     NgxMaskModule.forRoot(),
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'pt' }
   ]
 })
 export class ProfileModule { }

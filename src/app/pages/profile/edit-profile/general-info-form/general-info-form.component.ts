@@ -1,9 +1,9 @@
-import { ChangeDetectorRef, Component, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
-import { requiredIfChecked } from '../../../../core/helpers/conditional-required.validator';
 import { ChildFormService } from './child-form/child-form.service';
 import { Child } from './child-form/child.model';
+import { requiredIfChecked } from 'src/app/shared/validators/conditional-required.validator';
 
 @Component({
   selector: 'app-general-info-form',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/user/user.service';
-import { requiredIfChecked } from '../../core/helpers/conditional-required.validator';
+import { requiredIfChecked } from '../../shared/validators/conditional-required.validator';
 import { Project } from './project/project.model';
 import { ProjectService } from './project/project.service';
 import { RegisterActivityService } from './register-activity.service';

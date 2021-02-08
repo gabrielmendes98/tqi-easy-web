@@ -2,7 +2,7 @@ import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { ErrorOverlayComponent } from './error-overlay/error-overlay.component';
-import { SpinnerOverlayComponent } from './spinner-overlay.component';
+import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { SuccessOverlayComponent } from './success-overlay/success-overlay.component';
 
 @Injectable({

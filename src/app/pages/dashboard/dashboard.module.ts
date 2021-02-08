@@ -8,9 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { InterviewCardComponent } from './interview-card/interview-card.component';
-import { IconModule } from 'src/app/shared/icon/icon.module';
-
-
+import { IconModule } from '../../shared/components/icon/icon.module';
 
 @NgModule({
   declarations: [
