@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { IconComponent } from './icon.component';
 import { IconAppComponent } from './icons/icon-app/icon-app.component';
 import { IconBellComponent } from './icons/icon-bell/icon-bell.component';
 import { IconInterviewPersonComponent } from './icons/icon-interview-person/icon-interview-person.component';
 import { IconSpeakerComponent } from './icons/icon-speaker/icon-speaker.component';
-
-
 
 @NgModule({
   declarations: [
@@ -14,13 +13,9 @@ import { IconSpeakerComponent } from './icons/icon-speaker/icon-speaker.componen
     IconAppComponent,
     IconBellComponent,
     IconInterviewPersonComponent,
-    IconSpeakerComponent
+    IconSpeakerComponent,
   ],
-  exports: [
-    IconComponent,
-  ],
-  imports: [
-    CommonModule
-  ]
+  exports: [IconComponent],
+  imports: [CommonModule],
 })
-export class IconModule { }
+export class IconModule {}

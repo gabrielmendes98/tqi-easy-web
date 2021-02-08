@@ -5,30 +5,30 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpResponse,
-  HttpErrorResponse
+  HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+
 import { SpinnerOverlayService } from './spinner-overlay.service';
-import { catchError, finalize, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class SpinnerOverlayInterceptor implements HttpInterceptor {
-
   constructor(private spinnerOverlayService: SpinnerOverlayService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if(request.method === "GET") {
+    if (request.method === 'GET') {
       return next.handle(request);
     }
 
     this.spinnerOverlayService.showLoading();
     return next.handle(request).pipe(
-      tap(event => {
+      tap((event) => {
         if (event instanceof HttpResponse && event.status >= 200 && event.status <= 299) {
           this.spinnerOverlayService.showSuccess();
         }
       }),
-      catchError(error => {
+      catchError((error) => {
         if (error instanceof HttpErrorResponse) {
           this.spinnerOverlayService.showError();
         }

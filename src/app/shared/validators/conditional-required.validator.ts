@@ -1,13 +1,13 @@
-import { AbstractControl, Validators } from "@angular/forms";
+import { AbstractControl, Validators } from '@angular/forms';
 
 export function requiredIfChecked(checkboxName: string) {
-  return ((formControl: AbstractControl) => {
+  return (formControl: AbstractControl) => {
     if (!formControl.parent) {
       return null;
     }
     if (formControl.parent.get(checkboxName)?.value) {
-      return Validators.required(formControl); 
+      return Validators.required(formControl);
     }
     return null;
-  })
+  };
 }

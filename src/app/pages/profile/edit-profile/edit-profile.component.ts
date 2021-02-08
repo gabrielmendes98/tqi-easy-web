@@ -5,7 +5,7 @@ import { ProfileService } from '../profile.service';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { GeneralInfoFormComponent } from './general-info-form/general-info-form.component';
-import { Profile } from './profile.model';
+import { Profile } from '../profile.model';
 
 @Component({
   selector: 'app-edit',
