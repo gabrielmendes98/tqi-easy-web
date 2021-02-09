@@ -15,21 +15,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
-import { AnnouncementsComponent } from './pages/announcements/announcements.component';
-import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component';
 import { SharedModule } from './shared/shared.module';
 import { RegisterActivityModule } from './pages/register-activity/register-activity.module';
+import { AnnouncementsModule } from './pages/announcements/announcements.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AnnouncementsComponent,
-    AnnouncementComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
+    AnnouncementsModule,
     ReactiveFormsModule,
     RegisterActivityModule,
     BrowserAnimationsModule,
