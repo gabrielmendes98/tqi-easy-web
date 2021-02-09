@@ -1,14 +1,21 @@
-<mat-card>
-  <img src="../../../assets/image-placeholder.png" alt="" />
-  <div class="content-container">
-    <div class="fade">
-      <p>
-        {{ announcement }}
-      </p>
+<ng-container *ngFor="let announcement of announcements">
+  <mat-card>
+    <a [routerLink]="[announcement.id]">
+      <img [src]="announcement.imageUrl || '../../../assets/image-placeholder.png'" alt="" />
+      <div class="text-wrapper">
+        <div class="fade">
+          <p>
+            {{ announcement.description }}
+          </p>
+        </div>
+      </div>
+    </a>
+  
+    <div class="likes">
+      <span color="warn">{{announcement.likes}}</span>
+      <button mat-icon-button color="warn">
+        <mat-icon>favorite_border</mat-icon>
+      </button>
     </div>
-
-    <button mat-icon-button color="warn">
-      <mat-icon>favorite_border</mat-icon>
-    </button>
-  </div>
-</mat-card>
+  </mat-card>
+</ng-container>

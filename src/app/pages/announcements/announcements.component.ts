@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnouncementPreview } from './announcements.model';
+import { AnnouncementsService } from './announcements.service';
 
 @Component({
   selector: 'app-announcements',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./announcements.component.scss'],
 })
 export class AnnouncementsComponent implements OnInit {
-  announcement =
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem nihil similique nesciunt laboriosam reiciendis dolore tempore fugiat, repudiandae eos, soluta quae quisquam ex esse nemo odio animi quo! Amet, fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem nihil similique nesciunt laboriosam reiciendis dolore tempore fugiat, repudiandae eos, soluta quae quisquam ex esse nemo odio animi quo! Amet, fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem nihil similique nesciunt laboriosam reiciendis dolore tempore fugiat, repudiandae eos, soluta quae quisquam ex esse nemo odio animi quo! Amet, fuga?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem nihil ';
+  announcements!: AnnouncementPreview[];
 
-  constructor() {}
+  constructor(private announcementsService: AnnouncementsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.announcementsService.getAll().subscribe(announcements => {
+      this.announcements = announcements;
+    })
+  }
 }

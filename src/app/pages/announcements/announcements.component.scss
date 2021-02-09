@@ -1,31 +1,52 @@
+@import '../../../styles.scss';
+
+a {
+  display: flex;
+  flex: 1;
+  color: $text-dark;
+}
+
 mat-card {
+  width: 80%;
+  max-height: 115px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row;
   padding: 0;
   overflow: hidden;
-  max-height: 115px;
-  width: 80%;
 }
 
 img {
   width: 120px;
   height: 120px;
-}
-
-.content-container {
-  padding: 12px;
-  display: flex;
-  overflow: hidden;
+  object-fit: cover;
 }
 
 p {
   line-height: 1.2em;
 }
 
-button {
+.likes {
+  display: flex;
+  flex-direction: column;
   align-self: flex-end;
-  margin-right: -8px;
   margin-bottom: -8px;
+  text-align: center;
+
+  button {
+    margin-top: -10px;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 13px;
+    color: $red;
+  }
+}
+
+.text-wrapper {
+  padding: 12px;
+
 }
 
 .fade {
