@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AnnouncementsComponent } from './announcements.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/show-if-manager.module';
 
 @NgModule({
   declarations: [AnnouncementsComponent, AnnouncementComponent],
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShowIfManagerModule
   ],
 })
 export class AnnouncementsModule {}

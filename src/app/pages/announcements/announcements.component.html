@@ -11,7 +11,11 @@
       </div>
     </a>
   
-    <div class="likes">
+    
+    <div class="actions">
+      <button mat-icon-button showIfManager (click)="deleteAnnouncement(announcement.id)">
+        <mat-icon class="delete-icon">delete_outline</mat-icon>
+      </button>
       <span color="warn">{{announcement.likes}}</span>
       <button mat-icon-button color="warn">
         <mat-icon>favorite_border</mat-icon>

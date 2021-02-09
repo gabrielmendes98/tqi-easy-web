@@ -35,4 +35,9 @@ export class AnnouncementsService {
     const date = new Date();
     return this.http.post<Comment>(url + '/announcements/' + announcementId + '/comments', { comment, author, date, announcementId });
   }
+
+  delete(announcementId: number) {
+    const url = this.environmentService.getApiUrl();
+    return this.http.delete(url + '/announcements/' + announcementId);
+  }
 }

@@ -13,8 +13,16 @@ export class AnnouncementsComponent implements OnInit {
   constructor(private announcementsService: AnnouncementsService) {}
 
   ngOnInit(): void {
+    this.getAnnouncements();
+  }
+
+  getAnnouncements() {
     this.announcementsService.getAll().subscribe(announcements => {
       this.announcements = announcements;
-    })
+    });
+  }
+
+  deleteAnnouncement(announcementId: number) {
+    this.announcementsService.delete(announcementId).subscribe(() => this.getAnnouncements());
   }
 }
