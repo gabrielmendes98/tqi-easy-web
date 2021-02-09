@@ -19,15 +19,28 @@ img {
 }
 
 p {
-  overflow : hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
+  line-height: 1.2em;
 }
 
 button {
   align-self: flex-end;
   margin-right: -8px;
   margin-bottom: -8px;
+}
+
+.fade {
+  position: relative;
+  height: 4.8em; /* exactly three lines */
+  overflow: hidden;
+}
+
+.fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
 }
