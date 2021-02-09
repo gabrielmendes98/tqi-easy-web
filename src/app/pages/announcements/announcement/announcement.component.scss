@@ -1,0 +1,86 @@
+@import '../../../../styles.scss';
+
+.image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+ color: $secondary;
+ margin-bottom: 20px;
+}
+
+img {
+  max-width: 900px;
+}
+
+pre {
+  font-family: Roboto;
+  color: $text-dark;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: $secondary;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+button {
+  color: $white !important;
+  background-color: $secondary !important;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  color: $secondary;
+  font-weight: 500;
+  font-size: 16px;
+  width: fit-content;
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.comments {
+  height: 200px;
+  overflow-y: auto;
+}
+
+.author {
+  display: inline-block;
+  font-weight: 500;
+  color: $text-dark;
+  margin-right: 12px;
+  margin-bottom: 6px;
+}
+
+.date {
+  color: $text-light;
+}
+
+.comment {
+  padding: 8px 0;
+  border-bottom: 1px solid $text-light;
+
+  p {
+    color: $text-light;
+  }
+}

@@ -13,6 +13,7 @@ export class UserService {
   private userSubject = new BehaviorSubject<User | null>(null);
   private userRole!: Role;
   private userId!: number; 
+  private userName!: string;
 
   constructor(private tokenService: TokenService, private router: Router) {
     this.tokenService.hasToken() && this.decodeAndNotify();
@@ -25,6 +26,10 @@ export class UserService {
 
   getUser() {
     return this.userSubject.asObservable();
+  }
+
+  getUserName() {
+    return this.userName;
   }
 
   getUserRole() {
@@ -51,6 +56,7 @@ export class UserService {
     const user: User = decoded.payload;
     this.userRole = user.role;
     this.userId = user.id;
+    this.userName = user.name;
     this.userSubject.next(user);
   }
 }

@@ -1,1 +1,28 @@
-<p>announcement works! {{id}}</p>
+<ng-container *ngIf="announcement">
+  <a [routerLink]="['/announcements']" class="back-link"><mat-icon>arrow_back</mat-icon>Voltar</a>
+  <div class="image">
+    <img [src]="announcement.imageUrl" alt="Imagem do anúncio">
+  </div>
+  
+  <h2>{{announcement.title}}</h2>
+  
+  <pre>{{announcement.description}}</pre>
+  
+  <h3>Comentários</h3>
+  
+  <form [formGroup]="commentForm" (submit)="saveComment()">
+    <mat-form-field appearance="fill">
+      <mat-label>Deixe um comentário</mat-label>
+      <textarea matInput formControlName="comment"></textarea>
+    </mat-form-field>
+  
+    <button mat-flat-button type="submit">Comentar</button>
+  </form>
+  
+  <div class="comments">
+    <div class="comment"*ngFor="let comment of announcement.comments">
+      <span class="author">{{comment.author}}</span> <span class="date">{{comment.date | date: 'dd/MM/yyyy'}}</span>
+      <p>{{comment.comment}}</p>
+    </div>
+  </div>
+</ng-container>
