@@ -1,5 +1,11 @@
-<ng-container *ngFor="let announcement of announcements">
-  <mat-card>
+<ng-container *ngIf="!announcements; else announcementsTemplate">
+  <mat-card class="loader"></mat-card>
+  <mat-card class="loader"></mat-card>
+  <mat-card class="loader"></mat-card>
+</ng-container>
+
+<ng-template #announcementsTemplate>
+  <mat-card *ngFor="let announcement of announcements">
     <a [routerLink]="[announcement.id]">
       <img [src]="announcement.imageUrl || '../../../assets/image-placeholder.png'" alt="" />
       <div class="text-wrapper">
@@ -11,7 +17,6 @@
       </div>
     </a>
   
-    
     <div class="actions">
       <button mat-icon-button showIfManager (click)="deleteAnnouncement(announcement.id)">
         <mat-icon class="delete-icon">delete_outline</mat-icon>
@@ -22,4 +27,4 @@
       </button>
     </div>
   </mat-card>
-</ng-container>
+</ng-template>

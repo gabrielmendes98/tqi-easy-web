@@ -8,7 +8,7 @@ import { AnnouncementsService } from './announcements.service';
   styleUrls: ['./announcements.component.scss'],
 })
 export class AnnouncementsComponent implements OnInit {
-  announcements!: AnnouncementPreview[];
+  announcements?: AnnouncementPreview[];
 
   constructor(private announcementsService: AnnouncementsService) {}
 

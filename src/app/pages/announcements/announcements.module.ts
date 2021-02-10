@@ -6,10 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AnnouncementsComponent } from './announcements.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/show-if-manager.module';
 import { AnnouncementsRoutingModule } from './announcements-routing.module';
 
@@ -24,6 +25,7 @@ import { AnnouncementsRoutingModule } from './announcements-routing.module';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule,
     AnnouncementsRoutingModule,
     ShowIfManagerModule
