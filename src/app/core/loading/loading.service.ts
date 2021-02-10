@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, Event as RouterEvent, ResolveStart, ResolveEnd } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter, map, distinctUntilChanged } from 'rxjs/operators'
+import { filter, map, distinctUntilChanged, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class LoadingService {
   isNavigationPending$: Observable<boolean> = this.router.events.pipe(
     filter((event: RouterEvent) => this.isConsideredEvent(event)),
     map((event: RouterEvent) => this.isNavigationStart(event)),
-    distinctUntilChanged()
+    distinctUntilChanged(),
   );
 
   private isConsideredEvent(event: RouterEvent): boolean {

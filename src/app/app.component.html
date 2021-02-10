@@ -2,7 +2,6 @@
 <mat-sidenav-container *ngIf="user$ | async; else rawContainer" class="main-container">
   <mat-sidenav mode="side" opened><app-left-navigation></app-left-navigation></mat-sidenav>
   <mat-sidenav-content>
-    <mat-spinner *ngIf="isSLoaderVisibile$ | async"></mat-spinner>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

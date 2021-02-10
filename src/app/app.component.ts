@@ -4,6 +4,7 @@ import { UserService } from './core/user/user.service';
 import { Observable } from 'rxjs';
 import { User } from './core/user/user.model';
 import { LoadingService } from './core/loading/loading.service';
+import { SpinnerOverlayService } from './shared/components/spinner-overlay/spinner-overlay.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,15 @@ import { LoadingService } from './core/loading/loading.service';
 })
 export class AppComponent implements OnInit {
   user$!: Observable<User | null>;
-  isSLoaderVisibile$!: Observable<boolean> ;
 
-  constructor(private userService: UserService, private loadingService: LoadingService) { }
+  constructor(private userService: UserService, private loadingService: LoadingService, private spinnerOverlayService: SpinnerOverlayService) { }
 
   ngOnInit(): void {
     this.user$ = this.userService.getUser();
-    this.isSLoaderVisibile$ = this.loadingService.isNavigationPending$;
+    this.loadingService.isNavigationPending$.subscribe(isLoading => {
+      console.log(isLoading)
+      isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
+    });
+
   }
 }

@@ -47,7 +47,10 @@ export class SpinnerOverlayService {
   }
 
   hide(): void {
-    this.overlayRef?.detach();
-    this.overlayRef = undefined;
+    setTimeout(() => {
+      this.overlayRef?.detach();
+      this.overlayRef = undefined;
+      
+    }, 1);
   }
 }
