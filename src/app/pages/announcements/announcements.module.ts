@@ -11,6 +11,7 @@ import { AnnouncementsComponent } from './announcements.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/show-if-manager.module';
+import { AnnouncementsRoutingModule } from './announcements-routing.module';
 
 @NgModule({
   declarations: [AnnouncementsComponent, AnnouncementComponent],
@@ -24,6 +25,7 @@ import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/sho
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
+    AnnouncementsRoutingModule,
     ShowIfManagerModule
   ],
 })

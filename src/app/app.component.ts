@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.user$ = this.userService.getUser();
     this.loadingService.isNavigationPending$.subscribe(isLoading => {
-      console.log(isLoading)
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
     });
 

@@ -17,7 +17,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RegisterActivityModule } from './pages/register-activity/register-activity.module';
-import { AnnouncementsModule } from './pages/announcements/announcements.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { AnnouncementsModule } from './pages/announcements/announcements.module'
   imports: [
     FormsModule,
     BrowserModule,
-    AnnouncementsModule,
     ReactiveFormsModule,
     RegisterActivityModule,
     BrowserAnimationsModule,

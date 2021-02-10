@@ -43,12 +43,7 @@ const routes: Routes = [
   },
   {
     path: 'announcements',
-    component: AnnouncementsComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'announcements/:id',
-    component: AnnouncementComponent,
+    loadChildren: () => import('./pages/announcements/announcements.module').then(m => m.AnnouncementsModule),
     canActivate: [AuthGuard],
   },
   {
