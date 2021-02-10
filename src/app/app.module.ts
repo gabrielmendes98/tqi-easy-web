@@ -17,11 +17,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RegisterActivityModule } from './pages/register-activity/register-activity.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
   imports: [
     FormsModule,
