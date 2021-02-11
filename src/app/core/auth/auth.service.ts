@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvironmentService } from '../environment/environment.service';
 import { tap } from 'rxjs/operators'
@@ -12,9 +12,10 @@ export class AuthService {
   constructor(private http: HttpClient, private environmentService: EnvironmentService, private userService: UserService) { }
 
   login(email: string, password: string) {
-    const apiUrl = this.environmentService.getApiUrl()
+    const apiUrl = this.environmentService.getApiUrl();
+    const headers = new HttpHeaders().set('skip-interceptor', 'true');
     return this.http
-      .post(apiUrl + '/login', { email, password })
+      .post(apiUrl + '/login', { email, password }, { headers })
       .pipe(tap(response => {
         const { accessToken } = response as any;
         this.userService.setToken(accessToken);
