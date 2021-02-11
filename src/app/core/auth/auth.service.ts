@@ -21,4 +21,10 @@ export class AuthService {
         this.userService.setToken(accessToken);
       }));
   }
+
+  changePassword(password: string, newPassword: string) {
+    const apiUrl = this.environmentService.getApiUrl();
+    const userId = this.userService.getUserId();
+    return this.http.patch(apiUrl + '/users/' + userId, { password, newPassword });
+  }
 }

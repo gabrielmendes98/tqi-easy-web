@@ -13,8 +13,6 @@
 
   <button mat-icon-button type="button" class="icon-button">
     <app-icon color="#1565C0" icon="bell" size="md"></app-icon>
-    <!-- <mat-icon>keyboard_arrow_down</mat-icon> -->
-
   </button>
 
   <div class="profile-dropdown" [matMenuTriggerFor]="menu">
@@ -25,8 +23,8 @@
     <mat-icon>keyboard_arrow_down</mat-icon>
   </div>
   <mat-menu #menu>
-    <button mat-menu-item>Perfil</button>
-    <button mat-menu-item>Mudar senha</button>
+    <a [routerLink]="['/profile']" mat-menu-item>Perfil</a>
+    <a [routerLink]="['/change-password']" mat-menu-item>Mudar senha</a>
     <button mat-menu-item (click)="logout()" >Sair</button>
   </mat-menu>
 
