@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +18,7 @@ import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { SharedModule } from './shared/shared.module';
 import { RegisterActivityModule } from './pages/register-activity/register-activity.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { GlobalErrorHandler } from './core/error/global-error-handler';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: MAT_DATE_LOCALE, useValue: 'pt' },
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
   ],
   bootstrap: [AppComponent],
 })

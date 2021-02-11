@@ -21,6 +21,11 @@ export class SpinnerOverlayInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
+    if(request.headers.has('skip-interceptor')) {
+      const headers = request.headers.delete('skip-interceptor');
+      return next.handle(request.clone({ headers }));
+    }
+
     this.spinnerOverlayService.showLoading();
     return next.handle(request).pipe(
       tap((event) => {
