@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -13,15 +13,24 @@ export class LoginComponent implements OnInit {
   loginError = false;
   loginErrorMessage = '';
 
+  fromUrl?: string;
+
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+
+    this.activatedRoute.queryParams.subscribe(params => this.fromUrl = params.fromUrl);
   }
 
   getErrorMessage() {
@@ -39,7 +48,8 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid) {
       this.authService.login(email, password).subscribe(
         () => {
-          this.router.navigate(['/']);
+          if(this.fromUrl) this.router.navigateByUrl(this.fromUrl);
+          else this.router.navigate(['/']);
         }, 
         error => {
           this.loginErrorMessage = error.error.message;
