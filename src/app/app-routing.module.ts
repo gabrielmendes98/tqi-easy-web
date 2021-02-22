@@ -3,8 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
 import { RoleGuard } from './core/role/role.guard';
 import { Role } from './core/user/role.model';
-import { AnnouncementComponent } from './pages/announcements/announcement/announcement.component';
-import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';

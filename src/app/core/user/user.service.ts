@@ -16,12 +16,20 @@ export class UserService {
   private userName!: string;
 
   constructor(private tokenService: TokenService, private router: Router) {
-    this.tokenService.hasToken() && this.decodeAndNotify();
+    this.tokenService.hasToken('authToken') && this.decodeAndNotify();
   }
 
   setToken(token: string) {
-    this.tokenService.setToken(token);
+    this.tokenService.setToken('authToken', token);
     this.decodeAndNotify();
+  }
+
+  setRefreshToken(token: string) {
+    this.tokenService.setToken('refreshToken', token);
+  }
+
+  getRefreshToken() {
+    return this.tokenService.getToken('refreshToken');
   }
 
   getUser() {
@@ -41,17 +49,18 @@ export class UserService {
   }
 
   logout() {
-    this.tokenService.removeToken();
+    this.tokenService.removeToken('authToken');
+    this.tokenService.removeToken('refreshToken');
     this.userSubject.next(null);
     this.router.navigate(['/login']);
   }
 
   isLogged() {
-    return this.tokenService.hasToken();
+    return this.tokenService.hasToken('authToken');
   }
 
   private decodeAndNotify() {
-    const token = this.tokenService.getToken();
+    const token = this.tokenService.getToken('authToken');
     const decoded: any = jwtDecode(token!);
     const user: User = decoded.payload;
     this.userRole = user.role;

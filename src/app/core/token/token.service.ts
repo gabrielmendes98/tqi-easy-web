@@ -4,19 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TokenService {
-  hasToken() {
-    return !!this.getToken();
+  hasToken(key: string) {
+    return !!this.getToken(key);
   }
 
-  getToken() {
-    return window.localStorage.getItem('authToken');
+  getToken(key: string) {
+    return window.localStorage.getItem(key);
   }
 
-  setToken(token: string) {
-    return window.localStorage.setItem('authToken', token);
+  setToken(key: string, token: string) {
+    return window.localStorage.setItem(key, token);
   }
 
-  removeToken() {
-    window.localStorage.removeItem('authToken');
+  removeToken(key: string) {
+    window.localStorage.removeItem(key);
   }
 }

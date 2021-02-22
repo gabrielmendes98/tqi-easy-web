@@ -9,16 +9,21 @@ import { UserService } from '../user/user.service';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private environmentService: EnvironmentService, private userService: UserService) { }
+  constructor(
+    private http: HttpClient,
+    private environmentService: EnvironmentService,
+    private userService: UserService,
+  ) { }
 
   login(email: string, password: string) {
     const apiUrl = this.environmentService.getApiUrl();
     const headers = new HttpHeaders().set('skip-interceptor', 'true');
     return this.http
-      .post(apiUrl + '/login', { email, password }, { headers })
+      .post<AuthResponse>(apiUrl + '/login', { email, password }, { headers })
       .pipe(tap(response => {
-        const { accessToken } = response as any;
+        const { accessToken, refreshToken } = response;
         this.userService.setToken(accessToken);
+        this.userService.setRefreshToken(refreshToken)
       }));
   }
 
@@ -28,4 +33,22 @@ export class AuthService {
     const userId = this.userService.getUserId();
     return this.http.patch(apiUrl + '/users/' + userId, { password, newPassword });
   }
+
+  refreshToken() {
+    const apiUrl = this.environmentService.getApiUrl();
+    const headers = new HttpHeaders().set('skip-interceptor', 'true');
+    const refreshToken = this.userService.getRefreshToken();
+    return this.http
+      .post<AuthResponse>(apiUrl + '/refresh-token', { refreshToken }, { headers })
+      .pipe(tap(response => {
+        const { accessToken, refreshToken } = response;
+        this.userService.setToken(accessToken);
+        this.userService.setRefreshToken(refreshToken)
+      }));
+  }
+}
+
+interface AuthResponse {
+  accessToken: string; 
+  refreshToken: string;
 }
