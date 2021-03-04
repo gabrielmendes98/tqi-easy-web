@@ -9,7 +9,8 @@
     <span>Registrar ponto</span>
   </a>
 
-  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" routerLinkActive="active" queryParamsHandling="merge" showIfManager>
+  <a [routerLink]="['/alura-access']" routerLinkActive="" #rla="routerLinkActive" hidden></a>
+  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" [class.active]="rla.isActive" queryParamsHandling="merge" showIfManager>
     <mat-icon>menu_book</mat-icon>
     <span>Acesso Alura</span>
   </a>
