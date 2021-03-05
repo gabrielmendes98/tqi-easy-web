@@ -11,8 +11,6 @@ table {
 
 .mat-header-cell {
   vertical-align: middle;
-  background-color: $tqi-blue-light;
-  color: $white;
 }
 
 .mat-header-row {
@@ -21,12 +19,10 @@ table {
 
 .mat-cell {
   vertical-align: middle;
-  color: $text-dark;
   font-weight: 500;
 }
 
 .status-action {
-  color: $tqi-blue-light;
   font-weight: 500;
   cursor: pointer;
 }
@@ -58,14 +54,5 @@ table {
 
   button:first-of-type {
     margin-right: 20px;
-  }
-
-  button {
-    background-color: $tqi-blue-light;
-    color: $white;
-  }
-
-  button:disabled {
-    opacity: 0.6;
   }
 }

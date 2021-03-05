@@ -4,7 +4,6 @@
   border: 1px solid $border;
   display: flex;
   align-items: center;
-  background-color: white;
   border-radius: 5px;
   width: 60%;
   overflow: hidden;
@@ -20,8 +19,6 @@ input {
 }
 
 .filter-button {
-  background-color: $tqi-blue-light;
-  color: $white;
   padding-right: 10px;
 }
 
@@ -30,7 +27,7 @@ input {
 }
 
 ::ng-deep .hide-arrow .mat-sort-header-arrow {
-  color: #fff;
+  color: $white;
 }
 
 .loading-spinner {

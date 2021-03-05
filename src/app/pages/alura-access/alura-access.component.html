@@ -7,7 +7,7 @@
   </form>
   
   <div class="filter-container">
-    <button class="filter-button" mat-button [matMenuTriggerFor]="filterByElement">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
+    <button class="filter-button" mat-flat-button color="primary" [matMenuTriggerFor]="filterByElement">Filtrar <mat-icon>arrow_drop_down</mat-icon></button>
     <mat-menu #filterByElement>
       <button mat-menu-item (click)="filterBy(null)">Todos</button>
       <button *ngFor="let status of statusList" mat-menu-item (click)="filterBy(status)">{{status}}</button>

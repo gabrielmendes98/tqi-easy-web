@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>Atualizar status do acesso à Alura</h1>
+<h1 mat-dialog-title class="text-primary">Atualizar status do acesso à Alura</h1>
 <div mat-dialog-content>
   <div class="name-date-container">
     <div class="name">
-      <span class="subtitle">Nome: </span>
+      <span class="subtitle text-primary">Nome: </span>
       <span class="text">{{ access.name }}</span>
     </div>
     <div class="date">
       <span class="subtitle">Data Solicitação: </span>
-      <span class="text">{{ access.date | date: 'dd/MM/yyyy' }}</span>
+      <span class="text text-dark">{{ access.date | date: 'dd/MM/yyyy' }}</span>
     </div>
   </div>
   <div class="status-container">
@@ -23,6 +23,6 @@
   </div>
 </div>
 <div mat-dialog-actions class="actions-container">
-  <button mat-button (click)="onNoClick()" class="action-button">Cancelar</button>
-  <button mat-button [mat-dialog-close]="access.status" class="action-button">Atualizar</button>
+  <button mat-stroked-button color="primary" (click)="onNoClick()" class="action-button">Cancelar</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="access.status" class="action-button">Atualizar</button>
 </div>

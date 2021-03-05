@@ -1,17 +1,12 @@
-@import '../../../../assets/styles/colors.scss';
-
 .subtitle {
-  color: $tqi-blue-light;
   font-weight: 500;
 }
 
 .text {
-  color: $text-dark;
   font-weight: 500;
 }
 
 h1 {
-  color: $tqi-blue-light;
   margin-bottom: 16px;
 }
 
@@ -39,7 +34,5 @@ h1 {
 }
 
 .action-button {
-  background-color: $tqi-blue-light;
-  color: $white;
   font-weight: 500;
 }
