@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 .container {
   width: fit-content;
@@ -17,12 +17,12 @@
 
 h1 {
   margin-top: 8px;
-  color: $secondary;
+  color: $tqi-blue-light;
 }
 
 .title-icon {
   margin-left: 30px;
-  color: $secondary;
+  color: $tqi-blue-light;
 }
 
 .subtitle-container {

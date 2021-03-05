@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../assets/styles/colors.scss';
 
 .search-form {
   border: 1px solid $border;
@@ -20,7 +20,7 @@ input {
 }
 
 .filter-button {
-  background-color: $secondary;
+  background-color: $tqi-blue-light;
   color: $white;
   padding-right: 10px;
 }

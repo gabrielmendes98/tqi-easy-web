@@ -1,4 +1,4 @@
-@import '../styles.scss';
+@import '../assets/styles/colors.scss';
 
 .main-container {
   height: calc(100% - 64px);
@@ -9,7 +9,7 @@ mat-sidenav {
 }
 
 .mat-sidenav {
-  background-color: $primary;
+  background-color: $tqi-blue-dark;
   padding-top: 36px;
 }
 

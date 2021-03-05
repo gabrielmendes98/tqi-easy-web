@@ -1,0 +1,34 @@
+@import './assets/styles/colors.scss';
+
+@import '~@angular/material/theming';
+
+$mat-tqi: (
+  500: #1565c0,
+  700: #003c8f,
+  contrast: (
+    500: $white,
+    700: $text-light,
+  ),
+);
+
+$primary-color: mat-palette($mat-tqi, 500, 100);
+$accent: mat-palette($mat-tqi, 100);
+$warn: mat-palette($mat-pink, 400);
+
+$light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $primary-color,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+.light-theme {
+  @include angular-material-theme($light-theme);
+
+  .text-primary {
+    color: mat-color($mat-tqi, 500);
+  }
+}

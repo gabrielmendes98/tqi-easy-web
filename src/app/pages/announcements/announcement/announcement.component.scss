@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 .image {
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 h2 {
- color: $secondary;
+ color: $tqi-blue-light;
  margin-bottom: 20px;
 }
 
@@ -24,7 +24,7 @@ pre {
 }
 
 h3 {
-  color: $secondary;
+  color: $tqi-blue-light;
   margin-bottom: 20px;
 }
 
@@ -42,14 +42,14 @@ form {
 
 button {
   color: $white !important;
-  background-color: $secondary !important;
+  background-color: $tqi-blue-light !important;
   margin-bottom: 20px;
 }
 
 .back-link {
   display: flex;
   align-items: center;
-  color: $secondary;
+  color: $tqi-blue-light;
   font-weight: 500;
   font-size: 16px;
   width: fit-content;

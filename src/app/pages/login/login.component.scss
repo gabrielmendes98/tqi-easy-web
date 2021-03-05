@@ -1,9 +1,9 @@
-@import '../../../styles.scss';
+@import '../../../assets/styles/colors.scss';
 
 .background {
   width: 100%;
-  height: 100%;
-  background-color: $primary;
+  height: 100vh;
+  background-color: $tqi-blue-dark;
 }
 
 .logo-container {
@@ -46,7 +46,7 @@
   border-radius: 5px;
 
   h3 {
-    color: $secondary;
+    color: $tqi-blue-light;
     margin-bottom: 8px;
   }
 
@@ -62,12 +62,7 @@ form {
 }
 
 label {
-  color: $secondary;
-}
-
-.button {
-  background-color: $secondary;
-  color: $white;
+  color: $tqi-blue-light;
 }
 
 .error-message {

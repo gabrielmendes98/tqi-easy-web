@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import '../../../assets/styles/colors.scss';
 
 .container {
   width: 80%;
@@ -7,7 +7,7 @@
 }
 
 .form-title {
-  color: $secondary;
+  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -23,12 +23,12 @@ img {
 }
 
 .edit-profile-button {
-  background-color: $secondary;
+  background-color: $tqi-blue-light;
   color: $white;
 }
 
 h3 {
-  color: $secondary;
+  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }

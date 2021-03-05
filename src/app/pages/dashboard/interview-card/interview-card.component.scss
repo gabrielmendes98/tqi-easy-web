@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 .title-container {
   display: flex;
@@ -12,7 +12,7 @@
 }
 
 h1 {
-  color: $secondary;
+  color: $tqi-blue-light;
 }
 
 .subtitle-container {

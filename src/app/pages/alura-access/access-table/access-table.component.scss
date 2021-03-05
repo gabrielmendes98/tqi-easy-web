@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 .table-container {
   width: 80%;
@@ -11,7 +11,7 @@ table {
 
 .mat-header-cell {
   vertical-align: middle;
-  background-color: $secondary;
+  background-color: $tqi-blue-light;
   color: $white;
 }
 
@@ -26,7 +26,7 @@ table {
 }
 
 .status-action {
-  color: $secondary;
+  color: $tqi-blue-light;
   font-weight: 500;
   cursor: pointer;
 }
@@ -61,7 +61,7 @@ table {
   }
 
   button {
-    background-color: $secondary;
+    background-color: $tqi-blue-light;
     color: $white;
   }
 

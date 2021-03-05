@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 img {
   width: 100px;
@@ -11,7 +11,7 @@ img {
 }
 
 .form-title {
-  color: $secondary;
+  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -48,12 +48,12 @@ button, a {
 }
 
 .stroked-button {
-  border: 1px solid $secondary !important;
-  color: $secondary;
+  border: 1px solid $tqi-blue-light !important;
+  color: $tqi-blue-light;
 }
 
 .flat-button {
-  background-color: $secondary;
+  background-color: $tqi-blue-light;
   color: $white;
 }
 

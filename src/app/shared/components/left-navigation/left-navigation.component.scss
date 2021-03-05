@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../assets/styles/colors.scss';
 
 mat-icon {
   margin-right: 12px;
@@ -12,7 +12,7 @@ mat-icon {
 }
 
 .active {
-  background-color: $secondary;
+  background-color: $tqi-blue-light;
   color: $white;
 }
 
