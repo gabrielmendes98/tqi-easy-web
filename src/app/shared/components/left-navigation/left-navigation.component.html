@@ -1,26 +1,39 @@
-<div>
-  <a class="item" [routerLink]="['/dashboard']" routerLinkActive="active" showIfManager>
+<div class="container bg-dark">
+  <a
+    class="item text-light"
+    [routerLink]="['/dashboard']"
+    [routerLinkActive]="['bg-light', 'text-white']"
+    showIfManager
+  >
     <mat-icon>home</mat-icon>
     <span>Dashboard</span>
   </a>
 
-  <a class="item" [routerLink]="['/register-activity']" routerLinkActive="active">
+  <a class="item text-light" [routerLink]="['/register-activity']" [routerLinkActive]="['bg-light', 'text-white']">
     <mat-icon>access_alarm</mat-icon>
     <span>Registrar ponto</span>
   </a>
 
   <a [routerLink]="['/alura-access']" routerLinkActive="" #rla="routerLinkActive" hidden></a>
-  <a class="item" [routerLink]="['/alura-access']" [queryParams]="{page: 1}" [class.active]="rla.isActive" queryParamsHandling="merge" showIfManager>
+  <a
+    class="item text-light"
+    [routerLink]="['/alura-access']"
+    [queryParams]="{ page: 1 }"
+    [class.bg-light]="rla.isActive"
+    [class.text-white]="rla.isActive"
+    queryParamsHandling="merge"
+    showIfManager
+  >
     <mat-icon>menu_book</mat-icon>
     <span>Acesso Alura</span>
   </a>
 
-  <a class="item" [routerLink]="['/profile']" routerLinkActive="active">
+  <a class="item text-light" [routerLink]="['/profile']" [routerLinkActive]="['bg-light', 'text-white']">
     <mat-icon>person</mat-icon>
     <span>Perfil</span>
   </a>
 
-  <a class="item" [routerLink]="['/announcements']" routerLinkActive="active">
+  <a class="item text-light" [routerLink]="['/announcements']" [routerLinkActive]="['bg-light', 'text-white']">
     <app-icon icon="speaker" size="md"></app-icon>
     <span>Anúncios</span>
   </a>

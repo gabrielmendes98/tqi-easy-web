@@ -4,16 +4,16 @@ mat-icon {
   margin-right: 12px;
 }
 
+.container {
+  height: 100%;
+  padding-top: 36px;
+  width: 241px;
+}
+
 .item {
   display: flex;
   align-items: center;
-  color: $text-light;
   padding: 8px 8px 8px 24px;
-}
-
-.active {
-  background-color: $tqi-blue-light;
-  color: $white;
 }
 
 app-icon {
