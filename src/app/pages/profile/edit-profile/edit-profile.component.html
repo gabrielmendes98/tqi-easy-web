@@ -1,4 +1,4 @@
-<h2 class="form-title">Editar perfil</h2>
+<h2 class="form-title text-primary">Editar perfil</h2>
 
 <form [formGroup]="editProfileForm" (submit)="saveProfile()">
   <input type="file" #fileElement accept="image/*" class="hidden-input" (change)="setImage($event)">
@@ -9,13 +9,13 @@
   <app-general-info-form></app-general-info-form>
 
   <p>Possui restrições a comemoração do seu aniversário?</p>
-  <mat-radio-group formControlName="hasBirthdayRestriction">
+  <mat-radio-group color="primary" formControlName="hasBirthdayRestriction">
     <mat-radio-button [value]="true">Sim</mat-radio-button>
     <mat-radio-button [value]="false">Não</mat-radio-button>
   </mat-radio-group>
 
   <div class="actions">
     <a [routerLink]="['/profile']" color="primary" mat-stroked-button class="stroked-button">Cancelar</a>
-    <button mat-flat-button type="submit" class="flat-button" [disabled]="editProfileForm.invalid">Salvar</button>
+    <button mat-flat-button type="submit" color="primary" [disabled]="editProfileForm.invalid">Salvar</button>
   </div>
 </form>

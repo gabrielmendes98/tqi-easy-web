@@ -11,7 +11,6 @@ img {
 }
 
 .form-title {
-  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -45,11 +44,6 @@ mat-radio-group {
 
 button, a {
   width: 100%;
-}
-
-.flat-button {
-  background-color: $tqi-blue-light;
-  color: $white;
 }
 
 app-general-info-form {

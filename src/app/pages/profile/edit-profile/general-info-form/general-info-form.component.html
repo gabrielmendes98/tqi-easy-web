@@ -1,22 +1,22 @@
 <form [formGroup]="generalInfoForm" class="form">
-  <h3>Informações gerais</h3>
+  <h3 class="primary">Informações gerais</h3>
 
-  <mat-slide-toggle formControlName="isMarried">Você é casado(a)?</mat-slide-toggle>
+  <mat-slide-toggle color="primary" formControlName="isMarried">Você é casado(a)?</mat-slide-toggle>
   <mat-form-field appearance="outline" *ngIf="isMarried">
     <mat-label>Nome</mat-label>
     <input formControlName="fianceName" type="text" matInput/>
     <mat-error *ngIf="generalInfoForm.get('fianceName')?.errors?.required">Este campo deve ser preenchido</mat-error>
   </mat-form-field>
 
-  <mat-slide-toggle formControlName="hasChildren">Você tem filhos(as)?</mat-slide-toggle>
+  <mat-slide-toggle color="primary" formControlName="hasChildren">Você tem filhos(as)?</mat-slide-toggle>
   <app-child-form *ngFor="let childForm of childrenControls" [childForm]="childForm"></app-child-form>
 
   <div class="actions" *ngIf="generalInfoForm.get('hasChildren')?.value">
-    <button mat-mini-fab (click)="removeChild()">
+    <button mat-mini-fab color="primary" (click)="removeChild()">
       <mat-icon>remove</mat-icon>
     </button>
 
-    <button mat-mini-fab (click)="addChild()">
+    <button mat-mini-fab color="primary" (click)="addChild()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

@@ -7,7 +7,6 @@
 }
 
 .form-title {
-  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -19,16 +18,11 @@ img {
   border-radius: 50%;
   opacity: 0.7;
   margin-bottom: 20px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
-.edit-profile-button {
-  background-color: $tqi-blue-light;
-  color: $white;
-}
-
 h3 {
-  color: $tqi-blue-light;
   margin-bottom: 20px;
   font-weight: 500;
 }
