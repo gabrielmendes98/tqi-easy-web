@@ -34,16 +34,6 @@ mat-slide-toggle {
   }
 }
 
-.flat-button {
-  background: $tqi-blue-light;
-  color: $white;
-}
-
-.stroked-button {
-  border: 1px solid $tqi-blue-light !important;
-  color: $tqi-blue-light;
-}
-
 @media only screen and (max-width: $desktop-md) {
   form {
     width: 100%;

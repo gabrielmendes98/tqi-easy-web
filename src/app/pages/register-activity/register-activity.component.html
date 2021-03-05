@@ -34,7 +34,7 @@
     </mat-form-field>
   </div>
 
-  <mat-slide-toggle formControlName="aditionalHoursCheck">Horas adicionais?</mat-slide-toggle>
+  <mat-slide-toggle color="primary" formControlName="aditionalHoursCheck">Horas adicionais?</mat-slide-toggle>
   <div class="group-fields">
     <mat-form-field appearance="outline" *ngIf="showAditionalHoursField">
       <mat-label>Horas trabalhadas</mat-label>
@@ -43,7 +43,7 @@
     </mat-form-field>
   </div>
 
-  <mat-slide-toggle formControlName="nightHoursCheck">Horas noturnas?</mat-slide-toggle>
+  <mat-slide-toggle color="primary" formControlName="nightHoursCheck">Horas noturnas?</mat-slide-toggle>
   <div class="group-fields" *ngIf="showNightHoursField">
     <mat-form-field appearance="outline">
       <mat-label>Hora início</mat-label>
@@ -58,7 +58,7 @@
   </div>
 
   <div class="group-fields">
-    <button mat-stroked-button class="stroked-button" (click)="fastFill()">Preenchimento rápido</button>
-    <button mat-flat-button class="flat-button" type="submit" [disabled]="registerActivityForm.invalid">Salvar</button>
+    <button mat-stroked-button color="primary" (click)="fastFill()">Preenchimento rápido</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="registerActivityForm.invalid">Salvar</button>
   </div>
 </form>
