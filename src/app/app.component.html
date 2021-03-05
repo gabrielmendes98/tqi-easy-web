@@ -1,4 +1,4 @@
-<app-top-navigation *ngIf="user$ | async"></app-top-navigation>
+<app-top-navigation class="light-theme" *ngIf="user$ | async"></app-top-navigation>
 <mat-sidenav-container *ngIf="user$ | async; else rawContainer" class="main-container">
   <mat-sidenav mode="side" opened><app-left-navigation></app-left-navigation></mat-sidenav>
   <mat-sidenav-content>
@@ -9,6 +9,5 @@
 <ng-template #rawContainer >
   <div class="light-theme">
     <router-outlet ></router-outlet>
-
   </div>
 </ng-template>

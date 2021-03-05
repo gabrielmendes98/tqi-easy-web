@@ -31,4 +31,16 @@ $light-theme: mat-light-theme(
   .text-primary {
     color: mat-color($mat-tqi, 500);
   }
+
+  .text-light {
+    color: $text-light;
+  }
+
+  .text-white {
+    color: $white;
+  }
+
+  .bg-dark {
+    background-color: mat-color($mat-tqi, 700);
+  }
 }

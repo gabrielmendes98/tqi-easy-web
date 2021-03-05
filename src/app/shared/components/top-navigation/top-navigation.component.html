@@ -1,7 +1,7 @@
 <mat-toolbar>
-  <div class="logo-container-bg">
-    <div class="logo-container">
-      <app-icon icon="app" color="#fff" size="md" class="icon"></app-icon>
+  <div class="logo-container-bg bg-dark">
+    <div class="logo-container text-white">
+      <app-icon icon="app" size="md" class="icon"></app-icon>
       <div>
         <h3>TQI EASY</h3>
         <p>Dashboard</p>
@@ -12,15 +12,15 @@
   <span class="spacer"></span>
 
   <button mat-icon-button type="button" class="icon-button">
-    <app-icon color="#1565C0" icon="bell" size="md"></app-icon>
+    <app-icon class="text-primary" icon="bell" size="md"></app-icon>
   </button>
 
   <div class="profile-dropdown" [matMenuTriggerFor]="menu">
     <div>
-      <h4>{{ user.name }}</h4>
-      <p>{{ user.role }}</p>
+      <h4 class="text-primary">{{ user.name }}</h4>
+      <p class="text-light">{{ user.role }}</p>
     </div>
-    <mat-icon>keyboard_arrow_down</mat-icon>
+    <mat-icon color="primary">keyboard_arrow_down</mat-icon>
   </div>
   <mat-menu #menu>
     <a [routerLink]="['/profile']" mat-menu-item>Perfil</a>
