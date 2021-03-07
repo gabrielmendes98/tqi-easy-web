@@ -1,4 +1,4 @@
-<div class="background">
+<div class="container bg-dark">
   <div class="logo-container">
     <app-icon icon="app" color="#fff" size="lg" class="icon"></app-icon>
     <div>
@@ -7,9 +7,9 @@
     </div>
   </div>
 
-  <div class="form-container">
-    <h3>Bem vindo(a)!</h3>
-    <p>Insira seu e-mail e senha para acessar nosso dashboard</p>
+  <div class="form-container mat-app-background">
+    <h3 class="text-primary">Bem vindo(a)!</h3>
+    <p class="text-light">Insira seu e-mail e senha para acessar nosso dashboard</p>
 
     <form [formGroup]="loginForm" (submit)="login()">
       <mat-form-field appearance="outline">

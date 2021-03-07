@@ -1,0 +1,54 @@
+@import './assets/styles/colors.scss';
+
+@import '~@angular/material/theming';
+
+$mat-tqi-dark: (
+  500: #fb00b7,
+  700: #60004a,
+  contrast: (
+    500: $white,
+    700: $text-light,
+  ),
+);
+
+$primary-color-dark: mat-palette($mat-tqi-dark, 500, 100);
+$accent-dark: mat-palette($mat-tqi-dark, 500);
+$warn-dark: mat-palette($mat-pink, 400);
+
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $primary-color-dark,
+      accent: $accent-dark,
+      warn: $warn-dark,
+    ),
+  )
+);
+
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+
+  .text-primary {
+    color: mat-color($mat-tqi-dark, 500);
+  }
+
+  .text-dark {
+    color: $text-dark !important;
+  }
+
+  .text-light {
+    color: $text-light !important;
+  }
+
+  .text-white {
+    color: $white !important;
+  }
+
+  .bg-dark {
+    background-color: mat-color($mat-tqi-dark, 700);
+  }
+
+  .bg-light {
+    background-color: mat-color($mat-tqi-dark, 500);
+  }
+}

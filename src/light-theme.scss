@@ -12,7 +12,7 @@ $mat-tqi: (
 );
 
 $primary-color: mat-palette($mat-tqi, 500, 100);
-$accent: mat-palette($mat-tqi, 100);
+$accent: mat-palette($mat-tqi, 500);
 $warn: mat-palette($mat-pink, 400);
 
 $light-theme: mat-light-theme(

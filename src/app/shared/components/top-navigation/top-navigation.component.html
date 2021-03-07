@@ -11,6 +11,14 @@
   
   <span class="spacer"></span>
 
+  <button *ngIf="currentTheme === THEME.LIGHT" mat-icon-button color="primary" (click)="changeTheme(THEME.DARK)">
+    <mat-icon>light_mode</mat-icon>
+  </button>
+
+  <button *ngIf="currentTheme === THEME.DARK" mat-icon-button color="primary" (click)="changeTheme(THEME.LIGHT)">
+    <mat-icon>dark_mode</mat-icon>
+  </button>
+
   <button mat-icon-button type="button" class="icon-button">
     <app-icon class="text-primary" icon="bell" size="md"></app-icon>
   </button>
