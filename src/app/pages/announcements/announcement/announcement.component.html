@@ -1,15 +1,15 @@
 <mat-spinner *ngIf="!announcement; else announcementTemplate"></mat-spinner>
 <ng-template #announcementTemplate>
-  <a [routerLink]="['/announcements']" class="back-link"><mat-icon>arrow_back</mat-icon>Voltar</a>
+  <a [routerLink]="['/announcements']" class="back-link text-primary"><mat-icon>arrow_back</mat-icon>Voltar</a>
   <div class="image">
     <img [src]="announcement.imageUrl" alt="Imagem do anúncio">
   </div>
   
-  <h2>{{announcement.title}}</h2>
+  <h2 class="text-primary">{{announcement.title}}</h2>
   
-  <pre>{{announcement.description}}</pre>
+  <pre class="text-dark">{{announcement.description}}</pre>
   
-  <h3>Comentários</h3>
+  <h3 class="text-primary">Comentários</h3>
   
   <form [formGroup]="commentForm" (submit)="saveComment()">
     <mat-form-field appearance="fill">
@@ -17,15 +17,15 @@
       <textarea matInput formControlName="comment"></textarea>
     </mat-form-field>
   
-    <button mat-flat-button type="submit">Comentar</button>
+    <button mat-flat-button color="primary" type="submit">Comentar</button>
   </form>
   
   <mat-spinner *ngIf="!announcement.comments; else commentsTemplate"></mat-spinner>
   <ng-template #commentsTemplate>
     <div class="comments" *ngIf="announcement.comments">
       <div class="comment"*ngFor="let comment of announcement.comments">
-        <span class="author">{{comment.author}}</span> <span class="date">{{comment.date | date: 'dd/MM/yyyy'}}</span>
-        <p>{{comment.comment}}</p>
+        <span class="author text-dark">{{comment.author}}</span> <span class="text-light">{{comment.date | date: 'dd/MM/yyyy'}}</span>
+        <p class="text-light">{{comment.comment}}</p>
       </div>
     </div>
   </ng-template>

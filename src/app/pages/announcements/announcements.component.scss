@@ -3,7 +3,6 @@
 a {
   display: flex;
   flex: 1;
-  color: $text-dark;
 }
 
 mat-card {
@@ -41,10 +40,6 @@ p {
     display: inline-block;
     font-size: 13px;
     color: $red;
-  }
-
-  .delete-icon {
-    color: $text-dark;
   }
 }
 

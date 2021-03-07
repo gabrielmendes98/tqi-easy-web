@@ -7,7 +7,6 @@
 }
 
 h2 {
- color: $tqi-blue-light;
  margin-bottom: 20px;
 }
 
@@ -17,14 +16,12 @@ img {
 
 pre {
   font-family: Roboto;
-  color: $text-dark;
   white-space: pre-wrap;
   word-break: keep-all;
   margin-bottom: 20px;
 }
 
 h3 {
-  color: $tqi-blue-light;
   margin-bottom: 20px;
 }
 
@@ -41,15 +38,12 @@ form {
 }
 
 button {
-  color: $white !important;
-  background-color: $tqi-blue-light !important;
   margin-bottom: 20px;
 }
 
 .back-link {
   display: flex;
   align-items: center;
-  color: $tqi-blue-light;
   font-weight: 500;
   font-size: 16px;
   width: fit-content;
@@ -67,20 +61,11 @@ button {
 .author {
   display: inline-block;
   font-weight: 500;
-  color: $text-dark;
   margin-right: 12px;
   margin-bottom: 6px;
-}
-
-.date {
-  color: $text-light;
 }
 
 .comment {
   padding: 8px 0;
   border-bottom: 1px solid $text-light;
-
-  p {
-    color: $text-light;
-  }
 }

@@ -8,7 +8,7 @@
   <mat-card *ngFor="let announcement of announcements">
     <a [routerLink]="[announcement.id]">
       <img [src]="announcement.imageUrl || '../../../assets/image-placeholder.png'" alt="" />
-      <div class="text-wrapper">
+      <div class="text-wrapper text-dark">
         <div class="fade">
           <p>
             {{ announcement.description }}
@@ -19,7 +19,7 @@
   
     <div class="actions">
       <button mat-icon-button showIfManager (click)="deleteAnnouncement(announcement.id)">
-        <mat-icon class="delete-icon">delete_outline</mat-icon>
+        <mat-icon class="delete-icon text-dark">delete_outline</mat-icon>
       </button>
       <span color="warn">{{announcement.likes}}</span>
       <button mat-icon-button color="warn">
