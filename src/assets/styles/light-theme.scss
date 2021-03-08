@@ -1,4 +1,4 @@
-@import './assets/styles/colors.scss';
+@import './colors.scss';
 
 @import '~@angular/material/theming';
 
@@ -67,6 +67,9 @@ $light-theme: mat-light-theme(
     width: 70%;
     height: 1.2em;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
-    // background: linear-gradient(to right, transparent, 50%, #424242);
+  }
+
+  .mat-stroked-button {
+    border: 1px solid currentColor !important;
   }
 }
