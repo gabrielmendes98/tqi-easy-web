@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <div class="logo-container-bg bg-dark">
+  <div class="logo-container-bg bg-dark" *ngIf="!showMenuButton">
     <div class="logo-container text-white">
       <app-icon icon="app" size="md" class="icon"></app-icon>
       <div>
@@ -8,6 +8,10 @@
       </div>
     </div>
   </div>
+
+  <button mat-icon-button color="primary" class="menu-button" (click)="toggleSidenav()" *ngIf="showMenuButton">
+    <mat-icon>menu</mat-icon>
+  </button>
   
   <span class="spacer"></span>
 

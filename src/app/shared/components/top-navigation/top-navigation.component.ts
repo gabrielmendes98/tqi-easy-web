@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/core/user/user.model';
 import { UserService } from 'src/app/core/user/user.service';
 import { THEME } from '../../../../assets/styles/themes.enum';
+import { SidenavService } from '../../../core/sidenav/sidenav.service';
 import { ThemeService } from '../../../core/theme/theme.service';
 
 @Component({
@@ -11,14 +13,19 @@ import { ThemeService } from '../../../core/theme/theme.service';
 })
 export class TopNavigationComponent implements OnInit {
   user!: User;
+  showMenuButton!: boolean;
   THEME = THEME;
 
-  constructor(private userService: UserService, private themeService: ThemeService) { }
+  constructor(private userService: UserService, private themeService: ThemeService, private sidenavService: SidenavService) { }
   
   ngOnInit(): void {
     this.userService.getUser().subscribe(user => {
       this.user = user!;
     });
+
+    this.sidenavService.getScreenWidth().subscribe(width => {
+      this.showMenuButton = width < 768;
+    })
   }
 
   logout() {
@@ -31,6 +38,10 @@ export class TopNavigationComponent implements OnInit {
 
   get currentTheme() {
     return this.themeService.getCurrentTheme();
+  }
+
+  toggleSidenav() {
+    this.sidenavService.toggle();
   }
 
 }
