@@ -50,6 +50,9 @@ export class AppComponent implements OnInit {
     })
 
     this.loadingService.isNavigationPending$.subscribe((isLoading) => {
+      if(this.isMobile) {
+        this.sidenavService.close();
+      }
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
     });
   }
