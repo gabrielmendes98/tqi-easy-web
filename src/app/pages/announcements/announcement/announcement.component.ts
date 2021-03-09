@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Announcement } from '../announcements.model';
+import { Announcement, Comment } from '../announcements.model';
 import { AnnouncementsService } from '../announcements.service';
 
 @Component({
@@ -39,6 +39,11 @@ export class AnnouncementComponent implements OnInit {
       .pipe(switchMap(() => this.announcementsService.getComments(this.id)))
       .subscribe(comments => {
         this.announcement.comments = [...comments];
+        this.commentForm.reset();
       });
+  }
+
+  trackByFn(index: number, item: Comment) {
+    return item.id;
   }
 }

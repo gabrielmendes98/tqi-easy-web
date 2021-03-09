@@ -9,7 +9,11 @@
   </mat-form-field>
 
   <mat-slide-toggle color="primary" formControlName="hasChildren">Você tem filhos(as)?</mat-slide-toggle>
-  <app-child-form *ngFor="let childForm of childrenControls" [childForm]="childForm"></app-child-form>
+  <ul>
+    <li *ngFor="let childForm of childrenControls; trackBy: trackByFn">
+      <app-child-form [childForm]="childForm"></app-child-form>
+    </li>
+  </ul>
 
   <div class="actions" *ngIf="generalInfoForm.get('hasChildren')?.value">
     <button mat-mini-fab color="primary" (click)="removeChild()">

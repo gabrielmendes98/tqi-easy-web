@@ -48,3 +48,9 @@ a:visited {
 a:hover {
   text-decoration: none;
 }
+
+ul, ol {
+  list-style: none;
+  list-style-type: none;
+  margin-left: 0; padding-left: 0;
+}

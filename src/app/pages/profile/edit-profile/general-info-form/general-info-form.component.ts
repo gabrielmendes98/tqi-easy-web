@@ -54,4 +54,8 @@ export class GeneralInfoFormComponent {
 
     if(this.children.length === 0) this.generalInfoForm.get('hasChildren')?.setValue(false);
   }
+
+  trackByFn(index: number, item: FormGroup) {
+    return index;
+  }
 }

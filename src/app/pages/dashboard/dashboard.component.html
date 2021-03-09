@@ -1,13 +1,14 @@
 <div class="container">
-  <div class="card-container">
-    <app-info-card
-      *ngFor="let genericInfo of dashboardInfo.genericInfos; let i = index"
-      [info]="genericInfo"
-      [icon]="icons[i]"
-      class="item"
-    >
-    </app-info-card>
-  </div>
+  <ul class="card-container">
+    <li *ngFor="let genericInfo of dashboardInfo.genericInfos; let i = index">
+      <app-info-card
+        [info]="genericInfo"
+        [icon]="icons[i]"
+        class="item"
+      >
+      </app-info-card>
+    </li>
+  </ul>
 
   <div class="app-interview-card">
     <app-interview-card [info]="dashboardInfo.interviews" icon="interviewPerson"> </app-interview-card>

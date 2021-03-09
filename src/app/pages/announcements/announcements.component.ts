@@ -25,4 +25,8 @@ export class AnnouncementsComponent implements OnInit {
   deleteAnnouncement(announcementId: number) {
     this.announcementsService.delete(announcementId).subscribe(() => this.getAnnouncements());
   }
+
+  trackByFn(index: number, item: AnnouncementPreview)  {
+    return item.id;
+  }
 }

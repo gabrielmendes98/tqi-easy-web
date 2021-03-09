@@ -22,11 +22,11 @@
   
   <mat-spinner *ngIf="!announcement.comments; else commentsTemplate"></mat-spinner>
   <ng-template #commentsTemplate>
-    <div class="comments" *ngIf="announcement.comments">
-      <div class="comment"*ngFor="let comment of announcement.comments">
+    <ul class="comments" *ngIf="announcement.comments">
+      <li class="comment"*ngFor="let comment of announcement.comments; trackBy: trackByFn">
         <span class="author text-dark">{{comment.author}}</span> <span class="text-light">{{comment.date | date: 'dd/MM/yyyy'}}</span>
         <p class="text-light">{{comment.comment}}</p>
-      </div>
-    </div>
+      </li>
+    </ul>
   </ng-template>
 </ng-template>

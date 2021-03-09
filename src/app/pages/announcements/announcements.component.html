@@ -5,28 +5,30 @@
 </ng-container>
 
 <ng-template #announcementsTemplate>
-  <div class="announcements-container">
-    <mat-card *ngFor="let announcement of announcements">
-      <a [routerLink]="[announcement.id]">
-        <img [src]="announcement.imageUrl || '../../../assets/image-placeholder.png'" alt="" />
-        <div class="text-wrapper text-dark">
-          <div class="fade">
-            <p>
-              {{ announcement.description }}
-            </p>
+  <ul class="announcements-container">
+    <li *ngFor="let announcement of announcements; trackBy: trackByFn">
+      <mat-card>
+        <a [routerLink]="[announcement.id]">
+          <img [src]="announcement.imageUrl || '../../../assets/image-placeholder.png'" alt="" />
+          <div class="text-wrapper text-dark">
+            <div class="fade">
+              <p>
+                {{ announcement.description }}
+              </p>
+            </div>
           </div>
+        </a>
+  
+        <div class="actions">
+          <button mat-icon-button showIfManager (click)="deleteAnnouncement(announcement.id)">
+            <mat-icon class="delete-icon text-dark">delete_outline</mat-icon>
+          </button>
+          <span color="warn">{{ announcement.likes }}</span>
+          <button mat-icon-button color="warn">
+            <mat-icon>favorite_border</mat-icon>
+          </button>
         </div>
-      </a>
-
-      <div class="actions">
-        <button mat-icon-button showIfManager (click)="deleteAnnouncement(announcement.id)">
-          <mat-icon class="delete-icon text-dark">delete_outline</mat-icon>
-        </button>
-        <span color="warn">{{ announcement.likes }}</span>
-        <button mat-icon-button color="warn">
-          <mat-icon>favorite_border</mat-icon>
-        </button>
-      </div>
-    </mat-card>
-  </div>
+      </mat-card>
+    </li>
+  </ul>
 </ng-template>
