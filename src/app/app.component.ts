@@ -8,6 +8,7 @@ import { SpinnerOverlayService } from './shared/components/spinner-overlay/spinn
 import { ThemeService } from './core/theme/theme.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from './core/sidenav/sidenav.service';
+import { ScreenService } from './core/screen/screen.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { SidenavService } from './core/sidenav/sidenav.service';
 export class AppComponent implements OnInit {
   user$!: Observable<User | null>;
   opened: boolean = false;
+  isMobile: boolean = false;
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -26,20 +28,26 @@ export class AppComponent implements OnInit {
     private spinnerOverlayService: SpinnerOverlayService,
     private themeService: ThemeService,
     private sidenavService: SidenavService,
+    private screenService: ScreenService,
   ) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    this.sidenavService.getScreenWidth().next(event.target.innerWidth);
+    const width = event.target.innerWidth;
+    this.screenService.screenWidth().next(width);
   }
   
   ngOnInit(): void {
     this.themeService.load();
-
     this.user$ = this.userService.getUser();
-    this.sidenavService.sidenavOpened().subscribe(opened => {
+
+    this.sidenavService.opened().subscribe(opened => {
       this.opened = opened;
     });
+
+    this.screenService.isMobile().subscribe(isMobile => {
+      this.isMobile = isMobile;
+    })
 
     this.loadingService.isNavigationPending$.subscribe((isLoading) => {
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
