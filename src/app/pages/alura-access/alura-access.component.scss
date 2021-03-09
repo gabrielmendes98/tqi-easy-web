@@ -1,4 +1,5 @@
 @import '../../../assets/styles/colors.scss';
+@import '../../../styles.scss';
 
 .search-form {
   border: 1px solid $border;
@@ -24,7 +25,7 @@ input {
 }
 
 .filter-container {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 ::ng-deep .hide-arrow .mat-sort-header-arrow {
@@ -34,4 +35,10 @@ input {
 .loading-spinner {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: $tablet) {
+  .search-form {
+    width: 100%;
+  }
 }

@@ -1,4 +1,5 @@
 @import '../../../assets/styles/colors.scss';
+@import '../../../styles.scss';
 
 a {
   display: flex;
@@ -12,7 +13,12 @@ mat-card {
   display: flex;
   flex-direction: row;
   padding: 0;
-  overflow: hidden;
+  overflow-y: hidden; 
+  min-width: 500px;
+}
+
+.announcements-container {
+  overflow-x: scroll;
 }
 
 img {
@@ -65,5 +71,11 @@ p {
 @keyframes loading {
   100% {
     transform: translateX(100%);
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  mat-card {
+    width: 100%;
   }
 }

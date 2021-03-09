@@ -1,8 +1,8 @@
 @import '../../../../assets/styles/colors.scss';
+@import '../../../../styles.scss';
 
 .table-container {
   width: 80%;
-  margin-top: 20px;
 }
 
 table {
@@ -54,5 +54,11 @@ table {
 
   button:first-of-type {
     margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: $tablet) {
+  .table-container {
+    width: 100%;
   }
 }

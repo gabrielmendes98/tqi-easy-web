@@ -10,6 +10,7 @@ import { AluraAccessService } from './alura-access.service';
 import { AluraStatus } from './models/alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { QueryParams } from './models/query-params.model';
+import { ScreenService } from '../../core/screen/screen.service';
 
 @Component({
   selector: 'app-alura-access',
@@ -21,6 +22,7 @@ export class AluraAccessComponent implements OnInit {
   searchForm!: FormGroup;
   errorMessage?: string;
   pages: { next?: number; prev?: number } | undefined;
+  isMobile!: boolean;
 
   isLoading = true;
   statusList = Object.values(AluraStatus);
@@ -30,7 +32,8 @@ export class AluraAccessComponent implements OnInit {
     private aluraAccessService: AluraAccessService,
     private dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private screenService: ScreenService,
   ) {}
 
   ngOnInit(): void {
@@ -53,6 +56,10 @@ export class AluraAccessComponent implements OnInit {
         const name = value === '' ? null : value;
         this.router.navigate(['alura-access'], { queryParams: { name }, queryParamsHandling: 'merge' });
       });
+
+      this.screenService.isMobile().subscribe(isMobile => {
+        this.isMobile = isMobile;
+      })
   }
 
   getAccesses(params: QueryParams | undefined = undefined) {
@@ -75,7 +82,7 @@ export class AluraAccessComponent implements OnInit {
     let copy = {} as Access;
     Object.assign(copy, access);
     const dialogRef = this.dialog.open(UpdateStatusComponent, {
-      width: '35%',
+      width: this.isMobile ? '80%' : '35%',
       data: copy,
     });
 

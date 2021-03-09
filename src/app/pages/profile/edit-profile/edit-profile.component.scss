@@ -1,4 +1,5 @@
 @import '../../../../assets/styles/colors.scss';
+@import '../../../../styles.scss';
 
 img {
   width: 100px;
@@ -52,4 +53,10 @@ app-general-info-form {
 
 .hidden-input {
   display: none;
+}
+
+@media only screen and (max-width: $tablet) {
+  form {
+    width: 100%;
+  }
 }
