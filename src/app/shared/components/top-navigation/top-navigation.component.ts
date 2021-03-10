@@ -25,10 +25,17 @@ export class TopNavigationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getUser();
+    this.watchIsMobile();
+  }
+
+  getUser() {
     this.userService.getUser().subscribe((user) => {
       this.user = user!;
     });
+  }
 
+  watchIsMobile() {
     this.screenService.isMobile().subscribe((isMobile) => {
       this.isMobile = isMobile;
     });
