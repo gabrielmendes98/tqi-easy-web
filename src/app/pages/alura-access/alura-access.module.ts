@@ -11,10 +11,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AluraAccessComponent } from './alura-access.component';
 import { AluraAccessRoutingModule } from './alura-access-routing.module';
-import { UpdateStatusComponent } from './update-status/update-status.component';
-import { AccessTableComponent } from './access-table/access-table.component';
+import { UpdateStatusComponent } from './component/update-status/update-status.component';
+import { AccessTableComponent } from './component/access-table/access-table.component';
+import { AluraAccessComponent } from './component/alura-access.component';
 
 const materialModules = [
   MatButtonModule,

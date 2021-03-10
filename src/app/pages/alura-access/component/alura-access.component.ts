@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { of } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
+import { of, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, switchMap, take, takeUntil } from 'rxjs/operators';
 
-import { Access } from './models/access.model';
-import { AluraAccessService } from './alura-access.service';
-import { AluraStatus } from './models/alura-status.model';
+import { Access } from '../models/access.model';
+import { AluraAccessService } from '../service/alura-access.service';
+import { AluraStatus } from '../models/alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
-import { QueryParams } from './models/query-params.model';
-import { ScreenService } from '../../core/screen/screen.service';
+import { QueryParams } from '../models/query-params.model';
+import { ScreenService } from '../../../core/screen/screen.service';
 
 @Component({
   selector: 'app-alura-access',
   templateUrl: './alura-access.component.html',
   styleUrls: ['./alura-access.component.scss'],
 })
-export class AluraAccessComponent implements OnInit {
+export class AluraAccessComponent implements OnInit, OnDestroy {
+  private destroyed$ = new Subject();
+
   accesses?: Access[];
   searchForm!: FormGroup;
   errorMessage?: string;
@@ -33,33 +35,55 @@ export class AluraAccessComponent implements OnInit {
     private dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private screenService: ScreenService,
+    private screenService: ScreenService
   ) {}
 
   ngOnInit(): void {
+    this.getAccessesByQueryParams();
+    this.createFormGroup();
+    this.watchForSearch();
+    this.watchIsMobile();
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
+
+  getAccessesByQueryParams() {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.getAccesses(params);
     });
+  }
 
+  createFormGroup() {
     this.searchForm = this.formBuilder.group({
       search: [''],
     });
+  }
 
+  watchIsMobile() {
+    this.screenService
+      .isMobile()
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe((isMobile) => {
+        this.isMobile = isMobile;
+      });
+  }
+
+  watchForSearch() {
     this.searchForm
       .get('search')
       ?.valueChanges.pipe(
         filter((res) => res.length > 1 || res.length === 0),
         debounceTime(600),
-        distinctUntilChanged()
+        distinctUntilChanged(),
+        takeUntil(this.destroyed$)
       )
       .subscribe((value) => {
         const name = value === '' ? null : value;
         this.router.navigate(['alura-access'], { queryParams: { name }, queryParamsHandling: 'merge' });
       });
-
-      this.screenService.isMobile().subscribe(isMobile => {
-        this.isMobile = isMobile;
-      })
   }
 
   getAccesses(params: QueryParams | undefined = undefined) {
@@ -86,7 +110,7 @@ export class AluraAccessComponent implements OnInit {
       data: copy,
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().pipe(take(1)).subscribe((result) => {
       if (result) {
         copy.status = result;
         const params = this.activatedRoute.snapshot.queryParams;

@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AluraAccessComponent } from "./alura-access.component";
+import { AluraAccessComponent } from './component/alura-access.component';
 
 const routes: Routes = [
   {

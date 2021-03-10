@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvironmentService } from 'src/app/core/environment/environment.service';
-import { Access } from './models/access.model';
-import { QueryParams } from './models/query-params.model';
+import { Access } from '../models/access.model';
+import { QueryParams } from '../models/query-params.model';
 
 @Injectable({
   providedIn: 'root',

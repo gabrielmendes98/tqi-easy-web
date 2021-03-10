@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Access } from '../models/access.model';
-import { AluraStatus } from '../models/alura-status.model';
+import { Access } from '../../models/access.model';
+import { AluraStatus } from '../../models/alura-status.model';
 
 @Component({
   selector: 'app-access-table',
