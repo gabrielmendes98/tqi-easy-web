@@ -9,10 +9,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AnnouncementsComponent } from './announcements.component';
-import { AnnouncementComponent } from './announcement/announcement.component';
+import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/show-if-manager.module';
 import { AnnouncementsRoutingModule } from './announcements-routing.module';
+import { AnnouncementsComponent } from './components/announcements.component';
 
 @NgModule({
   declarations: [AnnouncementsComponent, AnnouncementComponent],

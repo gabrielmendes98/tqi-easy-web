@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EnvironmentService } from '../../core/environment/environment.service';
-import { UserService } from '../../core/user/user.service';
-import { Announcement, AnnouncementPreview, Comment } from './announcements.model';
+import { EnvironmentService } from '../../../core/environment/environment.service';
+import { UserService } from '../../../core/user/user.service';
+import { Announcement, AnnouncementPreview, Comment } from '../models/announcements.model';
 
 @Injectable({
   providedIn: 'root',

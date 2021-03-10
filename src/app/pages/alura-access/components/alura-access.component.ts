@@ -6,7 +6,7 @@ import { of, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap, take, takeUntil } from 'rxjs/operators';
 
 import { Access } from '../models/access.model';
-import { AluraAccessService } from '../service/alura-access.service';
+import { AluraAccessService } from '../services/alura-access.service';
 import { AluraStatus } from '../models/alura-status.model';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { QueryParams } from '../models/query-params.model';

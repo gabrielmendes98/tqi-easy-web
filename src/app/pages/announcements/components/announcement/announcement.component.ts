@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { Announcement, Comment } from '../announcements.model';
-import { AnnouncementsService } from '../announcements.service';
+import { Announcement, Comment } from '../../models/announcements.model';
+import { AnnouncementsService } from '../../services/announcements.service';
 
 @Component({
   selector: 'app-announcement',
