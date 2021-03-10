@@ -13,7 +13,7 @@ import { AnnouncementsService } from '../../services/announcements.service';
 export class AnnouncementComponent implements OnInit {
   id!: number;
   announcement!: Announcement;
-  comments!: Comment[];
+  comments: Comment[] = [];
   commentForm!: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute, private announcementsService: AnnouncementsService, private formBuilder: FormBuilder) { }
