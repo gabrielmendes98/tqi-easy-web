@@ -5,7 +5,7 @@ import { RoleGuard } from './core/role/role.guard';
 import { Role } from './core/user/role.model';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { RegisterActivityComponent } from './pages/register-activity/register-activity.component';
+import { RegisterActivityComponent } from './pages/register-activity/components/register-activity.component';
 
 const routes: Routes = [
   {

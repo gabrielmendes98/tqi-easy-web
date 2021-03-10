@@ -1,4 +1,4 @@
-import { Child } from "./child-form/child.model";
+import { Child } from './child.model';
 
 export interface GeneralInfo {
   isMarried: Boolean;

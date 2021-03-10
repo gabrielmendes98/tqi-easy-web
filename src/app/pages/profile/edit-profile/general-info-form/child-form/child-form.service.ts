@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
-import { Child } from "./child.model";
+import { Child } from '../../../models/child.model';
 
 @Injectable({
   providedIn: 'root',

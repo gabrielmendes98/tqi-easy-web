@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Sex } from './child.model'
+import { Sex } from '../../../models/child.model';
 @Component({
   selector: 'app-child-form',
   templateUrl: './child-form.component.html',

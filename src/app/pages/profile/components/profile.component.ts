@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Profile } from './profile.model';
+import { Profile } from '../models/profile.model';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +13,10 @@ export class ProfileComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.getProfile();
+  }
+
+  getProfile() {
     this.profile = this.activatedRoute.snapshot.data.profile;
   }
 }

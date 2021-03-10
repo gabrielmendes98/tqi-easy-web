@@ -10,7 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskModule } from 'ngx-mask';
 
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent } from './components/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { AddressFormComponent } from './edit-profile/address-form/address-form.component';
