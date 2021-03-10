@@ -25,11 +25,18 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.createFormGroup();
+    this.watchIfNeedsRecirect();
+  }
+
+  createFormGroup() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+  }
 
+  watchIfNeedsRecirect() {
     this.activatedRoute.queryParams.subscribe(params => this.fromUrl = params.fromUrl);
   }
 
@@ -57,6 +64,5 @@ export class LoginComponent implements OnInit {
         }
       );
     }
-
   }
 }

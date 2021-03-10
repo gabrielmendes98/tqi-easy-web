@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, UrlTree, Router } from '@angular/router';
+import { CanLoad, Route, UrlSegment, UrlTree, Router, NavigationCancel } from '@angular/router';
 import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -11,7 +12,9 @@ export class RoleGuard implements CanLoad {
   
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if(!this.userService.isLogged()) {
-      this.router.navigate(['/login']);
+      this.router.events.pipe(first(_ => _ instanceof NavigationCancel)).subscribe((event: any) => {
+        this.redirectToLogin(event.url);
+      });
       return false;
     }
     
@@ -21,5 +24,9 @@ export class RoleGuard implements CanLoad {
     }
     this.router.navigate(['/register-activity']);
     return false;
+  }
+
+  private redirectToLogin(fromUrl: string) {
+    this.router.navigate(['/login'], { queryParams: { fromUrl } });
   }
 }
