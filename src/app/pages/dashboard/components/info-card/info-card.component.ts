@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GenericInfo } from '../models/generic-info.model';
+import { GenericInfo } from '../../models/generic-info.model';
 
 @Component({
   selector: 'app-info-card',

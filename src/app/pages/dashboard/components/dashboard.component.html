@@ -1,10 +1,9 @@
 <div class="container">
   <ul class="card-container">
-    <li *ngFor="let genericInfo of dashboardInfo.genericInfos; let i = index">
+    <li *ngFor="let genericInfo of dashboardInfo.genericInfos; let i = index" class="item">
       <app-info-card
         [info]="genericInfo"
         [icon]="icons[i]"
-        class="item"
       >
       </app-info-card>
     </li>

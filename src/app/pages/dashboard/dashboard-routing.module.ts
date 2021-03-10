@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
-import { DashboardResolver } from './dashboard.resolver';
+import { DashboardComponent } from './components/dashboard.component';
+import { DashboardResolver } from './services/dashboard.resolver';
 
 const routes: Routes = [
   {

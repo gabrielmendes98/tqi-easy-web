@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { InterviewsInfo } from '../models/interviews-info.model';
+import { InterviewsInfo } from '../../models/interviews-info.model';
 
 @Component({
   selector: 'app-interview-card',
