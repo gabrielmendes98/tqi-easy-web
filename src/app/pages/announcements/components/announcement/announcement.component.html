@@ -20,10 +20,10 @@
     <button mat-flat-button color="primary" type="submit">Comentar</button>
   </form>
   
-  <mat-spinner *ngIf="!announcement.comments; else commentsTemplate"></mat-spinner>
+  <mat-spinner *ngIf="!comments.length; else commentsTemplate"></mat-spinner>
   <ng-template #commentsTemplate>
-    <ul class="comments" *ngIf="announcement.comments">
-      <li class="comment"*ngFor="let comment of announcement.comments; trackBy: trackByFn">
+    <ul class="comments">
+      <li class="comment"*ngFor="let comment of comments; trackBy: trackByFn">
         <span class="author text-dark">{{comment.author}}</span> <span class="text-light">{{comment.date | date: 'dd/MM/yyyy'}}</span>
         <p class="text-light">{{comment.comment}}</p>
       </li>

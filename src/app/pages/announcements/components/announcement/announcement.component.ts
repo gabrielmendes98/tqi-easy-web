@@ -13,24 +13,38 @@ import { AnnouncementsService } from '../../services/announcements.service';
 export class AnnouncementComponent implements OnInit {
   id!: number;
   announcement!: Announcement;
+  comments!: Comment[];
   commentForm!: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute, private announcementsService: AnnouncementsService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.id = parseInt(this.activatedRoute.snapshot.params.id);
+    this.getAnnouncementId();
+    this.getAnnouncement();
+    this.getComments();
+    this.createFormGroup();
+  }
 
-    this.announcementsService.getById(this.id).subscribe(announcement => {
-      this.announcement = announcement;
-
-      this.announcementsService.getComments(this.id).subscribe(comments => {
-        this.announcement.comments = [...comments];
-      });
-    });
-
+  createFormGroup() {
     this.commentForm = this.formBuilder.group({
       comment: ['']
     });
+  }
+
+  getComments() {
+    this.announcementsService.getComments(this.id).subscribe(comments => {
+      this.comments = comments;
+    });
+  }
+
+  getAnnouncement() {
+    this.announcementsService.getById(this.id).subscribe(announcement => {
+      this.announcement = announcement;
+    });
+  }
+
+  getAnnouncementId() {
+    this.id = parseInt(this.activatedRoute.snapshot.params.id);
   }
 
   saveComment() {
@@ -38,7 +52,7 @@ export class AnnouncementComponent implements OnInit {
       .comment(this.id, this.commentForm.getRawValue().comment)
       .pipe(switchMap(() => this.announcementsService.getComments(this.id)))
       .subscribe(comments => {
-        this.announcement.comments = [...comments];
+        this.comments = [...comments];
         this.commentForm.reset();
       });
   }

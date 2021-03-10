@@ -11,7 +11,6 @@ export interface Announcement {
   imageUrl: string;
   description: string;
   likes: number;
-  comments: Comment[];
 }
 
 export interface Comment {
