@@ -1,7 +1,5 @@
 @import './colors.scss';
 
-@import '~@angular/material/theming';
-
 $mat-tqi-dark: (
   500: #fb00b7,
   700: #60004a,
@@ -26,8 +24,6 @@ $dark-theme: mat-dark-theme(
 );
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
-
   .text-primary {
     color: mat-color($mat-tqi-dark, 500);
   }

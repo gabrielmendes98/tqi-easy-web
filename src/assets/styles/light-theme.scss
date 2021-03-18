@@ -1,7 +1,5 @@
 @import './colors.scss';
 
-@import '~@angular/material/theming';
-
 $mat-tqi: (
   500: #1565c0,
   700: #003c8f,
@@ -26,8 +24,6 @@ $light-theme: mat-light-theme(
 );
 
 .light-theme {
-  @include angular-material-theme($light-theme);
-
   .text-primary {
     color: mat-color($mat-tqi, 500);
   }

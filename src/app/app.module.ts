@@ -19,6 +19,8 @@ import { SharedModule } from './shared/shared.module';
 import { RegisterActivityModule } from './pages/register-activity/register-activity.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GlobalErrorHandler } from './core/error/global-error-handler';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { GlobalErrorHandler } from './core/error/global-error-handler';
     MatIconModule,
     MatButtonModule,
     AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
