@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { ChangePasswordRoutingModule } from './change-password-routing.module';
 import { ChangePasswordComponent } from './components/change-password.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ChangePasswordRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,

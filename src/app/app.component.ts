@@ -9,6 +9,9 @@ import { ThemeService } from './core/theme/theme.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from './core/sidenav/sidenav.service';
 import { ScreenService } from './core/screen/screen.service';
+import { EnvironmentService } from './core/environment/environment.service';
+import { SwPush } from '@angular/service-worker';
+import { NotificationsService } from './core/notifications/notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +32,9 @@ export class AppComponent implements OnInit {
     private themeService: ThemeService,
     private sidenavService: SidenavService,
     private screenService: ScreenService,
+    private environmentService: EnvironmentService,
+    private swPush: SwPush,
+    private notificationsService: NotificationsService
   ) {}
 
   @HostListener('window:resize', ['$event'])
@@ -36,24 +42,35 @@ export class AppComponent implements OnInit {
     const width = event.target.innerWidth;
     this.screenService.screenWidth().next(width);
   }
-  
+
   ngOnInit(): void {
     this.themeService.load();
     this.user$ = this.userService.getUser();
 
-    this.sidenavService.opened().subscribe(opened => {
+    this.sidenavService.opened().subscribe((opened) => {
       this.opened = opened;
     });
 
-    this.screenService.isMobile().subscribe(isMobile => {
+    this.screenService.isMobile().subscribe((isMobile) => {
       this.isMobile = isMobile;
-    })
+    });
 
     this.loadingService.isNavigationPending$.subscribe((isLoading) => {
-      if(this.isMobile) {
+      if (this.isMobile) {
         this.sidenavService.close();
       }
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
     });
+
+    this.subscribeToNotifications();
+  }
+
+  subscribeToNotifications() {
+    this.swPush
+      .requestSubscription({
+        serverPublicKey: this.environmentService.getVAPIDPublicKey(),
+      })
+      .then((sub) => this.notificationsService.addPushSubscriber(sub).subscribe())
+      .catch((err) => console.error('Could not subscribe to notifications', err));
   }
 }

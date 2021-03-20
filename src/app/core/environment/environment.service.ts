@@ -11,4 +11,8 @@ export class EnvironmentService {
   getApiUrl() {
     return environment.apiUrl;
   }
+
+  getVAPIDPublicKey() {
+    return environment.VAPID_PUBLIC_KEY;
+  }
 }

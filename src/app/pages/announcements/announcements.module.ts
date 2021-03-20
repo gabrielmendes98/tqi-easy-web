@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { ShowIfManagerModule } from '../../shared/directives/show-if-manager/show-if-manager.module';
@@ -24,7 +24,6 @@ import { AnnouncementsComponent } from './components/announcements.component';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     AnnouncementsRoutingModule,
