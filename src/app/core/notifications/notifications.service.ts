@@ -11,6 +11,6 @@ export class NotificationsService {
 
   addPushSubscriber(subscription: PushSubscription) {
     const apiUrl = this.environmentService.getApiUrl();
-    return this.http.post(apiUrl + '/subscriptions', { subscription });
+    return this.http.post(apiUrl + '/subscriptions', subscription);
   }
 }
