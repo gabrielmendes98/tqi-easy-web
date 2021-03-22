@@ -1,8 +1,8 @@
 {
-  "name": "tqi-easy-web",
-  "short_name": "tqi-easy-web",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "TQI Easy",
+  "short_name": "TQI",
+  "theme_color": "rgba(0, 0, 0, 0)",
+  "background_color": "#003c8f",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
