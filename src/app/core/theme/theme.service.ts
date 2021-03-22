@@ -21,6 +21,7 @@ export class ThemeService {
       // If the browser doesn't support prefers-color-scheme, set it as default to dark
       this.colorScheme = 'light-theme';
     }
+    localStorage.setItem('prefers-color', this.colorScheme);
   }
 
   _setColorScheme(scheme: string) {

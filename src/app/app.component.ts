@@ -45,40 +45,56 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.themeService.load();
-    this.user$ = this.userService.getUser();
+    this.loadTheme();
+    this.getUser();
+    this.getSidenavStatus();
+    this.checkScreenSize();
+    this.showLoadingIfResolvingData();
+    this.checkServiceWorkerUpdate();
+    this.subscribeToNotifications();
+  }
 
-    this.sidenavService.opened().subscribe((opened) => {
-      this.opened = opened;
-    });
+  checkServiceWorkerUpdate() {
+    if (this.swUpdate.isEnabled) {
+      this.swUpdate.available.subscribe(() => {
+        if (confirm('New version available. Load New Version?')) {
+          window.location.reload();
+        }
+      });
+    }
+  }
 
-    this.screenService.isMobile().subscribe((isMobile) => {
-      this.isMobile = isMobile;
-    });
-
+  showLoadingIfResolvingData() {
     this.loadingService.isNavigationPending$.subscribe((isLoading) => {
       if (this.isMobile) {
         this.sidenavService.close();
       }
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
     });
+  }
 
-    if (this.swUpdate.isEnabled) {
+  getSidenavStatus() {
+    this.sidenavService.opened().subscribe((opened) => {
+      this.opened = opened;
+    });
+  }
 
-      this.swUpdate.available.subscribe(() => {
+  checkScreenSize() {
+    this.screenService.isMobile().subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
 
-          if(confirm("New version available. Load New Version?")) {
+  loadTheme() {
+    this.themeService.load();
+  }
 
-              window.location.reload();
-          }
-      });
-    }  
-
-    this.subscribeToNotifications();
+  getUser() {
+    this.user$ = this.userService.getUser();
   }
 
   subscribeToNotifications() {
-    if(Notification.permission === 'default') {
+    if (Notification.permission === 'default') {
       this.swPush
         .requestSubscription({
           serverPublicKey: this.environmentService.getVAPIDPublicKey(),
