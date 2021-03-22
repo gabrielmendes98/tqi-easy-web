@@ -66,11 +66,13 @@ export class AppComponent implements OnInit {
   }
 
   subscribeToNotifications() {
-    this.swPush
-      .requestSubscription({
-        serverPublicKey: this.environmentService.getVAPIDPublicKey(),
-      })
-      .then((sub) => this.notificationsService.addPushSubscriber(sub).subscribe())
-      .catch((err) => console.error('Could not subscribe to notifications', err));
+    if(Notification.permission === 'default') {
+      this.swPush
+        .requestSubscription({
+          serverPublicKey: this.environmentService.getVAPIDPublicKey(),
+        })
+        .then((sub) => this.notificationsService.addPushSubscriber(sub).subscribe())
+        .catch((err) => console.error('Could not subscribe to notifications', err));
+    }
   }
 }
