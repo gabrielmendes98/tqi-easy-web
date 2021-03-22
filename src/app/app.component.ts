@@ -10,7 +10,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from './core/sidenav/sidenav.service';
 import { ScreenService } from './core/screen/screen.service';
 import { EnvironmentService } from './core/environment/environment.service';
-import { SwPush } from '@angular/service-worker';
+import { SwPush, SwUpdate } from '@angular/service-worker';
 import { NotificationsService } from './core/notifications/notifications.service';
 
 @Component({
@@ -34,7 +34,8 @@ export class AppComponent implements OnInit {
     private screenService: ScreenService,
     private environmentService: EnvironmentService,
     private swPush: SwPush,
-    private notificationsService: NotificationsService
+    private notificationsService: NotificationsService,
+    private swUpdate: SwUpdate
   ) {}
 
   @HostListener('window:resize', ['$event'])
@@ -61,6 +62,17 @@ export class AppComponent implements OnInit {
       }
       isLoading ? this.spinnerOverlayService.showLoading() : this.spinnerOverlayService.hide();
     });
+
+    if (this.swUpdate.isEnabled) {
+
+      this.swUpdate.available.subscribe(() => {
+
+          if(confirm("New version available. Load New Version?")) {
+
+              window.location.reload();
+          }
+      });
+    }  
 
     this.subscribeToNotifications();
   }
