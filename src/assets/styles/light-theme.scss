@@ -1,15 +1,17 @@
 @import './colors.scss';
 
 $mat-tqi: (
+  100: #9bcaff,
   500: #1565c0,
   700: #003c8f,
   contrast: (
+    100: $text-light,
     500: $white,
     700: $text-light,
   ),
 );
 
-$primary-color: mat-palette($mat-tqi, 500, 100);
+$primary-color: mat-palette($mat-tqi, 500, 100, 700);
 $accent: mat-palette($mat-tqi, 500);
 $warn: mat-palette($mat-pink, 400);
 

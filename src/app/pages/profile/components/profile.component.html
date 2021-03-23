@@ -9,42 +9,42 @@
   
     <mat-form-field appearance="outline" class="cep">
       <mat-label>CEP</mat-label>
-      <input type="text" matInput readonly [value]="profile.address.cep | mask: '00.000-000'"/>
+      <input type="text" matInput disabled [value]="profile.address.cep | mask: '00.000-000'"/>
     </mat-form-field>
     
     <div class="group-fields">
       <mat-form-field appearance="outline">
         <mat-label>Rua</mat-label>
-        <input type="text" matInput readonly />
+        <input type="text" matInput disabled />
       </mat-form-field>
     
       <mat-form-field appearance="outline">
         <mat-label>Bairro</mat-label>
-        <input type="text" matInput readonly />
+        <input type="text" matInput disabled />
       </mat-form-field>
     </div>
     
     <div class="group-fields">
       <mat-form-field appearance="outline">
         <mat-label>Número</mat-label>
-        <input type="number" min="0" matInput readonly [value]="profile.address.number" />
+        <input type="number" min="0" matInput disabled [value]="profile.address.number" />
       </mat-form-field>
     
       <mat-form-field appearance="outline">
         <mat-label>Complemento</mat-label>
-        <input type="text" matInput readonly [value]="profile.address.complement"/>
+        <input type="text" matInput disabled [value]="profile.address.complement"/>
       </mat-form-field>
     </div>
     
     <div class="group-fields">
       <mat-form-field appearance="outline">
         <mat-label>Cidade</mat-label>
-        <input type="text" matInput readonly/>
+        <input type="text" matInput disabled/>
       </mat-form-field>
     
       <mat-form-field appearance="outline">
         <mat-label>Estado</mat-label>
-        <input type="text" matInput readonly/>
+        <input type="text" matInput disabled/>
       </mat-form-field>
     </div>
   </div>
@@ -54,18 +54,18 @@
     
       <mat-form-field appearance="outline">
         <mat-label>E-mail alternativo</mat-label>
-        <input readonly type="email" matInput [value]="profile.contact.alternativeEmail" />
+        <input disabled type="email" matInput [value]="profile.contact.alternativeEmail" />
       </mat-form-field>
     
       <div class="group-fields">
         <mat-form-field appearance="outline">
           <mat-label>Celular</mat-label>
-          <input readonly type="tel" matInput [value]="profile.contact.cellPhone | mask: '(00) 0 0000-0000'"/>
+          <input disabled type="tel" matInput [value]="profile.contact.cellPhone | mask: '(00) 0 0000-0000'"/>
         </mat-form-field>
       
         <mat-form-field appearance="outline">
           <mat-label>Telefone fixo</mat-label>
-          <input readonly type="tel" matInput [value]="profile.contact.landPhone | mask: '(00) 0 0000-0000'"/>
+          <input disabled type="tel" matInput [value]="profile.contact.landPhone | mask: '(00) 0 0000-0000'"/>
         </mat-form-field>
       </div>
     
@@ -73,24 +73,24 @@
   
       <mat-form-field appearance="outline">
         <mat-label>Nome</mat-label>
-        <input readonly type="text" matInput [value]="profile.contact.emergencyContact.name"/>
+        <input disabled type="text" matInput [value]="profile.contact.emergencyContact.name"/>
       </mat-form-field>
   
       <div class="group-fields">
         <mat-form-field appearance="outline">
           <mat-label>Celular</mat-label>
-          <input readonly type="tel" matInput [value]="profile.contact.emergencyContact.cellPhone | mask: '(00) 0 0000-0000'"/>
+          <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.cellPhone | mask: '(00) 0 0000-0000'"/>
         </mat-form-field>
     
         <mat-form-field appearance="outline">
           <mat-label>Telefone fixo</mat-label>
-          <input readonly type="tel" matInput [value]="profile.contact.emergencyContact.landPhone | mask: '(00) 0 0000-0000'"/>
+          <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.landPhone | mask: '(00) 0 0000-0000'"/>
         </mat-form-field>
       </div>
   
       <mat-form-field appearance="outline">
         <mat-label>Qual sua relação com essa pessoa?</mat-label>
-        <input readonly type="text" matInput [value]="profile.contact.emergencyContact.relationship"/>
+        <input disabled type="text" matInput [value]="profile.contact.emergencyContact.relationship"/>
       </mat-form-field>
   </div>
   
@@ -99,25 +99,25 @@
 
     <mat-form-field appearance="outline" *ngIf="profile.generalInfo.isMarried">
       <mat-label>Nome</mat-label>
-      <input type="text" matInput readonly [value]="profile.generalInfo.fianceName"/>
+      <input type="text" matInput disabled [value]="profile.generalInfo.fianceName"/>
     </mat-form-field>
 
     <ul>
       <li *ngFor="let child of profile.generalInfo.children">
         <mat-form-field appearance="outline">
           <mat-label>Nome do(a) filho(a)</mat-label>
-          <input matInput type="text" readonly [value]="child.name"/>
+          <input matInput type="text" disabled [value]="child.name"/>
         </mat-form-field>
       
         <div class="group-fields">
           <mat-form-field appearance="outline">
             <mat-label>Data de nascimento</mat-label>
-            <input matInput readonly [value]="child.birthDate | date:'dd/MM/yyyy' "/>
+            <input matInput disabled [value]="child.birthDate | date:'dd/MM/yyyy' "/>
           </mat-form-field>
         
           <mat-form-field appearance="outline">
             <mat-label>Sexo</mat-label>
-            <input matInput readonly [value]="child.sex"/>
+            <input matInput disabled [value]="child.sex"/>
           </mat-form-field>
           
           <mat-slide-toggle [(ngModel)]="child.liveWithParents" disabled>Reside com os pais?</mat-slide-toggle>

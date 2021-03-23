@@ -20,6 +20,7 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
   showAditionalHoursField = false;
   showNightHoursField = false;
   projects: Project[] = [];
+  loadingProjects = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,7 +41,15 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
   }
 
   getProjects() {
-    this.projectService.getAll().subscribe((projects) => (this.projects = projects));
+    this.projectService.getAll().subscribe(
+      (projects) => {
+        this.projects = projects;
+        this.loadingProjects = false;
+      },
+      () => {
+        this.loadingProjects = false;
+      }
+    );
   }
 
   createFormGroup() {
