@@ -11,7 +11,8 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'register-activity'
+    redirectTo: 'register-activity',
+    canActivate: [AuthGuard]
   },
   {
     path: 'register-activity',

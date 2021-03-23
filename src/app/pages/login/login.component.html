@@ -26,7 +26,7 @@
         </button>
         <mat-error *ngIf="loginForm.get('password')?.errors">Você deve inserir uma senha</mat-error>
       </mat-form-field>
-      <button [disabled]="loginForm.invalid" color="primary" mat-flat-button class="button" type="submit">Entrar</button>
+      <button [disabled]="loginForm.invalid || loading" [class.spinner]="loading" color="primary" mat-flat-button class="button" type="submit">Entrar</button>
       <mat-error class="error-message" *ngIf="loginError">{{ loginErrorMessage }}</mat-error>
     </form>
   </div>

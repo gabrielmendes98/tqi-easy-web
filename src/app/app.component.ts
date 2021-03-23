@@ -94,7 +94,7 @@ export class AppComponent implements OnInit {
   }
 
   subscribeToNotifications() {
-    if (Notification.permission === 'default') {
+    if (Notification.permission === 'default' && this.swPush.isEnabled) {
       this.swPush
         .requestSubscription({
           serverPublicKey: this.environmentService.getVAPIDPublicKey(),
