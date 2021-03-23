@@ -52,6 +52,15 @@ export class AppComponent implements OnInit {
     this.showLoadingIfResolvingData();
     this.checkServiceWorkerUpdate();
     this.subscribeToNotifications();
+    this.watchMessages();
+  }
+
+  watchMessages() {
+    if(this.swPush.isEnabled) {
+      this.swPush.messages.subscribe(message => {
+        console.log('message received: ', message)
+      })
+    }
   }
 
   checkServiceWorkerUpdate() {
