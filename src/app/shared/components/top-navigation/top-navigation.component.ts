@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/core/user/user.model';
 import { UserService } from 'src/app/core/user/user.service';
@@ -13,6 +13,7 @@ import { ThemeService } from '../../../core/theme/theme.service';
   styleUrls: ['./top-navigation.component.scss'],
 })
 export class TopNavigationComponent implements OnInit {
+  @Input() notificationMessages!: string[];
   user!: User;
   isMobile!: boolean;
   THEME = THEME;

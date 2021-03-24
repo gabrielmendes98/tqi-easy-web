@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   user$!: Observable<User | null>;
   opened: boolean = false;
   isMobile: boolean = false;
+  notificationMessages: string[] = [];
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -57,8 +58,8 @@ export class AppComponent implements OnInit {
 
   watchMessages() {
     if(this.swPush.isEnabled) {
-      this.swPush.messages.subscribe(message => {
-        console.log('message received: ', message)
+      this.swPush.messages.subscribe((message: any) => {
+        this.notificationMessages = [...this.notificationMessages, message.notification.body]
       })
     }
   }
