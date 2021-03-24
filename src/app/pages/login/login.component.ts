@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   hidePassword = true;
   loginError = false;
   loginErrorMessage = '';
+  loading = false;
 
   fromUrl?: string;
 
@@ -53,6 +54,7 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password')?.value;
 
     if(this.loginForm.valid) {
+      this.loading = true;
       this.authService.login(email, password).subscribe(
         () => {
           if(this.fromUrl) this.router.navigateByUrl(this.fromUrl);
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
         error => {
           this.loginErrorMessage = error.error.message;
           this.loginError = true;
+          this.loading = false;
         }
       );
     }

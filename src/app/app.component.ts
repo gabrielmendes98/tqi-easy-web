@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   user$!: Observable<User | null>;
   opened: boolean = false;
   isMobile: boolean = false;
+  notificationMessages: string[] = [];
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -52,6 +53,15 @@ export class AppComponent implements OnInit {
     this.showLoadingIfResolvingData();
     this.checkServiceWorkerUpdate();
     this.subscribeToNotifications();
+    this.watchMessages();
+  }
+
+  watchMessages() {
+    if(this.swPush.isEnabled) {
+      this.swPush.messages.subscribe((message: any) => {
+        this.notificationMessages = [...this.notificationMessages, message.notification.body]
+      })
+    }
   }
 
   checkServiceWorkerUpdate() {
@@ -94,7 +104,7 @@ export class AppComponent implements OnInit {
   }
 
   subscribeToNotifications() {
-    if (Notification.permission === 'default') {
+    if (Notification.permission === 'default' && this.swPush.isEnabled) {
       this.swPush
         .requestSubscription({
           serverPublicKey: this.environmentService.getVAPIDPublicKey(),

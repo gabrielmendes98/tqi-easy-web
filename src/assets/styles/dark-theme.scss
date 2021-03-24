@@ -1,15 +1,17 @@
 @import './colors.scss';
 
 $mat-tqi-dark: (
+  100: #915481,
   500: #fb00b7,
   700: #60004a,
   contrast: (
+    100: $text-light,
     500: $white,
     700: $text-light,
   ),
 );
 
-$primary-color-dark: mat-palette($mat-tqi-dark, 500, 100);
+$primary-color-dark: mat-palette($mat-tqi-dark, 500, 100, 700);
 $accent-dark: mat-palette($mat-tqi-dark, 500);
 $warn-dark: mat-palette($mat-pink, 400);
 

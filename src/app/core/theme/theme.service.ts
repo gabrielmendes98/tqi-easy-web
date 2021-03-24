@@ -12,7 +12,7 @@ export class ThemeService {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
-  _detectPrefersColorScheme() {
+  private _detectPrefersColorScheme() {
     // Detect if prefers-color-scheme is supported
     if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
       // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise set to light.
@@ -24,13 +24,13 @@ export class ThemeService {
     localStorage.setItem('prefers-color', this.colorScheme);
   }
 
-  _setColorScheme(scheme: string) {
+  private _setColorScheme(scheme: string) {
     this.colorScheme = scheme;
     // Save prefers-color-scheme to localStorage
     localStorage.setItem('prefers-color', scheme);
   }
 
-  _getColorScheme() {
+  private _getColorScheme() {
     // Check if any prefers-color-scheme is stored in localStorage
     const prefersColor = localStorage.getItem('prefers-color');
     if (prefersColor) {
@@ -43,7 +43,7 @@ export class ThemeService {
   }
 
   getCurrentTheme() {
-    return localStorage.getItem('prefers-color');
+    return this.colorScheme;
   }
 
   load() {
@@ -57,9 +57,5 @@ export class ThemeService {
     this.renderer.removeClass(document.body, this.colorScheme === 'dark-theme' ? 'light-theme' : 'dark-theme');
     // Add the new / current color-scheme class
     this.renderer.addClass(document.body, scheme);
-  }
-
-  currentActive() {
-    return this.colorScheme;
   }
 }

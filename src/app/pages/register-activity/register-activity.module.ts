@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { RegisterActivityComponent } from './components/register-activity.component';
 
@@ -17,6 +18,7 @@ const materialModules = [
   MatDatepickerModule,
   MatInputModule,
   MatButtonModule,
+  MatProgressBarModule
 ];
 
 @NgModule({

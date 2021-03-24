@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { SpinnerOverlayInterceptor } from './components/spinner-overlay/spinner-overlay.interceptor';
 import { LeftNavigationComponent } from './components/left-navigation/left-navigation.component';
@@ -23,10 +24,11 @@ const materialModules = [
   MatMenuModule,
   MatProgressSpinnerModule,
   MatButtonModule,
+  MatBadgeModule,
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, IconModule, ShowIfManagerModule,...materialModules],
+  imports: [CommonModule, RouterModule, IconModule, ShowIfManagerModule, ...materialModules],
   declarations: [...components],
   exports: [...components, SpinnerOverlayModule, IconModule],
   providers: [
