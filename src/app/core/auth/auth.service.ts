@@ -27,11 +27,11 @@ export class AuthService {
       }));
   }
 
-  // Using patch because my back-end is a json-server... The password is not changing because of this too.
+  // Using patch because my back-end is a json-server... In real applications should pass { password, newPassword } on put
   changePassword(password: string, newPassword: string) {
     const apiUrl = this.environmentService.getApiUrl();
     const userId = this.userService.getUserId();
-    return this.http.patch(apiUrl + '/users/' + userId, { password, newPassword });
+    return this.http.patch(apiUrl + '/users/' + userId, { password: newPassword });
   }
 
   refreshToken() {

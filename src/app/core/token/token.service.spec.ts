@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { TokenService } from './token.service';
 
-describe('TokenService', () => {
+describe(TokenService.name, () => {
   let service: TokenService;
 
   beforeEach(() => {
@@ -36,23 +36,23 @@ describe('TokenService', () => {
   });
 
   describe('hasToken', () => {
-    it('should return true if has token', () => {
+    it('should return true when has token', () => {
       localStorage.setItem('token', 'TOKEN_TEST');
       expect(service.hasToken('token')).toBe(true);
     });
 
-    it('should return false if do not have token', () => {
+    it('should return false when do not have token', () => {
       expect(service.hasToken('token')).toBe(false);
     });
   });
 
   describe('getToken', () => {
-    it('should return token', () => {
+    it('should return token when has token', () => {
       localStorage.setItem('token', 'TOKEN_TEST');
       expect(service.getToken('token')).toEqual('TOKEN_TEST');
     });
 
-    it('should return null', () => {
+    it('should return null when do not have token', () => {
       expect(service.getToken('token')).toEqual(null);
     });
   });
