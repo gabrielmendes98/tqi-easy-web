@@ -31,7 +31,7 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createFormGroup();
-    this.subscribeCheckBoxes();
+    this.updateCheckboxes();
     this.getProjects();
   }
 
@@ -66,7 +66,7 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
     });
   }
 
-  subscribeCheckBoxes() {
+  updateAditionalHoursField() {
     this.registerActivityForm
       .get('aditionalHoursCheck')
       ?.valueChanges.pipe(takeUntil(this.destroyed$))
@@ -74,7 +74,9 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
         this.showAditionalHoursField = value;
         this.registerActivityForm.get('aditionalHours')?.updateValueAndValidity();
       });
+  }
 
+  updateNightHoursField() {
     this.registerActivityForm
       .get('nightHoursCheck')
       ?.valueChanges.pipe(takeUntil(this.destroyed$))
@@ -83,6 +85,11 @@ export class RegisterActivityComponent implements OnInit, OnDestroy {
         this.registerActivityForm.get('nightHoursStart')?.updateValueAndValidity();
         this.registerActivityForm.get('nightHoursEnd')?.updateValueAndValidity();
       });
+  }
+
+  updateCheckboxes() {
+    this.updateAditionalHoursField();
+    this.updateNightHoursField();
   }
 
   registerActivity() {
