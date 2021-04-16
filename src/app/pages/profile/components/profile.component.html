@@ -71,27 +71,29 @@
     
       <h3 class="text-primary">Contato de Emergência</h3>
   
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input disabled type="text" matInput [value]="profile.contact.emergencyContact.name"/>
-      </mat-form-field>
-  
-      <div class="group-fields">
+      <div *ngIf="profile.contact.emergencyContact">
         <mat-form-field appearance="outline">
-          <mat-label>Celular</mat-label>
-          <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.cellPhone | mask: '(00) 0 0000-0000'"/>
+          <mat-label>Nome</mat-label>
+          <input disabled type="text" matInput [value]="profile.contact.emergencyContact.name"/>
         </mat-form-field>
-    
+        
+        <div class="group-fields">
+          <mat-form-field appearance="outline">
+            <mat-label>Celular</mat-label>
+            <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.cellPhone | mask: '(00) 0 0000-0000'"/>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone fixo</mat-label>
+            <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.landPhone | mask: '(00) 0 0000-0000'"/>
+          </mat-form-field>
+        </div>
+        
         <mat-form-field appearance="outline">
-          <mat-label>Telefone fixo</mat-label>
-          <input disabled type="tel" matInput [value]="profile.contact.emergencyContact.landPhone | mask: '(00) 0 0000-0000'"/>
+          <mat-label>Qual sua relação com essa pessoa?</mat-label>
+          <input disabled type="text" matInput [value]="profile.contact.emergencyContact.relationship"/>
         </mat-form-field>
       </div>
-  
-      <mat-form-field appearance="outline">
-        <mat-label>Qual sua relação com essa pessoa?</mat-label>
-        <input disabled type="text" matInput [value]="profile.contact.emergencyContact.relationship"/>
-      </mat-form-field>
   </div>
   
   <div class="group-container">

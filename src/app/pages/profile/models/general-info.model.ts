@@ -4,5 +4,5 @@ export interface GeneralInfo {
   isMarried: Boolean;
   fianceName?: string;
   hasChildren: Boolean;
-  children: Child[];
+  children?: Child[];
 }
