@@ -1,6 +1,6 @@
 <div class="container bg-dark">
-  <div class="logo-container">
-    <app-icon icon="app" color="#fff" size="lg" class="icon"></app-icon>
+  <div class="logo-container text-white">
+    <app-icon icon="app" size="lg" class="icon"></app-icon>
     <div>
       <h1>TQI EASY</h1>
       <p>Dashboard</p>
@@ -22,7 +22,7 @@
         <mat-label>Senha</mat-label>
         <input formControlName="password" [type]="hidePassword ? 'password' : 'text'" matInput/>
         <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
-          <mat-icon class="password-icon">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-icon class="text-light">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="loginForm.get('password')?.errors">Você deve inserir uma senha</mat-error>
       </mat-form-field>
